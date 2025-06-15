@@ -9,9 +9,13 @@ namespace Arduino
         public ArduinoBasic arduinoBasic;
         public string[] datas;
         public int encoder;
+        public int encoder2;
         public int button1;
         public int button2;
         public int button3;
+        public int button4;
+        public int button5;
+        public int button6;
         void Start()
         {
             ArduinoBasic arduinoBasic = new ArduinoBasic();
@@ -21,9 +25,13 @@ namespace Arduino
         {
             datas = arduinoBasic.GetArduinoParameter();
             encoder = int.Parse(datas[0]);
-            button1 = int.Parse(datas[1]);
-            button2 = int.Parse(datas[2]);
-            button3 = int.Parse(datas[3]);
+            encoder2 = int.Parse(datas[1]);
+            button1 = int.Parse(datas[3]);
+            button2 = int.Parse(datas[4]);
+            button3 = int.Parse(datas[5]);
+            button4 = int.Parse(datas[6]);
+            button5 = int.Parse(datas[7]);
+            button6 = int.Parse(datas[8]);
 
         }
     }

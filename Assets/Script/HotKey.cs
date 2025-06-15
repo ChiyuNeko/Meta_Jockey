@@ -23,6 +23,10 @@ public class HotKey : MonoBehaviour
     bool flag1 = false;
     bool flag2 = false;
     bool flag3 = false;
+    bool flag4 = false;
+    bool flag5 = false;
+    bool flag6 = false;
+    bool flag7 = false;
     [Header("Controller Parameters")]
     public List<GameObject> Buttons = new List<GameObject>();
     public Material OriginalColor;
@@ -88,23 +92,43 @@ public class HotKey : MonoBehaviour
         {
             flag3 = false;
         }
-        if (Input.GetKeyDown(KeyCode.Keypad4))
+        if (Input.GetKeyDown(KeyCode.Keypad4) || (arduinoData.button4 == 0 && flag4 == false))
         {
             NeonLine(new Vector3(-3, -1, 0) * NeonSpace, Vector3.right * NeonSpeed);
             Buttons[3].GetComponent<Renderer>().material = TriggerColor;
             audioSource.Play();
             audioSource.pitch = 1.15f;
             StartCoroutine(ButtonRecover(Buttons[3], RecoverTime));
+            flag4 = true;
         }
-        if(Input.GetKeyDown(KeyCode.Keypad5))
+        if (Input.GetKeyDown(KeyCode.Keypad5) || (arduinoData.button5 == 0 && flag5 == false))
         {
-            NeonLine(new Vector3(3, -2, 0) * NeonSpace , Vector3.left * NeonSpeed);
+            NeonLine(new Vector3(3, -2, 0) * NeonSpace, Vector3.left * NeonSpeed);
             Buttons[4].GetComponent<Renderer>().material = TriggerColor;
             audioSource.Play();
             audioSource.pitch = 1.2f;
             StartCoroutine(ButtonRecover(Buttons[4], RecoverTime));
+            flag5 = true;
         }
-        if(Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Keypad6) || (arduinoData.button6 == 0 && flag6 == false))
+        {
+            NeonLine(new Vector3(3, -2, 0) * NeonSpace, Vector3.left * NeonSpeed);
+            Buttons[5].GetComponent<Renderer>().material = TriggerColor;
+            audioSource.Play();
+            audioSource.pitch = 1.2f;
+            StartCoroutine(ButtonRecover(Buttons[5], RecoverTime));
+            flag6 = true;
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad7) || (arduinoData.button6 == 0 && flag7 == false))
+        {
+            NeonLine(new Vector3(3, -2, 0) * NeonSpace, Vector3.left * NeonSpeed);
+            Buttons[6].GetComponent<Renderer>().material = TriggerColor;
+            audioSource.Play();
+            audioSource.pitch = 1.2f;
+            StartCoroutine(ButtonRecover(Buttons[6], RecoverTime));
+            flag7 = true;
+        }
+        if (Input.GetKey(KeyCode.Space))
         {
             Camera.transform.Translate(Vector3.forward * CameraSpeed * Time.deltaTime);
         }
