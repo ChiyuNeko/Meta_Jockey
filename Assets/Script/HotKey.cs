@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Arduino;
 using UnityEngine.Audio;
+using Unity.Mathematics;
 
 public class HotKey : MonoBehaviour
 {
@@ -16,10 +17,14 @@ public class HotKey : MonoBehaviour
     public float NeonSpeed;
     public GameObject Camera;
     public float CameraSpeed;
-    public AudioSource audioSource;
+    public AudioSource[] LoopSet1;
+    public AudioSource[] LoopSet2;
+    public AudioSource[] audioSource;
     public AudioMixer audioMixer;
+    public float EQ;
+    public float Vol;
     public ArduinoData arduinoData;
-    public ParticleSystem[] particleSystems; 
+    public ParticleSystem particleSystems; 
     bool flag1 = false;
     bool flag2 = false;
     bool flag3 = false;
@@ -32,6 +37,10 @@ public class HotKey : MonoBehaviour
     public Material OriginalColor;
     public Material TriggerColor;
     public float RecoverTime;
+    public int LoopCount;
+    public GameObject[] BigCircle;
+    public float BigCircle1Rot;
+    public float BigCircle2Rot;
     void Start()
     {
         ArduinoBasic arduinoBasic = new ArduinoBasic();
@@ -40,94 +49,168 @@ public class HotKey : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        switch (LoopCount)
+        {
+            case 0:
+                if (BigCircle[0].activeSelf)
+                {
+                    foreach (GameObject i in BigCircle)
+                    {
+                        i.SetActive(false);
+                    }
+                }
+                break;
+            case 1:
+                if(!BigCircle[0].activeSelf)
+                    BigCircle[0].SetActive(true);
+                if(BigCircle[1].activeSelf)
+                    BigCircle[1].SetActive(false);
+                break;
+
+            case 2:
+                if(!BigCircle[1].activeSelf)
+                    BigCircle[1].SetActive(true);
+                if(BigCircle[2].activeSelf)
+                    BigCircle[2].SetActive(false);
+                break;
+
+            case 3:
+                if(!BigCircle[2].activeSelf)
+                    BigCircle[2].SetActive(true);
+                break;
+
+            default:
+                break;
+        }
+        BigCircle1Rot = Mathf.Lerp(BigCircle1Rot, arduinoData.encoder, 0.01f);
+        BigCircle[0].transform.rotation = quaternion.Euler(0, 90, BigCircle1Rot);
+        BigCircle[1].transform.Rotate(0, 0, (arduinoData.encoder2 + 20) * Time.deltaTime * 3);
+
+        EQ = Mathf.Lerp(EQ, arduinoData.encoder * 500 + 10000, 0.1f) ;
+        EQ = Mathf.Clamp(EQ, 100, 10000);
+        audioMixer.SetFloat("BaseLowPass", EQ);
         
-        audioMixer.SetFloat("BaseLowPass", arduinoData.encoder * 500 + 10000);
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            GroundChangeColor(GridColor1);
-        }
-        if(Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            GroundChangeColor(GridColor2);
-        }
+        Vol = Mathf.Lerp(Vol, arduinoData.encoder2 * 4, 0.1f) ;
+        Vol = Mathf.Clamp(Vol, -80, 10);
+        audioMixer.SetFloat("Vol", Vol);
+        
         if (Input.GetKeyDown(KeyCode.Keypad1) || (arduinoData.button1 == 0 && flag1 == false))
         {
-            NeonLine(Vector3.left * NeonSpace, Vector3.down * NeonSpeed);
             Buttons[0].GetComponent<Renderer>().material = TriggerColor;
-            audioSource.Play();
-            audioSource.pitch = 1;
+            audioSource[0].Play();
             StartCoroutine(ButtonRecover(Buttons[0], RecoverTime));
-            particleSystems[0].Play();
-            flag1 = true; 
+            particleSystems.Play();
+            flag1 = true;
         }
         if (arduinoData.button1 == 1)
         {
             flag1 = false;
         }
+
         if (Input.GetKeyDown(KeyCode.Keypad2) || (arduinoData.button2 == 0 && flag2 == false))
         {
-            NeonLine(Vector3.zero, Vector3.down * NeonSpeed);
             Buttons[1].GetComponent<Renderer>().material = TriggerColor;
-            audioSource.Play();
-            audioSource.pitch = 1.05f;
+            audioSource[1].Play();
             StartCoroutine(ButtonRecover(Buttons[1], RecoverTime));
-            particleSystems[1].Play();
+            particleSystems.Play();
             flag2 = true;
         }
         if (arduinoData.button2 == 1)
         {
             flag2 = false;
         }
+
         if (Input.GetKeyDown(KeyCode.Keypad3) || (arduinoData.button3 == 0 && flag3 == false))
         {
-            NeonLine(Vector3.right * NeonSpace, Vector3.down * NeonSpeed);
             Buttons[2].GetComponent<Renderer>().material = TriggerColor;
-            audioSource.Play();
-            audioSource.pitch = 1.1f;
+            audioSource[2].Play();
             StartCoroutine(ButtonRecover(Buttons[2], RecoverTime));
-            particleSystems[2].Play();
+            particleSystems.Play();
             flag3 = true;
         }
         if (arduinoData.button3 == 1)
         {
             flag3 = false;
         }
+
         if (Input.GetKeyDown(KeyCode.Keypad4) || (arduinoData.button4 == 0 && flag4 == false))
         {
-            NeonLine(new Vector3(-3, -1, 0) * NeonSpace, Vector3.right * NeonSpeed);
             Buttons[3].GetComponent<Renderer>().material = TriggerColor;
-            audioSource.Play();
-            audioSource.pitch = 1.15f;
+            audioSource[3].Play();
             StartCoroutine(ButtonRecover(Buttons[3], RecoverTime));
             flag4 = true;
         }
+        if (arduinoData.button4 == 1)
+        {
+            flag4 = false;
+        }
+
         if (Input.GetKeyDown(KeyCode.Keypad5) || (arduinoData.button5 == 0 && flag5 == false))
         {
-            NeonLine(new Vector3(3, -2, 0) * NeonSpace, Vector3.left * NeonSpeed);
             Buttons[4].GetComponent<Renderer>().material = TriggerColor;
-            audioSource.Play();
-            audioSource.pitch = 1.2f;
+            if (!audioSource[4].gameObject.activeSelf)
+            {
+                audioSource[4].gameObject.SetActive(true);
+                audioSource[4].Play();
+                LoopCount++;
+            }
+            else
+            {
+                audioSource[4].gameObject.SetActive(false);
+                LoopCount--;
+            }
             StartCoroutine(ButtonRecover(Buttons[4], RecoverTime));
             flag5 = true;
         }
+        if (arduinoData.button5 == 1)
+        {
+            flag5 = false;
+        }
+
         if (Input.GetKeyDown(KeyCode.Keypad6) || (arduinoData.button6 == 0 && flag6 == false))
         {
-            NeonLine(new Vector3(3, -2, 0) * NeonSpace, Vector3.left * NeonSpeed);
             Buttons[5].GetComponent<Renderer>().material = TriggerColor;
-            audioSource.Play();
-            audioSource.pitch = 1.2f;
+            if (!audioSource[5].gameObject.activeSelf)
+            {
+                audioSource[5].gameObject.SetActive(true);
+                audioSource[5].Play();
+                LoopCount++;
+            }
+            else
+            {
+                audioSource[5].gameObject.SetActive(false);
+                LoopCount--;
+            }
             StartCoroutine(ButtonRecover(Buttons[5], RecoverTime));
             flag6 = true;
         }
-        if (Input.GetKeyDown(KeyCode.Keypad7) || (arduinoData.button6 == 0 && flag7 == false))
+        if (arduinoData.button6== 1)
         {
-            NeonLine(new Vector3(3, -2, 0) * NeonSpace, Vector3.left * NeonSpeed);
+            flag6 = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Keypad7) || (arduinoData.button7 == 0 && flag7 == false))
+        {
             Buttons[6].GetComponent<Renderer>().material = TriggerColor;
-            audioSource.Play();
-            audioSource.pitch = 1.2f;
+            if (!audioSource[6].gameObject.activeSelf)
+            {
+                audioSource[6].gameObject.SetActive(true);
+                audioSource[6].Play();
+                LoopCount++;
+            }
+            else
+            {
+                audioSource[6].gameObject.SetActive(false);
+                LoopCount--;
+            }
             StartCoroutine(ButtonRecover(Buttons[6], RecoverTime));
             flag7 = true;
         }
+        if (arduinoData.button7 == 1)
+        {
+            flag7 = false;
+        }
+
         if (Input.GetKey(KeyCode.Space))
         {
             Camera.transform.Translate(Vector3.forward * CameraSpeed * Time.deltaTime);

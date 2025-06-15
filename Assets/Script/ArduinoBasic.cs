@@ -83,10 +83,19 @@ namespace Arduino
         public string[] GetArduinoParameter()
         {
             string[] datas = readMessage.Split(",");
-            int encoder = int.Parse(datas[0]);
-            int button1 = int.Parse(datas[1]);
-            int button2 = int.Parse(datas[2]);
-            int button3 = int.Parse(datas[3]);
+            Debug.Log("" + datas.Length);
+            if (datas.Length == 10)
+            {
+                int encoder = int.Parse(datas[1]);
+                int encoder2 = int.Parse(datas[2]);
+                int button1 = int.Parse(datas[3]);
+                int button2 = int.Parse(datas[4]);
+                int button3 = int.Parse(datas[5]);
+                int button4 = int.Parse(datas[6]);
+                int button5 = int.Parse(datas[7]);
+                int button6 = int.Parse(datas[8]);
+                int button7 = int.Parse(datas[9]);
+            }
             return datas;
         }
     }
