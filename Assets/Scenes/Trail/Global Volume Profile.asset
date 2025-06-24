@@ -27,10 +27,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a074ec59f6e910b4e8c49f57e56cf95a, type: 3}
   m_Name: VolumetricFogVolumeComponent
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   distance:
     m_OverrideState: 1
-    m_Value: 289
+    m_Value: 242
   baseHeight:
     m_OverrideState: 1
     m_Value: 15
@@ -94,10 +94,10 @@ MonoBehaviour:
     m_Value: 1
   threshold:
     m_OverrideState: 1
-    m_Value: 0.5
+    m_Value: 1.09
   intensity:
     m_OverrideState: 1
-    m_Value: 11.7
+    m_Value: 5.34
   scatter:
     m_OverrideState: 0
     m_Value: 0.7

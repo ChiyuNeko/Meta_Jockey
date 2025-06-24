@@ -4,6 +4,7 @@ using UnityEngine;
 using Arduino;
 using UnityEngine.Audio;
 using Unity.Mathematics;
+using UnityEngine.VFX;
 
 public class HotKey : MonoBehaviour
 {
@@ -24,7 +25,8 @@ public class HotKey : MonoBehaviour
     public float EQ;
     public float Vol;
     public ArduinoData arduinoData;
-    public ParticleSystem particleSystems; 
+    public ParticleSystem[] particleSystems;
+    public VisualEffect visualEffect;
     bool flag1 = false;
     bool flag2 = false;
     bool flag3 = false;
@@ -99,7 +101,7 @@ public class HotKey : MonoBehaviour
             Buttons[0].GetComponent<Renderer>().material = TriggerColor;
             audioSource[0].Play();
             StartCoroutine(ButtonRecover(Buttons[0], RecoverTime));
-            particleSystems.Play();
+            visualEffect.Play();
             flag1 = true;
         }
         if (arduinoData.button1 == 1)
@@ -112,7 +114,7 @@ public class HotKey : MonoBehaviour
             Buttons[1].GetComponent<Renderer>().material = TriggerColor;
             audioSource[1].Play();
             StartCoroutine(ButtonRecover(Buttons[1], RecoverTime));
-            particleSystems.Play();
+            particleSystems[0].Play();
             flag2 = true;
         }
         if (arduinoData.button2 == 1)
@@ -125,7 +127,7 @@ public class HotKey : MonoBehaviour
             Buttons[2].GetComponent<Renderer>().material = TriggerColor;
             audioSource[2].Play();
             StartCoroutine(ButtonRecover(Buttons[2], RecoverTime));
-            particleSystems.Play();
+            visualEffect.Play();
             flag3 = true;
         }
         if (arduinoData.button3 == 1)
@@ -138,6 +140,7 @@ public class HotKey : MonoBehaviour
             Buttons[3].GetComponent<Renderer>().material = TriggerColor;
             audioSource[3].Play();
             StartCoroutine(ButtonRecover(Buttons[3], RecoverTime));
+            particleSystems[0].Play();
             flag4 = true;
         }
         if (arduinoData.button4 == 1)

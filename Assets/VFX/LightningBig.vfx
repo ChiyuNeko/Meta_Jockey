@@ -17,10 +17,10 @@ MonoBehaviour:
   categories: []
   uiBounds:
     serializedVersion: 2
-    x: -74
+    x: -75
     y: -590
-    width: 2158
-    height: 1798
+    width: 2159
+    height: 1805
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1091,7 +1091,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 5
+      m_SerializableObject: 361
     m_Space: 2147483647
   m_Property:
     name: Size
@@ -2176,7 +2176,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":3.375579357147217,"g":3.375579357147217,"b":26.702348709106447,"a":1.0},"time":0.0},{"color":{"r":0.0,"g":0.0,"b":0.0,"a":1.0},"time":0.20352482795715333},{"color":{"r":65.84587860107422,"g":84.53131103515625,"b":383.498046875,"a":1.0},"time":0.6741130948066711},{"color":{"r":0.0,"g":0.0,"b":0.0,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.08352788537740708},{"alpha":0.9717665910720825,"time":0.16588082909584046},{"alpha":0.0,"time":0.24353398382663728},{"alpha":0.0,"time":0.46941328048706057},{"alpha":1.0,"time":0.5988250374794006},{"alpha":0.0,"time":1.0}],"gradientMode":0}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":3.375579357147217,"g":3.375579357147217,"b":26.702348709106447,"a":1.0},"time":0.0},{"color":{"r":0.0,"g":0.0,"b":0.0,"a":1.0},"time":0.20352482795715333},{"color":{"r":86.88414001464844,"g":111.53971099853516,"b":506.0285949707031,"a":1.0},"time":0.6741130948066711},{"color":{"r":0.0,"g":0.0,"b":0.0,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":0.0,"time":0.0},{"alpha":1.0,"time":0.08352788537740708},{"alpha":0.9717665910720825,"time":0.16588082909584046},{"alpha":0.0,"time":0.24353398382663728},{"alpha":0.0,"time":0.46941328048706057},{"alpha":1.0,"time":0.5988250374794006},{"alpha":0.0,"time":1.0}],"gradientMode":0}'
     m_Space: 2147483647
   m_Property:
     name: gradient
