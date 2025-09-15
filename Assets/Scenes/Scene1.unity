@@ -15701,6 +15701,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Controllor
       objectReference: {fileID: 0}
+    - target: {fileID: 2168138016974986308, guid: f54012181eacade4ea242c65f804720f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5aeb0ee24268a9346b3d663a7584fdf5, type: 2}
     - target: {fileID: 2400431262251342836, guid: f54012181eacade4ea242c65f804720f,
         type: 3}
       propertyPath: m_IsActive
@@ -15901,6 +15906,11 @@ PrefabInstance:
       propertyPath: m_showState
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8907808974102868868, guid: f54012181eacade4ea242c65f804720f,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5aeb0ee24268a9346b3d663a7584fdf5, type: 2}
     - target: {fileID: 8907808974102868870, guid: f54012181eacade4ea242c65f804720f,
         type: 3}
       propertyPath: m_TagString
