@@ -154,7 +154,7 @@ public class HotKey : MonoBehaviour
             if (!audioSource[4].gameObject.activeSelf)
             {
                 audioSource[4].gameObject.SetActive(true);
-                audioSource[4].Play();
+                //audioSource[4].Play();
                 LoopCount++;
             }
             else
@@ -176,7 +176,7 @@ public class HotKey : MonoBehaviour
             if (!audioSource[5].gameObject.activeSelf)
             {
                 audioSource[5].gameObject.SetActive(true);
-                audioSource[5].Play();
+                //audioSource[5].Play();
                 LoopCount++;
             }
             else
@@ -198,7 +198,7 @@ public class HotKey : MonoBehaviour
             if (!audioSource[6].gameObject.activeSelf)
             {
                 audioSource[6].gameObject.SetActive(true);
-                audioSource[6].Play();
+                //audioSource[6].Play();
                 LoopCount++;
             }
             else
@@ -212,11 +212,6 @@ public class HotKey : MonoBehaviour
         if (arduinoData.button7 == 1)
         {
             flag7 = false;
-        }
-
-        if (Input.GetKey(KeyCode.Space))
-        {
-            Camera.transform.Translate(Vector3.forward * CameraSpeed * Time.deltaTime);
         }
         
     }

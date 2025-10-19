@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class VirtualButton : MonoBehaviour
 {
@@ -13,7 +14,9 @@ public class VirtualButton : MonoBehaviour
     public ParticleSystem particleSystem;
     public bool IsSet = false;
     public int SetNum;
+    public bool trigger = false;
     public HotKey hotKey;
+    public UnityEvent onTrigger;
     void Start()
     {
         
@@ -37,10 +40,17 @@ public class VirtualButton : MonoBehaviour
             }
             else
             {
-                gameObject.GetComponent<Renderer>().material.color = TriggerColor;
-                audioSource.Play();
-                particleSystem.Play();
-                audioSource.loop = false;
+                if(!trigger)
+                {
+                    gameObject.GetComponent<Renderer>().material.color = TriggerColor;
+                    if (audioSource)
+                        audioSource.Play();
+                    if(particleSystem)
+                        particleSystem.Play();
+                    audioSource.loop = false;
+                    onTrigger?.Invoke();
+                    trigger = true;
+                }
             }
 
             if (OVRInput.GetDown(TriggerButton))
@@ -67,6 +77,7 @@ public class VirtualButton : MonoBehaviour
         if (other.gameObject.tag == "Controllor" && !StayOn)
         {
             gameObject.GetComponent<Renderer>().material.color = OriginalColor;
+            trigger = false;
         }
     }
 }
