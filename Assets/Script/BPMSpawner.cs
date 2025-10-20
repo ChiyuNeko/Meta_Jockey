@@ -41,7 +41,6 @@ public class BPMSpawner : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             trigger = !trigger;
-            mainMusic.Play();
         }
         if (trigger)
         {

@@ -1742,6 +1742,7 @@
     "m_OutputNode": {
         "m_Id": ""
     },
+    "m_SubDatas": [],
     "m_ActiveTargets": [
         {
             "m_Id": "8bf48d154356460eaa5b539f9d9e3c3f"
@@ -2042,7 +2043,7 @@
     "hlslDeclarationOverride": 0,
     "m_Hidden": false,
     "m_Value": {
-        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     },
     "isMainTexture": false,
@@ -3835,7 +3836,7 @@
     "m_Title": "New Group",
     "m_Position": {
         "x": -2384.666748046875,
-        "y": -328.0000305175781
+        "y": -328.0
     }
 }
 
@@ -7008,8 +7009,8 @@
     "m_ObjectId": "7d769edac85d4e7bafb7047998a7d06f",
     "m_Title": "New Group",
     "m_Position": {
-        "x": 10.0,
-        "y": 10.0
+        "x": -2852.666748046875,
+        "y": 992.66650390625
     }
 }
 
@@ -9596,7 +9597,7 @@
     "m_StageCapability": 3,
     "m_BareResource": false,
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     },
     "m_DefaultType": 3
@@ -9764,7 +9765,7 @@
     "m_Title": "New Group",
     "m_Position": {
         "x": -2815.333251953125,
-        "y": 572.666748046875
+        "y": 572.6666870117188
     }
 }
 
@@ -10369,7 +10370,7 @@
     "m_StageCapability": 3,
     "m_BareResource": false,
     "m_Texture": {
-        "m_SerializedTexture": "{\"texture\":{\"instanceID\":0}}",
+        "m_SerializedTexture": "",
         "m_Guid": ""
     },
     "m_DefaultType": 3
