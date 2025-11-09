@@ -5,10 +5,16 @@ using Arduino;
 using UnityEngine.Audio;
 using Unity.Mathematics;
 using UnityEngine.VFX;
+using UnityEngine.InputSystem;
+
 
 public class HotKey : MonoBehaviour
 {
     // Start is called before the first frame update
+    [SerializeField] InputAction[] _noteActions = null;
+    [SerializeField] InputAction _modWheelAction = null;
+    static string[] NoteNames = new[] { "C", "C#", "D", "D#", "E", "F",
+                                        "F#", "G", "G#", "A", "A#", "B" };
     public Material GroundGrid;
     public Color GridColor1;
     public Color GridColor2;
@@ -46,11 +52,15 @@ public class HotKey : MonoBehaviour
     void Start()
     {
         ArduinoBasic arduinoBasic = new ArduinoBasic();
+        for (var i = 0; i < NoteNames.Length; i++) SetUpNoteAction(i);
+        _modWheelAction.Enable();
     }
 
     // Update is called once per frame
     void Update()
     {
+        var mod = _modWheelAction.ReadValue<float>();
+         Debug.Log("" + mod);
         switch (LoopCount)
         {
             case 0:
@@ -232,13 +242,28 @@ public class HotKey : MonoBehaviour
     {
         yield return new WaitForSeconds(RecoverTime);
 
-        string nowMaterial =  Button.GetComponent<Renderer>().material.name;
-        Debug.Log("" + nowMaterial+TriggerColor.name);
+        string nowMaterial = Button.GetComponent<Renderer>().material.name;
+        Debug.Log("" + nowMaterial + TriggerColor.name);
 
-        if(nowMaterial == TriggerColor.name + " (Instance)")
+        if (nowMaterial == TriggerColor.name + " (Instance)")
         {
             Button.GetComponent<Renderer>().material = OriginalColor;
         }
-    
+
+    }
+    void SetUpNoteAction(int index)
+    {
+        var action = _noteActions[index];
+        action.performed += (ctx) => OnNotePerformed(ctx, index);
+        action.canceled += (ctx) => OnNoteCanceled(ctx, index);
+        action.Enable();
+    }
+    void OnNotePerformed(InputAction.CallbackContext ctx, int index)
+    {
+        Debug.Log("" + index + "");
+    }
+    void OnNoteCanceled(InputAction.CallbackContext ctx, int index)
+    {
+        
     }
 }
