@@ -15,7 +15,7 @@ Material:
   m_ValidKeywords: []
   m_InvalidKeywords:
   - _EMISSION
-  m_LightmapFlags: 2
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -95,12 +95,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: 1
+    - _Alpha: 0.88
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
-    - _BoraderPower: 4.24
+    - _BoraderPower: 5.27
     - _BoraderSize: 1.48
     - _BumpScale: 1
     - _ClearCoatMask: 0
@@ -117,7 +117,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Lighting_Strengh: 717.97
+    - _Lighting_Strengh: 716.67
     - _Metallic: 0
     - _Noise_Scale: 0.14
     - _OcclusionStrength: 1
@@ -140,10 +140,10 @@ Material:
     - _power: 0.08
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BoraderCOlor: {r: 0.008470435, g: 1.8732686, b: 2.693779, a: 0}
+    - _BoraderCOlor: {r: 1.6459086, g: 3.276098, b: 3.9954119, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0.12138428, g: 1.4486296, b: 2.270603, a: 1}
-    - _Lighting_Color: {r: 0.4330363, g: 0.84424883, b: 2.1185474, a: 0}
+    - _Lighting_Color: {r: 3.9794242, g: 7.758297, b: 19.468573, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &2993008687394360444

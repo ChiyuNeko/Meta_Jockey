@@ -3,15 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Controllor
+  - Orb
+  - Controller
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ring
   - Water
   - UI
-  - 
+  - Core
   - 
   - 
   - 
