@@ -113,7 +113,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _Dissolve: 41.65
+    - _Dissolve: 66.4
     - _Dissolve_Scale: 68.2
     - _Dissolve_Start_Height: 31.9
     - _Dissolve_Thinkness: 3.51
@@ -124,7 +124,7 @@ Material:
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Hex_Scale: -0.93
-    - _Hex_Thinkness: 2.79
+    - _Hex_Thinkness: 16.8
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
