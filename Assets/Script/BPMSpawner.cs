@@ -25,7 +25,7 @@ public class BPMSpawner : MonoBehaviour
     public double timer;
     public double realTime;
     public KeyCode keyCode;
-    bool trigger;
+    public bool trigger{get; set;}
 
     void Start()
     {

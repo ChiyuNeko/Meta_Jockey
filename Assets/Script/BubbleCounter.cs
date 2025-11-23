@@ -67,4 +67,5 @@ public class BubbleCounter : MonoBehaviour
     {
         Instantiate(travelVFX, travelVFXPos.transform.position, Quaternion.Euler(0, -90, 0), travelVFXPos.transform);
     }
+    
 }

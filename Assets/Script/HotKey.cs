@@ -44,6 +44,7 @@ public class HotKey : MonoBehaviour
     public float BigCircle1Rot;
     public float BigCircle2Rot;
     public bool triggered = false;
+    public Animator LightOn;
     void Start()
     {
         for (var i = 0; i < NoteNames.Length; i++) SetUpNoteAction(i);
@@ -210,5 +211,9 @@ public class HotKey : MonoBehaviour
     {
         inputindex = -1;
         triggered = false;
+    }
+    public void GameStart()
+    {
+        LightOn.SetBool("LightOn", true);
     }
 }
