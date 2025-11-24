@@ -94,7 +94,7 @@ public class HotKey : MonoBehaviour
         BigCircle[0].transform.rotation = quaternion.Euler(0, 90, BigCircle1Rot);
         BigCircle[1].transform.Rotate(0, 0, (arduinoData.encoder2 + 20) * Time.deltaTime * 3);
 
-        EQ = Mathf.Lerp(EQ, mod * 10000, 0.1f) ;
+        EQ = Mathf.Lerp(EQ, (mod-0.2f) * 12500, 0.1f) ;
         EQ = Mathf.Clamp(EQ, 100, 10000);
         audioMixer.SetFloat("BaseLowPass", EQ);
         

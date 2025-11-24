@@ -54,7 +54,7 @@ public class BubbleCounter : MonoBehaviour
         }
         if (BubbleCount >= 30)
         {
-            WallDissolve = Mathf.Lerp(WallDissolve, 0, Time.deltaTime/3);
+            WallDissolve = Mathf.Lerp(WallDissolve, 0, Time.deltaTime/5);
             Wall.SetFloat("_Dissolve", WallDissolve);
         }
         if (BubbleCount == 39)
