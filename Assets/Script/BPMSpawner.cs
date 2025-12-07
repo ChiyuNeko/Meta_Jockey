@@ -1,15 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+
+
+[System.Serializable]
+public class GenerterObject
+{
+    public GameObject prefab; // 要生成的Prefab
+    public Transform generateTransform;
+    public float[] generatePosition;
+}
 
 public class BPMSpawner : MonoBehaviour
 {
     [Header("生成設定")]
-    public GameObject prefab; // 要生成的Prefab
-    public float x1;
-    public float x2;
-    public float x3;
-    public float x4;
+    public List<GenerterObject> generterObject = new List<GenerterObject>();
+    
     [Header("音效")]
     public AudioSource tik;
     public AudioClip tok;
@@ -38,6 +45,7 @@ public class BPMSpawner : MonoBehaviour
 
     void Update()
     {
+        bpm = Mathf.Clamp(bpm, 0, int.MaxValue);
         if (Input.GetKeyDown(KeyCode.Space))
         {
             trigger = !trigger;
@@ -71,25 +79,29 @@ public class BPMSpawner : MonoBehaviour
                     }
                     
                 }
+                foreach(var _generterObject in generterObject)
+                {
+                    SpawnPrefab(_generterObject);                    
+                }
 
-                SpawnPrefab();
             }
         }
         
     }
 
-    void SpawnPrefab()
+    void SpawnPrefab(GenerterObject _generterObject)
     {
         // 從四個X值中挑一個
-        float[] xs = { x1, x2, x3, x4 };
+        float[] xs = _generterObject.generatePosition;
         float chosenX = xs[Random.Range(0, xs.Length)];
+        Transform _transform = _generterObject.generateTransform;
 
         Vector3 spawnPos = new Vector3(
-            gameObject.transform.localPosition.x,
-            gameObject.transform.localPosition.y,
-            gameObject.transform.localPosition.z + chosenX
+            _transform.position.x,
+            _transform.position.y,
+            _transform.position.z + chosenX
         );
 
-        Instantiate(prefab, spawnPos, Quaternion.identity);
+        Instantiate(_generterObject.prefab, spawnPos, Quaternion.identity);
     }
 }
