@@ -140,10 +140,10 @@ Material:
     - _power: 0.08
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _BoraderCOlor: {r: 1.6459086, g: 3.276098, b: 3.9954119, a: 0}
+    - _BoraderCOlor: {r: 2.294972, g: 4.565522, b: 6.6415095, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0.12138428, g: 1.4486296, b: 2.270603, a: 1}
-    - _Lighting_Color: {r: 3.9794242, g: 7.758297, b: 19.468573, a: 0}
+    - _Lighting_Color: {r: 25.858381, g: 50.413574, b: 126.50719, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &2993008687394360444
