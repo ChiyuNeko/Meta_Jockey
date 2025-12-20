@@ -43,6 +43,7 @@ public class HotKey : MonoBehaviour
     public GameObject[] BigCircle;
     public float BigCircle1Rot;
     public float BigCircle2Rot;
+    public GameObject laserEffect;
     public bool triggered = false;
     public Animator LightOn;
     void Start()
@@ -102,7 +103,7 @@ public class HotKey : MonoBehaviour
         Vol = Mathf.Clamp(Vol, -80, 10);
         audioMixer.SetFloat("Vol", Vol);
         
-        if (Input.GetKeyDown(KeyCode.Keypad1) || inputindex == 0)
+        if (Input.GetKeyDown(KeyCode.Alpha1) || inputindex == 0)
         {
             Buttons[0].GetComponent<Renderer>().material = TriggerColor;
             audioSource[0].Play();
@@ -110,7 +111,7 @@ public class HotKey : MonoBehaviour
             visualEffect.Play();
         }
 
-        if (Input.GetKeyDown(KeyCode.Keypad2) || inputindex == 1)
+        if (Input.GetKeyDown(KeyCode.Alpha2) || inputindex == 1)
         {
             Buttons[1].GetComponent<Renderer>().material = TriggerColor;
             audioSource[1].Play();
@@ -118,7 +119,7 @@ public class HotKey : MonoBehaviour
             particleSystems[0].Play();
         }
 
-        if (Input.GetKeyDown(KeyCode.Keypad3) || inputindex == 2)
+        if (Input.GetKeyDown(KeyCode.Alpha3) || inputindex == 2)
         {
             Buttons[2].GetComponent<Renderer>().material = TriggerColor;
             audioSource[2].Play();
@@ -126,7 +127,7 @@ public class HotKey : MonoBehaviour
             visualEffect.Play();
         }
 
-        if (Input.GetKeyDown(KeyCode.Keypad4) || inputindex == 3)
+        if (Input.GetKeyDown(KeyCode.Alpha4) || inputindex == 3)
         {
             Buttons[3].GetComponent<Renderer>().material = TriggerColor;
             audioSource[3].Play();
@@ -134,7 +135,7 @@ public class HotKey : MonoBehaviour
             particleSystems[0].Play();
         }
 
-        if (Input.GetKeyDown(KeyCode.Keypad5) || inputindex == 4)
+        if (Input.GetKeyDown(KeyCode.Alpha5) || inputindex == 4)
         {
             Buttons[4].GetComponent<Renderer>().material = TriggerColor;
             if (!triggered)
@@ -145,7 +146,7 @@ public class HotKey : MonoBehaviour
             StartCoroutine(ButtonRecover(Buttons[4], RecoverTime));
         }
 
-        if (Input.GetKeyDown(KeyCode.Keypad6) || inputindex == 5)
+        if (Input.GetKeyDown(KeyCode.Alpha6) || inputindex == 5)
         {
             Buttons[5].GetComponent<Renderer>().material = TriggerColor;
             if (!triggered)
@@ -157,7 +158,7 @@ public class HotKey : MonoBehaviour
             StartCoroutine(ButtonRecover(Buttons[5], RecoverTime));
         }
 
-        if (Input.GetKeyDown(KeyCode.Keypad7) || inputindex == 6)
+        if (Input.GetKeyDown(KeyCode.Alpha7) || inputindex == 6)
         {
             Buttons[6].GetComponent<Renderer>().material = TriggerColor;
             if (!triggered)
@@ -166,6 +167,15 @@ public class HotKey : MonoBehaviour
                 triggered = true;
             }
             StartCoroutine(ButtonRecover(Buttons[6], RecoverTime));
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha8) || inputindex == 7)
+        {
+            if (!triggered)
+            {
+                laserEffect.SetActive(!laserEffect.activeSelf);
+                triggered = true;
+            }
+            
         }
         
     }

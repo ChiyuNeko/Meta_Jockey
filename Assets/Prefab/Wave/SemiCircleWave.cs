@@ -7,6 +7,7 @@ public class SemiCircleWave : MonoBehaviour
     public GameObject blockPrefab;
     public int blockCount = 20;
     public float radius = 5f;
+    public float spacing;
 
     [Header("Spawn Center")]
     public Transform spawnCenter;
@@ -48,8 +49,9 @@ public class SemiCircleWave : MonoBehaviour
 
         for (int i = 0; i < blockCount; i++)
         {
-            float t = (float)i / (blockCount - 1);
-            float angle = Mathf.Lerp(180f, 0f, t) * Mathf.Deg2Rad;
+            float t = 1f / (blockCount);
+            float angle = t * i * 360 * Mathf.Deg2Rad;
+            Debug.Log(angle);
 
             Vector3 offset = new Vector3(
                 Mathf.Cos(angle) * radius,
