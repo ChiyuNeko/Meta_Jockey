@@ -18,7 +18,7 @@ public class SoundReact : MonoBehaviour
 
 
     // ---------------------------------------------------------
-    // ⭐⭐ 材質控制 ⭐⭐
+    // ⭐⭐ 新功能：材質控制 ⭐⭐
     // ---------------------------------------------------------
     [Header("材質控制（可選）")]
     [Tooltip("指定你想控制材質的物件")]
@@ -30,13 +30,10 @@ public class SoundReact : MonoBehaviour
     [Tooltip("使用哪一個頻段控制材質數值")]
     public int MaterialBandIndex = 0;
 
-    [Tooltip("若為 true，材質控制改用整體音量（Master）")]
-    public bool UseMasterVolumeForMaterial = false;
-
-    [Tooltip("頻段或 Master 值乘以此倍率後再寫入材質")]
+    [Tooltip("頻段值乘以此倍率後再寫入材質")]
     public float MaterialMultiplier = 1f;
 
-    Material _targetMaterial;
+    Material _targetMaterial;   // 自動抓取的材質
     // ---------------------------------------------------------
 
 
@@ -52,6 +49,7 @@ public class SoundReact : MonoBehaviour
 
     void Start()
     {
+        // 依照頻段數量建立物件
         _FFTGameObjects = new GameObject[(int)_FreqBands];
         _BaseScale = _ObjectToSpawn.transform.localScale;
 
@@ -63,7 +61,7 @@ public class SoundReact : MonoBehaviour
             _FFTGameObjects[i] = newFFTObject;
         }
 
-        // 自動取得材質
+        // ⭐ 自動取得材質
         if (TargetMaterialObject != null)
         {
             Renderer r = TargetMaterialObject.GetComponent<Renderer>();
@@ -74,46 +72,30 @@ public class SoundReact : MonoBehaviour
 
     void Update()
     {
-        if (_FFT == null) return;
-
-        int maxIndex = (int)_FreqBands - 1;
-
-        // -------------------------------------------------
-        // Debug 頻段即時監控（不變）
-        // -------------------------------------------------
-        DebugBandIndex = Mathf.Clamp(DebugBandIndex, 0, maxIndex);
-        DebugBandValue = _FFT.GetBandValue(DebugBandIndex, _FreqBands);
-
-
-        // -------------------------------------------------
-        // ⭐ 材質控制（頻段 / Master 切換）
-        // -------------------------------------------------
-        if (_targetMaterial != null && !string.IsNullOrEmpty(MaterialFloatName))
+        // ⭐ 即時監控頻段
+        if (_FFT != null)
         {
-            float sourceValue;
+            int maxIndex = (int)_FreqBands - 1;
+            DebugBandIndex = Mathf.Clamp(DebugBandIndex, 0, maxIndex);
 
-            if (UseMasterVolumeForMaterial)
-            {
-                // 👉 使用整體音量（Master）
-                sourceValue = _FFT.GetMasterValue();
-            }
-            else
-            {
-                // 👉 使用單一頻段
-                MaterialBandIndex = Mathf.Clamp(MaterialBandIndex, 0, maxIndex);
-                sourceValue = _FFT.GetBandValue(MaterialBandIndex, _FreqBands);
-            }
-
-            _targetMaterial.SetFloat(
-                MaterialFloatName,
-                sourceValue * MaterialMultiplier
-            );
+            DebugBandValue = _FFT.GetBandValue(DebugBandIndex, _FreqBands);
         }
 
 
-        // -------------------------------------------------
-        // 原本的視覺化縮放（完全不變）
-        // -------------------------------------------------
+        // ⭐ 控制材質參數
+        if (_targetMaterial != null && !string.IsNullOrEmpty(MaterialFloatName))
+        {
+            int maxIndex = (int)_FreqBands - 1;
+            MaterialBandIndex = Mathf.Clamp(MaterialBandIndex, 0, maxIndex);
+
+            float v = _FFT.GetBandValue(MaterialBandIndex, _FreqBands);
+
+            // 寫入材質
+            _targetMaterial.SetFloat(MaterialFloatName, v * MaterialMultiplier);
+        }
+
+
+        // ⭐ 原本的視覺化縮放
         for (int i = 0; i < _FFTGameObjects.Length; i++)
         {
             _FFTGameObjects[i].transform.localScale =

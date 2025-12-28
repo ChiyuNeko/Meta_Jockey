@@ -179,16 +179,4 @@ public class FrequencyBandAnalyser : MonoBehaviour
             }
         }
     }
-
-    public float GetMasterValue()
-    {
-        float sum = 0f;
-
-        for (int i = 0; i < _Samples.Length; i++)
-        {
-            sum += _Samples[i];
-        }
-
-        return sum / _Samples.Length;
-    }
 }
