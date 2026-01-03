@@ -9,9 +9,12 @@ public class Rotate : MonoBehaviour
     [SerializeField] private float currentSpeed = 100f; // 初始轉速
     [SerializeField] private float targetSpeed = 500f; // 目標轉速
     [SerializeField] private float smoothFactor = 2f; // 轉速變化平滑度，越大變化越快
+    public BPMSpawner bPMSpawner;
     
     private void Update()
     {
+        if(bPMSpawner)
+            targetSpeed = bPMSpawner.bpm;
         // 平滑地由當前轉速變化到指定轉速
         currentSpeed = Mathf.Lerp(currentSpeed, targetSpeed, Time.deltaTime * smoothFactor);
         
