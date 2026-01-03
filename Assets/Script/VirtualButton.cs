@@ -17,6 +17,7 @@ public class VirtualButton : MonoBehaviour
     public bool trigger = false;
     public HotKey hotKey;
     public UnityEvent onTrigger;
+    public UnityEvent holdTrigger;
     void Start()
     {
         
@@ -51,6 +52,7 @@ public class VirtualButton : MonoBehaviour
                     onTrigger?.Invoke();
                     trigger = true;
                 }
+                holdTrigger?.Invoke();
             }
 
             if (OVRInput.GetDown(TriggerButton))

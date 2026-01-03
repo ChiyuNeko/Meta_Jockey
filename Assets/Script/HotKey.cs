@@ -7,7 +7,6 @@ using Unity.Mathematics;
 using UnityEngine.VFX;
 using UnityEngine.InputSystem;
 
-
 public class HotKey : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -27,6 +26,7 @@ public class HotKey : MonoBehaviour
     public AudioSource[] LoopSet1;
     public AudioSource[] LoopSet2;
     public AudioSource[] audioSource;
+    public AudioSource mainMusic;
     public AudioMixer audioMixer;
     public float EQ;
     public float Vol;
@@ -36,8 +36,8 @@ public class HotKey : MonoBehaviour
     public VisualEffect visualEffect;
     [Header("Controller Parameters")]
     public List<GameObject> Buttons = new List<GameObject>();
-    public Material OriginalColor;
-    public Material TriggerColor;
+    public Color OriginalColor;
+    public Color TriggerColor;
     public float RecoverTime;
     public int LoopCount;
     public GameObject[] BigCircle;
@@ -46,6 +46,11 @@ public class HotKey : MonoBehaviour
     public GameObject laserEffect;
     public bool triggered = false;
     public Animator LightOn;
+    public GameObject startButton;
+    public BPMSpawner bPMSpawner;
+    public float startProcess;
+    public float activeSpeed;
+    public float decreasSpeed;
     void Start()
     {
         for (var i = 0; i < NoteNames.Length; i++) SetUpNoteAction(i);
@@ -58,39 +63,10 @@ public class HotKey : MonoBehaviour
     {
         var mod = _modWheelAction.ReadValue<float>();
         Debug.Log("" + mod);
-        // switch (LoopCount)
-        // {
-        //     case 0:
-        //         if (BigCircle[0].activeSelf)
-        //         {
-        //             foreach (GameObject i in BigCircle)
-        //             {
-        //                 i.SetActive(false);
-        //             }
-        //         }
-        //         break;
-        //     case 1:
-        //         if(!BigCircle[0].activeSelf)
-        //             BigCircle[0].SetActive(true);
-        //         if(BigCircle[1].activeSelf)
-        //             BigCircle[1].SetActive(false);
-        //         break;
 
-        //     case 2:
-        //         if(!BigCircle[1].activeSelf)
-        //             BigCircle[1].SetActive(true);
-        //         if(BigCircle[2].activeSelf)
-        //             BigCircle[2].SetActive(false);
-        //         break;
+        startProcess -= decreasSpeed * Time.deltaTime;
+        startProcess = Mathf.Clamp(startProcess, 0, 100);
 
-        //     case 3:
-        //         if(!BigCircle[2].activeSelf)
-        //             BigCircle[2].SetActive(true);
-        //         break;
-
-        //     default:
-        //         break;
-        // }
         BigCircle1Rot = Mathf.Lerp(BigCircle1Rot, arduinoData.encoder, 0.01f);
         BigCircle[0].transform.rotation = quaternion.Euler(0, 90, BigCircle1Rot);
         BigCircle[1].transform.Rotate(0, 0, (arduinoData.encoder2 + 20) * Time.deltaTime * 3);
@@ -105,7 +81,7 @@ public class HotKey : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.Alpha1) || inputindex == 0)
         {
-            Buttons[0].GetComponent<Renderer>().material = TriggerColor;
+            Buttons[0].GetComponent<Renderer>().material.SetColor("_Color", TriggerColor);
             audioSource[0].Play();
             StartCoroutine(ButtonRecover(Buttons[0], RecoverTime));
             visualEffect.Play();
@@ -113,7 +89,7 @@ public class HotKey : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha2) || inputindex == 1)
         {
-            Buttons[1].GetComponent<Renderer>().material = TriggerColor;
+            Buttons[1].GetComponent<Renderer>().material.SetColor("_Color", TriggerColor);
             audioSource[1].Play();
             StartCoroutine(ButtonRecover(Buttons[1], RecoverTime));
             particleSystems[0].Play();
@@ -121,7 +97,7 @@ public class HotKey : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha3) || inputindex == 2)
         {
-            Buttons[2].GetComponent<Renderer>().material = TriggerColor;
+            Buttons[2].GetComponent<Renderer>().material.SetColor("_Color", TriggerColor);
             audioSource[2].Play();
             StartCoroutine(ButtonRecover(Buttons[2], RecoverTime));
             visualEffect.Play();
@@ -129,7 +105,7 @@ public class HotKey : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha4) || inputindex == 3)
         {
-            Buttons[3].GetComponent<Renderer>().material = TriggerColor;
+            Buttons[3].GetComponent<Renderer>().material.SetColor("_Color", TriggerColor);
             audioSource[3].Play();
             StartCoroutine(ButtonRecover(Buttons[3], RecoverTime));
             particleSystems[0].Play();
@@ -137,7 +113,7 @@ public class HotKey : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha5) || inputindex == 4)
         {
-            Buttons[4].GetComponent<Renderer>().material = TriggerColor;
+            Buttons[4].GetComponent<Renderer>().material.SetColor("_Color", TriggerColor);
             if (!triggered)
             {
                 audioSource[4].gameObject.SetActive(!audioSource[4].gameObject.activeSelf);
@@ -148,7 +124,7 @@ public class HotKey : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha6) || inputindex == 5)
         {
-            Buttons[5].GetComponent<Renderer>().material = TriggerColor;
+            Buttons[5].GetComponent<Renderer>().material.SetColor("_Color", TriggerColor);
             if (!triggered)
             {
                 audioSource[5].gameObject.SetActive(!audioSource[5].gameObject.activeSelf);
@@ -160,7 +136,7 @@ public class HotKey : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha7) || inputindex == 6)
         {
-            Buttons[6].GetComponent<Renderer>().material = TriggerColor;
+            Buttons[6].GetComponent<Renderer>().material.SetColor("_Color", TriggerColor);
             if (!triggered)
             {
                 audioSource[6].gameObject.SetActive(!audioSource[6].gameObject.activeSelf);
@@ -170,12 +146,14 @@ public class HotKey : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha8) || inputindex == 7)
         {
+            Buttons[7].GetComponent<Renderer>().material.SetColor("_Color", TriggerColor);
             if (!triggered)
             {
                 laserEffect.SetActive(!laserEffect.activeSelf);
                 triggered = true;
             }
             
+            StartCoroutine(ButtonRecover(Buttons[7], RecoverTime));
         }
         
     }
@@ -194,15 +172,8 @@ public class HotKey : MonoBehaviour
 
     IEnumerator ButtonRecover(GameObject Button, float RecoverTime)
     {
-        yield return new WaitForSeconds(RecoverTime);
-
-        string nowMaterial = Button.GetComponent<Renderer>().material.name;
-        Debug.Log("" + nowMaterial + TriggerColor.name);
-
-        if (nowMaterial == TriggerColor.name + " (Instance)")
-        {
-            Button.GetComponent<Renderer>().material = OriginalColor;
-        }
+        yield return new WaitForSeconds(RecoverTime);     
+        Button.GetComponent<Renderer>().material.SetColor("_Color", OriginalColor);      
 
     }
     void SetUpNoteAction(int index)
@@ -224,6 +195,13 @@ public class HotKey : MonoBehaviour
     }
     public void GameStart()
     {
-        LightOn.SetBool("LightOn", true);
+        startProcess += activeSpeed * Time.deltaTime;
+        if(startProcess >= 100)
+        {
+           //LightOn.SetBool("LightOn", true);
+            mainMusic.Play();
+            startButton.SetActive(false);
+            bPMSpawner.trigger = true;
+        }
     }
 }
