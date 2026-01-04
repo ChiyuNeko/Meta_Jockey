@@ -30397,7 +30397,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clap: {fileID: 1842242782}
   prefab: {fileID: 1737155355}
-  generateZone: {x: 100, y: 100, z: 100}
+  wirePrefab: {fileID: 0}
+  delayTime: 1
+  generateZone: {x: 35.37, y: 2, z: 34.91}
 --- !u!4 &1842242781
 Transform:
   m_ObjectHideFlags: 0
@@ -30409,7 +30411,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -5.622, y: 23.6, z: 14.668}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1737155359}
   m_Father: {fileID: 0}
