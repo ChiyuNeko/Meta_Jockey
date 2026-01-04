@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 public class SemiCircleWave : MonoBehaviour
 {
+    public BPMSpawner bpmSpawner;
     [Header("Blocks")]
     public GameObject blockPrefab;
     public int blockCount = 20;
@@ -34,6 +35,7 @@ public class SemiCircleWave : MonoBehaviour
 
     void Start()
     {
+        bpm = bpmSpawner.bpm;
         beatSpeed = (bpm / 60f) * Mathf.PI * 2f;
         CreateBlocks();
     }

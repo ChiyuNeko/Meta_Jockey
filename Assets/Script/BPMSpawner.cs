@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 
 
 [System.Serializable]
@@ -16,6 +17,8 @@ public class BPMSpawner : MonoBehaviour
 {
     [Header("生成設定")]
     public List<GenerterObject> generterObject = new List<GenerterObject>();
+    [Header("鏡頭")]
+    public Animator cameraAnima;
     
     [Header("音效")]
     public AudioSource tik;
@@ -23,7 +26,8 @@ public class BPMSpawner : MonoBehaviour
     public AudioSource mainMusic;
     public AudioSource[] music;
     [Header("BPM 設定")]
-    public int bpm = 60; // 每分鐘生成數量
+    public float bpm = 60; // 每分鐘生成數量
+    public double offset;
     public double delay;
     public double startTime;
     public int counter;
@@ -33,14 +37,18 @@ public class BPMSpawner : MonoBehaviour
     public double realTime;
     public KeyCode keyCode;
     public bool trigger{get; set;}
+    [Header("Event 設定")]
+    public UnityEvent onTick;
 
     void Start()
     {
+        cameraAnima.speed = cameraAnima.speed * (bpm / 120);
         // BPM 轉換成秒數間隔
         timer = 0f;
         interval = 60f / bpm;
         counter = 1;
         startTime = Time.time + delay;
+        timer -= offset;
     }
 
     void Update()
@@ -70,6 +78,8 @@ public class BPMSpawner : MonoBehaviour
                     timer -= delay;
                 }
 
+                onTick?.Invoke();
+                
                 foreach(AudioSource _music in music)
                 {
                     if(!_music.isPlaying && _music.gameObject.activeSelf)

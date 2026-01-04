@@ -15,6 +15,7 @@ public class HandsParameters : MonoBehaviour
     public float RightControllerVelocity;
     public Vector3 LeftControllerAcceleration;
     public Vector3 RightControllerAcceleration;
+    public float Acceleration;
     InputData inputData;
 
     void Start()
@@ -35,6 +36,9 @@ public class HandsParameters : MonoBehaviour
         inputData._leftController.TryGetFeatureValue(CommonUsages.deviceVelocity, out LeftControllerAcceleration);
         inputData._rightController.TryGetFeatureValue(CommonUsages.deviceVelocity, out RightControllerAcceleration);
         // 輸出左右手的加速度
+
+        Acceleration = RightControllerAcceleration.magnitude;
+        // 輸出右手加速度的大小
     }
 
 

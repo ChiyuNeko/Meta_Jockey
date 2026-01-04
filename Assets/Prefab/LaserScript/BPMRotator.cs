@@ -2,10 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-using UnityEngine;
 
 public class BPMRotator : MonoBehaviour
 {
+    public BPMSpawner bpmSpawner;
+    [Header("材質設定")]
+    public Material material;
+    public float initialAlpha = 0.178f;
+    public float alphaScale = 0.178f;
+    public float decreasSpeed = 1.0f;
     [Header("旋轉設定")]
     public float maxAngle = 45f;
     public float bpm = 60f;
@@ -22,6 +27,8 @@ public class BPMRotator : MonoBehaviour
     void Start()
     {
         initialRotation = transform.localRotation;
+        if(bpmSpawner != null)
+            bpm = bpmSpawner.bpm;
     }
 
     void Update()
@@ -40,5 +47,13 @@ public class BPMRotator : MonoBehaviour
         float angleOffset = smoothSin * maxAngle;
         Quaternion offsetRotation = Quaternion.Euler(rotationAxis * angleOffset);
         transform.localRotation = initialRotation * offsetRotation;
+        // 4. 更新材質透明度
+        if (material != null)
+            material.SetFloat("_Alpha", alphaScale);
+        alphaScale = Mathf.Lerp (alphaScale, 0, Time.deltaTime * decreasSpeed);
+    }
+    public void ResetAlpha()
+    {
+        alphaScale = initialAlpha;
     }
 }

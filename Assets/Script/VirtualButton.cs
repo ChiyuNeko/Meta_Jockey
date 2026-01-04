@@ -45,10 +45,12 @@ public class VirtualButton : MonoBehaviour
                 {
                     gameObject.GetComponent<Renderer>().material.color = TriggerColor;
                     if (audioSource)
+                    {
                         audioSource.Play();
+                        audioSource.loop = false;
+                    }
                     if(particleSystem)
                         particleSystem.Play();
-                    audioSource.loop = false;
                     onTrigger?.Invoke();
                     trigger = true;
                 }

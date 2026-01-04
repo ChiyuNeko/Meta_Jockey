@@ -9,6 +9,11 @@ public class SelfSpin : MonoBehaviour
     public int counter;
     float currentAngle;
     float nextAngle;
+    [Header("材質設定")]
+    public Material material;
+    public float initialAlpha = 0.178f;
+    public float alphaScale = 0.178f;
+    public float decreasSpeed = 1.0f;
     void Start()
     {
         angle = transform.rotation.eulerAngles;
@@ -27,10 +32,15 @@ public class SelfSpin : MonoBehaviour
             transform.localRotation = Quaternion.Euler(Vector3.forward * currentAngle);
         }
 
+        if (material != null)
+            material.SetFloat("_Alpha", alphaScale);
+        alphaScale = Mathf.Lerp (alphaScale, 0, Time.deltaTime * decreasSpeed);
+
     }
     public void spin()
     {
         counter++;
         nextAngle += spinAngle;
+        alphaScale = initialAlpha;
     }
 }

@@ -6,10 +6,10 @@ public class Follow : MonoBehaviour
 {
     public Transform target;
     public Vector3 offset;
+    public float moveScale;
     
     void Start()
     {
-        offset = transform.position;
         if (target == null)
         {
             Debug.LogError("Target not set for Follow script on " + gameObject.name);
@@ -19,8 +19,9 @@ public class Follow : MonoBehaviour
     {
         if (target != null)
         {
-            transform.position = target.localPosition + offset;
-            transform.rotation = target.rotation;            
+            transform.localPosition = target.localPosition * moveScale + offset;
+           // transform.rotation = target.rotation;            
         }
+
     }
 }

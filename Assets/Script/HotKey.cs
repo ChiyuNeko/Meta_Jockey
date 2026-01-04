@@ -53,7 +53,7 @@ public class HotKey : MonoBehaviour
     public float decreasSpeed;
     void Start()
     {
-        for (var i = 0; i < NoteNames.Length; i++) SetUpNoteAction(i);
+        for (var i = 0; i < _noteActions.Length; i++) SetUpNoteAction(i);
         _modWheelAction.Enable();
         inputindex = -1;
     }
@@ -154,6 +154,102 @@ public class HotKey : MonoBehaviour
             }
             
             StartCoroutine(ButtonRecover(Buttons[7], RecoverTime));
+        }
+        if (inputindex == 8)
+        {
+            Buttons[8].GetComponent<Renderer>().material.SetColor("_Color", TriggerColor);
+            if (!triggered)
+            {
+                
+            }
+            
+            StartCoroutine(ButtonRecover(Buttons[8], RecoverTime));
+        }
+        if(inputindex == 9)
+        {
+            Buttons[9].GetComponent<Renderer>().material.SetColor("_Color", TriggerColor);
+            if (!triggered)
+            {
+                
+            }
+            
+            StartCoroutine(ButtonRecover(Buttons[9], RecoverTime));
+        }
+        if(inputindex == 10)
+        {
+            Buttons[10].GetComponent<Renderer>().material.SetColor("_Color", TriggerColor);
+            if (!triggered)
+            {
+                
+            }
+            
+            StartCoroutine(ButtonRecover(Buttons[10], RecoverTime));
+        }
+        if(inputindex == 11)
+        {
+            Buttons[11].GetComponent<Renderer>().material.SetColor("_Color", TriggerColor);
+            if (!triggered)
+            {
+                
+            }
+            
+            StartCoroutine(ButtonRecover(Buttons[11], RecoverTime));
+        }
+        if(inputindex == 12)
+        {
+            Buttons[12].GetComponent<Renderer>().material.SetColor("_Color", TriggerColor);
+            if (!triggered)
+            {
+                
+            }
+            
+            StartCoroutine(ButtonRecover(Buttons[12], RecoverTime));
+        }
+        if(inputindex == 13)
+        {
+            Buttons[13].GetComponent<Renderer>().material.SetColor("_Color", TriggerColor);
+            if (!triggered)
+            {
+                
+            }
+            
+            StartCoroutine(ButtonRecover(Buttons[13], RecoverTime));
+        }
+        if(inputindex == 14)
+        {
+            Buttons[14].GetComponent<Renderer>().material.SetColor("_Color", TriggerColor);
+            if (!triggered)
+            {
+                
+            }
+            
+            StartCoroutine(ButtonRecover(Buttons[14], RecoverTime));
+        }
+        if(inputindex == 15)
+        {
+            Buttons[15].GetComponent<Renderer>().material.SetColor("_Color", TriggerColor);
+            if (!triggered)
+            {
+                
+            }
+            
+            StartCoroutine(ButtonRecover(Buttons[15], RecoverTime));
+        }
+        if(inputindex == 16)
+        {
+            Buttons[16].GetComponent<Renderer>().material.SetColor("_Color", TriggerColor);
+            if (!triggered)
+            {
+                
+            }
+            
+            StartCoroutine(ButtonRecover(Buttons[16], RecoverTime));
+        }
+
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            GameStart();
         }
         
     }
