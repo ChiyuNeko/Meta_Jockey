@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Button
-  m_Shader: {fileID: -6465566751694194690, guid: 991cc066ec57f5046bec6c6e049ccb50,
+  m_Name: Love_Canon
+  m_Shader: {fileID: -6465566751694194690, guid: 5c30496f329b0d44691f8a17517b0c98,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -95,6 +95,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: 03e37de18199efb4bb332f34a566a8e4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Texture2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Texture2DAsset_6e57cfe4fb9c42d29815218965aa4c41_Out_0_Texture2D:
         m_Texture: {fileID: 2800000, guid: 6ca7f6c92682ca94f84a9446240c39d5, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -137,7 +141,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: 3.62
+    - _Alpha: 0.17
     - _AlphaClip: 1
     - _AlphaCliping: 0.05
     - _AlphaToMask: 0
@@ -158,7 +162,7 @@ Material:
     - _DstBlendAlpha: 10
     - _EnvironmentReflections: 1
     - _Float: 1.51
-    - _Fresnel: 0.73
+    - _Fresnel: 0.83
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -184,9 +188,9 @@ Material:
     - _ZWrite: 0
     m_Colors:
     - _BaseColor: {r: 0.07861614, g: 0.43130288, b: 1, a: 1}
-    - _Color: {r: 0.0044177035, g: 0.075511366, b: 0.28096774, a: 1}
+    - _Color: {r: 0, g: 0, b: 3.877831, a: 1}
     - _EmissionColor: {r: 1.6843622, g: 3.2270086, b: 10.053538, a: 1}
-    - _Fresnel_Color: {r: 1.624505, g: 1.624505, b: 1.624505, a: 0}
+    - _Fresnel_Color: {r: 5.76246, g: 0.1568627, b: 5.9921575, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _Texture1_Color: {r: 0.14735281, g: 0.33205488, b: 0.9969834, a: 0}
     - _Texture2_Color: {r: 1.8873999, g: 1.8873999, b: 1.8873999, a: 0}
@@ -194,7 +198,7 @@ Material:
     - _Texture4_Color: {r: 1, g: 1, b: 1, a: 0}
     - _Texture5_Color: {r: 1, g: 1, b: 1, a: 0}
     - _Texture6_Color: {r: 1, g: 1, b: 1, a: 0}
-    - _Tilling: {r: 1, g: 17, b: 0, a: 0}
+    - _Tilling: {r: 1, g: 5.34, b: 0, a: 0}
     - _Vector2: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &2871749857471914508
