@@ -71,14 +71,17 @@ public class Projectile_Manager : MonoBehaviour
         rotatedTargetPos = (startPos + target.position) / 2 + upVector * arcHeight;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
-        
-        if (isRigidBody && isHit)
+        if (collision.gameObject.tag != "Controllor")
         {
-            StartCoroutine(SelfDestruction());
-            isHit=false;
+            if (isRigidBody && isHit)
+            {
+                StartCoroutine(SelfDestruction());
+                isHit=false;
+            }
         }
+        
     }
 
 

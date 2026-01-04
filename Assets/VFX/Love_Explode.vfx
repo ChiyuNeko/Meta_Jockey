@@ -59,8 +59,8 @@ MonoBehaviour:
     serializedVersion: 2
     x: 0
     y: -531
-    width: 5163
-    height: 3678
+    width: 5162
+    height: 3666
 --- !u!114 &114350483966674976
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -7684,7 +7684,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 5
+      m_SerializableObject: 15.5
     m_Space: 2147483647
   m_Property:
     name: Size
@@ -8712,7 +8712,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Vector, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"vector":{"x":0.0,"y":2.240000009536743,"z":0.0}}'
+      m_SerializableObject: '{"vector":{"x":0.0,"y":15.960000038146973,"z":0.0}}'
     m_Space: 1
   m_Property:
     name: Velocity
@@ -10658,7 +10658,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 1.09
+      m_SerializableObject: 5.52
     m_Space: 2147483647
   m_Property:
     name: Size
@@ -12508,7 +12508,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Vector, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"vector":{"x":-6.380000114440918,"y":2.7300000190734865,"z":-6.380000114440918}}'
+      m_SerializableObject: '{"vector":{"x":-45.099998474121097,"y":29.200000762939454,"z":-45.099998474121097}}'
     m_Space: 1
   m_Property:
     name: A
@@ -12678,7 +12678,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEditor.VFX.Vector, Unity.VisualEffectGraph.Editor,
           Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"vector":{"x":6.380000114440918,"y":10.979999542236329,"z":6.380000114440918}}'
+      m_SerializableObject: '{"vector":{"x":45.099998474121097,"y":13.699999809265137,"z":45.099998474121097}}'
     m_Space: 1
   m_Property:
     name: B
@@ -14193,7 +14193,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 9.56
+      m_SerializableObject: 18.41
     m_Space: 2147483647
   m_Property:
     name: Size

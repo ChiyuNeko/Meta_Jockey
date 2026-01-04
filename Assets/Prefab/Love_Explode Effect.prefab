@@ -29,8 +29,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.72, y: -1.35, z: -1.88}
-  m_LocalScale: {x: 1.2130035, y: 1.2130035, z: 1.2130035}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 5.49, y: 5.49, z: 5.49}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -58,13 +58,13 @@ VisualEffect:
       - m_Value: 15.6
         m_Name: MinSpeed
         m_Overridden: 1
-      - m_Value: 2.36
+      - m_Value: 7.4
         m_Name: MinScale
         m_Overridden: 1
-      - m_Value: 2.82
+      - m_Value: 10.5
         m_Name: MaxScale
         m_Overridden: 1
-      - m_Value: 4.76
+      - m_Value: 17
         m_Name: ExplodeSize
         m_Overridden: 1
       - m_Value: 39.6

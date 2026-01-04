@@ -19451,6 +19451,7 @@ GameObject:
   - component: {fileID: 1096637409}
   - component: {fileID: 1096637408}
   - component: {fileID: 1096637407}
+  - component: {fileID: 1096637410}
   m_Layer: 0
   m_Name: Circle.005
   m_TagString: Untagged
@@ -19524,6 +19525,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &1096637410
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1096637406}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7567532504055388576, guid: fc09aa51881eaee4496aed4343208389, type: 3}
 --- !u!1 &1096702294
 GameObject:
   m_ObjectHideFlags: 0
