@@ -8316,9 +8316,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 934544820}
-  prefab: {fileID: 7783432183890237795, guid: 48dd3fdfd44e7754fb006b2692717d0c, type: 3}
+  prefab: {fileID: 6250932593743241502, guid: 48dd3fdfd44e7754fb006b2692717d0c, type: 3}
   aim: {fileID: 328726600}
-  force: 600
+  force: 1200
 --- !u!4 &443538198
 Transform:
   m_ObjectHideFlags: 0
@@ -26799,7 +26799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bpmSpawner: {fileID: 1008640749}
-  blockPrefab: {fileID: 919132149155446097, guid: 2ed37f062f9ce3d408af41e4248d0aeb,
+  blockPrefab: {fileID: 3804622937927203095, guid: a97ad56dfa0e162488eba25d6eb92563,
     type: 3}
   blockCount: 60
   radius: 71.7
@@ -26808,7 +26808,7 @@ MonoBehaviour:
   materials: []
   materialMode: 0
   bpm: 62
-  height: 3.11
+  height: 6.27
   phaseOffset: 0.4
 --- !u!1 &1566908049
 GameObject:
@@ -32062,7 +32062,7 @@ MonoBehaviour:
   velocityThreshold: 1
   velocityLowThreshold: -0.1
   clap: {fileID: 1842242782}
-  prefab: {fileID: 1737155355}
+  prefab: {fileID: 2097621854900787276, guid: 2180bc13f39c2a04693254da43317e3e, type: 3}
   wirePrefab: {fileID: 799491188}
   delayTime: 1
   generateZone: {x: 35.37, y: 2, z: 34.91}

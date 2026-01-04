@@ -36,7 +36,7 @@ public class SemiCircleWave : MonoBehaviour
     void Start()
     {
         bpm = bpmSpawner.bpm;
-        beatSpeed = (bpm / 60f) * Mathf.PI * 2f;
+        beatSpeed = 0.5f*(bpm / 60f) * Mathf.PI * 2f;
         CreateBlocks();
     }
 

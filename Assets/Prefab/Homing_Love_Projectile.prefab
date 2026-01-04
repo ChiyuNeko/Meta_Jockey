@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2775174914213658790}
   - component: {fileID: 7508933337056488710}
   m_Layer: 0
-  m_Name: Homing_Energy_Projectile
+  m_Name: Homing_Love_Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 874d3a1c88fa20d498d780920c6149ae, type: 2}
+  - {fileID: 2100000, guid: a8a6a6586cbd19847ae6285fac4b591c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -120,7 +120,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isHoming: 1
-  isSpawning: 0
+  isSpawning: 1
+  isRigidBody: 0
   target: {fileID: 0}
   DeadTimer: 0.5
   speed: 1.5
@@ -165,7 +166,7 @@ PrefabInstance:
     - target: {fileID: 2291142904286515939, guid: 3c6897f8e65711745b9a1e5ef408d86f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.05
       objectReference: {fileID: 0}
     - target: {fileID: 2291142904286515939, guid: 3c6897f8e65711745b9a1e5ef408d86f,
         type: 3}
@@ -221,11 +222,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 0f74de9c2be518147a97f38d4f832a2f, type: 2}
+      objectReference: {fileID: 2100000, guid: 4e2c47622de697b4c917522554a45fba, type: 2}
+    - target: {fileID: 5759501265478793681, guid: 3c6897f8e65711745b9a1e5ef408d86f,
+        type: 3}
+      propertyPath: m_Parameters.widthCurve.m_Curve.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5759501265478793681, guid: 3c6897f8e65711745b9a1e5ef408d86f,
         type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].time
-      value: 0.039774925
+      value: 0.025538474
       objectReference: {fileID: 0}
     - target: {fileID: 5759501265478793681, guid: 3c6897f8e65711745b9a1e5ef408d86f,
         type: 3}
@@ -235,7 +241,7 @@ PrefabInstance:
     - target: {fileID: 5759501265478793681, guid: 3c6897f8e65711745b9a1e5ef408d86f,
         type: 3}
       propertyPath: m_Parameters.widthCurve.m_Curve.Array.data[0].value
-      value: 0.1987989
+      value: 0.05509162
       objectReference: {fileID: 0}
     - target: {fileID: 5759501265478793681, guid: 3c6897f8e65711745b9a1e5ef408d86f,
         type: 3}

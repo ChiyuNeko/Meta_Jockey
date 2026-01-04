@@ -71,7 +71,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7d4c867f6b72b714dbb5fd1780afe208, type: 3}
-  m_Name: Love_Explode
+  m_Name: Love_Explode_Mini
   m_EditorClassIdentifier: 
   m_UIIgnoredErrors: []
   m_Parent: {fileID: 0}
@@ -249,7 +249,7 @@ VisualEffectResource:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Love_Explode
+  m_Name: Love_Explode_Mini
   m_Graph: {fileID: 114350483966674976}
   m_Infos:
     m_RendererSettings:
@@ -6035,11 +6035,6 @@ MonoBehaviour:
     position: {x: 2628, y: 89.33333}
     expandedSlots: []
     expanded: 1
-  - m_Id: 2
-    linkedSlots: []
-    position: {x: 3625.0002, y: 412.00012}
-    expandedSlots: []
-    expanded: 1
 --- !u!114 &8926484042661614968
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7684,7 +7679,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 5
+      m_SerializableObject: 1.03
     m_Space: 2147483647
   m_Property:
     name: Size
@@ -8939,7 +8934,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.93
+      m_SerializableObject: 3.32
     m_Space: 2147483647
   m_Property:
     name: dragCoefficient
@@ -11341,7 +11336,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.798
+      m_SerializableObject: 1
     m_Space: 2147483647
   m_Property:
     name: Blend
@@ -11439,7 +11434,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":2.419283628463745,"g":1.3853731155395508,"b":0.3271353542804718,"a":1.0},"time":0.05859464406967163},{"color":{"r":1.0,"g":0.38050299882888796,"b":0.7854037284851074,"a":1.0},"time":0.9960936903953552}],"alphaKeys":[{"alpha":1.0,"time":0.0},{"alpha":1.0,"time":0.13867399096488954},{"alpha":0.0,"time":1.0}],"gradientMode":0}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":2.6001980304718019,"g":2.036003828048706,"b":2.318662405014038,"a":1.0},"time":0.05859464406967163},{"color":{"r":1.0,"g":0.38050299882888796,"b":0.7854037284851074,"a":1.0},"time":0.9960936903953552}],"alphaKeys":[{"alpha":1.0,"time":0.0},{"alpha":1.0,"time":0.13867399096488954},{"alpha":0.0,"time":1.0}],"gradientMode":0}'
     m_Space: 2147483647
   m_Property:
     name: Color

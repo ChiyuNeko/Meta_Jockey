@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: UI_Start
+  m_Name: UI_Start 3
   m_Shader: {fileID: -6465566751694194690, guid: 1feea2f514aaccf48abba4fd21aa166b,
     type: 3}
   m_Parent: {fileID: 0}
@@ -81,15 +81,15 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture1:
-        m_Texture: {fileID: 2800000, guid: c8d0705ae15d49b4bbbe9a7b783c4c70, type: 3}
+        m_Texture: {fileID: 2800000, guid: e4461d1384406184eab26f48679c1416, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture1_Alpha:
-        m_Texture: {fileID: 2800000, guid: c8d0705ae15d49b4bbbe9a7b783c4c70, type: 3}
+        m_Texture: {fileID: 2800000, guid: e4461d1384406184eab26f48679c1416, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2:
-        m_Texture: {fileID: 2800000, guid: 976ec700c6b707a4d825919861e4a86b, type: 3}
+        m_Texture: {fileID: 2800000, guid: ab0e5e45cba843d43b3947bf4326e29a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2DAsset_6e57cfe4fb9c42d29815218965aa4c41_Out_0_Texture2D:
@@ -101,7 +101,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2_Alpha:
-        m_Texture: {fileID: 2800000, guid: 976ec700c6b707a4d825919861e4a86b, type: 3}
+        m_Texture: {fileID: 2800000, guid: ab0e5e45cba843d43b3947bf4326e29a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture3:
@@ -158,7 +158,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Lerp: 1
+    - _Lerp: 0
     - _Main_Alpha: 1
     - _Metallic: 0
     - _OcclusionStrength: 1
@@ -187,10 +187,10 @@ Material:
     - _BaseColor: {r: 0.07861614, g: 0.43130288, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 1.6843622, g: 3.2270086, b: 10.053538, a: 1}
-    - _Lerp_Color: {r: 2, g: 0.38364744, b: 0.38364744, a: 0}
+    - _Lerp_Color: {r: 0.9433962, g: 0.19876568, b: 0.19876568, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Texture1_Color: {r: 0.2502201, g: 1.2135549, b: 2.4112144, a: 0}
-    - _Texture2_Color: {r: 0.73406714, g: 2.4933765, b: 5.608272, a: 0}
+    - _Texture1_Color: {r: 0.32611963, g: 1.5332943, b: 4.9383936, a: 0}
+    - _Texture2_Color: {r: 5.447323, g: 6.6705055, b: 13.223273, a: 0}
     - _Texture3_Color: {r: 0.088943675, g: 1.4680471, b: 5.656854, a: 1}
     - _Texture4_Color: {r: 0.017605493, g: 1.7079484, b: 5.5989223, a: 0}
     - _Texture5_Color: {r: 2.3225052, g: 3.7298753, b: 6.4222355, a: 0}

@@ -1,18 +1,29 @@
 using System.Collections;
 using UnityEngine;
 
-public class HomingObject : MonoBehaviour
+public class Projectile_Manager : MonoBehaviour
 {
-    [Header("目標物件 (可在Inspector指定)")]
+    [Header("功能開關")]
+    public bool isHoming = true; // 若關閉，則不執行此腳本的任何位移邏輯
+    public bool isSpawning = false;
+
+    public bool isRigidBody = false;
+
+    [Header("目標物件")]
     public Transform target;
+    public float DeadTimer;
 
     [Header("飛行速度")]
     public float speed = 1f;
 
-    [Header("弧線高度 (越大弧度越高)")]
+    [Header("生成設定")]
+    [Tooltip("自毀時要生成的預製體")]
+    public GameObject spawnPrefab;
+
+    [Header("弧線高度")]
     public float arcHeight = 2f;
 
-    [Header("經度偏轉角 (模擬地球經線旋轉)")]
+    [Header("經度偏轉角")]
     [Range(-180f, 180f)]
     public float longitudeOffset = 30f;
 
@@ -26,9 +37,13 @@ public class HomingObject : MonoBehaviour
     private float t;
     private Vector3 rotatedTargetPos;
 
+    private bool isHit=true;
+
     void Start()
     {
-        // 如果沒指定 target，自動找名稱為 "Target_Cube" 的物件
+        // 如果功能關閉，連 Start 的計算都跳過
+        if (!isHoming) return;
+
         if (target == null)
         {
             GameObject found = GameObject.Find("Target_Cube");
@@ -44,30 +59,41 @@ public class HomingObject : MonoBehaviour
             return;
         }
 
-        // ✅ 若啟用隨機偏轉角，則於啟動時計算一個隨機角度
         if (randomizeLongitude)
         {
             longitudeOffset = Random.Range(randomLongitudeRange.x, randomLongitudeRange.y);
         }
 
-        // --- 計算經度偏轉後的「虛擬弧線控制點」 ---
         Vector3 dir = target.position - startPos;
-        Quaternion rotation = Quaternion.AngleAxis(longitudeOffset, dir.normalized); // 繞飛行方向軸旋轉
-        Vector3 upVector = rotation * Vector3.up; // 偏轉後的上方向
+        Quaternion rotation = Quaternion.AngleAxis(longitudeOffset, dir.normalized);
+        Vector3 upVector = rotation * Vector3.up;
 
-        // 生成弧線頂點
         rotatedTargetPos = (startPos + target.position) / 2 + upVector * arcHeight;
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        
+        if (isRigidBody && isHit)
+        {
+            StartCoroutine(SelfDestruction());
+            isHit=false;
+        }
+    }
+
+
     void Update()
     {
+        // ✅ 核心改動：如果 isHoming 為 false，直接不執行任何飛行邏輯
+        if (!isHoming) return;
+
         if (target == null)
             return;
 
         t += Time.deltaTime * speed;
         t = Mathf.Clamp01(t);
 
-        // 使用三點插值產生平滑拋物線
+        // 貝茲曲線插值
         Vector3 part1 = Vector3.Lerp(startPos, rotatedTargetPos, t);
         Vector3 part2 = Vector3.Lerp(rotatedTargetPos, target.position, t);
         transform.position = Vector3.Lerp(part1, part2, t);
@@ -84,7 +110,16 @@ public class HomingObject : MonoBehaviour
 
     private IEnumerator SelfDestruction()
     {
-        yield return new WaitForSeconds(1f);
+        transform.localScale*= 0.01f;
+        if (isSpawning && spawnPrefab != null)
+        {
+            // ✅ 關鍵：Instantiate 的第三個參數傳入 null，確保它在 Hierarchy 的最頂層（無父物件）
+            // 使用當前物件的位置與旋轉值
+            Instantiate(spawnPrefab, transform.position, transform.rotation, null);
+            
+            //Debug.Log($"{spawnPrefab.name} 已在最頂層生成。");
+        }
+        yield return new WaitForSeconds(DeadTimer);
         Destroy(gameObject);
     }
 }
