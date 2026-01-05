@@ -19,6 +19,7 @@ public class StartButtonEffect : MonoBehaviour
         [HideInInspector] public int lerpPropertyID;
         [HideInInspector] public Vector3 startPosition; // 遊戲開始時的原始位置
     }
+    public HotKey hoykey;
 
     [Header("物件設定")]
     public RotatingObject[] targets = new RotatingObject[3];
@@ -62,6 +63,7 @@ public class StartButtonEffect : MonoBehaviour
         if (fadingStarted) return;
         HandleRotation();
         CheckThresholds();
+        progressValue = hoykey.startProcess;
     }
 
     void HandleRotation()

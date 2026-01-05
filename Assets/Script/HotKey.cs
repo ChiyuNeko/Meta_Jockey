@@ -51,6 +51,7 @@ public class HotKey : MonoBehaviour
     public float startProcess;
     public float activeSpeed;
     public float decreasSpeed;
+    public SelfSpin selfSpin;
     void Start()
     {
         for (var i = 0; i < _noteActions.Length; i++) SetUpNoteAction(i);
@@ -160,7 +161,7 @@ public class HotKey : MonoBehaviour
             Buttons[8].GetComponent<Renderer>().material.SetColor("_Color", TriggerColor);
             if (!triggered)
             {
-                
+                selfSpin.spin();
             }
             
             StartCoroutine(ButtonRecover(Buttons[8], RecoverTime));
@@ -298,6 +299,7 @@ public class HotKey : MonoBehaviour
             mainMusic.Play();
             startButton.SetActive(false);
             bPMSpawner.trigger = true;
+            decreasSpeed = 0;
         }
     }
 }

@@ -37,7 +37,8 @@ public class VirtualButton : MonoBehaviour
             if (StayOn)
             {
                 gameObject.GetComponent<Renderer>().material.color = StayOnColor;
-                audioSource.loop = true;
+                if(audioSource)
+                    audioSource.loop = true;
             }
             else
             {

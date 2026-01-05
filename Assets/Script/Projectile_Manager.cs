@@ -73,13 +73,19 @@ public class Projectile_Manager : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if (collision.gameObject.tag != "Controllor")
+        //Debug.Log(collision.gameObject.name);
+        if (collision.gameObject.tag == "Controllor")
+        {
+            Debug.Log(collision.gameObject.name);
+        }
+        else
         {
             if (isRigidBody && isHit)
             {
                 StartCoroutine(SelfDestruction());
                 isHit=false;
             }
+            
         }
         
     }
