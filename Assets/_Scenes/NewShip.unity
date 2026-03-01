@@ -3212,7 +3212,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &209959421
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4098,15 +4098,283 @@ MonoBehaviour:
       m_Action: Mod Wheel
       m_Flags: 0
     m_Flags: 0
-  GroundGrid: {fileID: 2100000, guid: 6b0691024bf42ae448f1fc4d26ab5313, type: 2}
-  GridColor1: {r: 0.59607846, g: 0.019607844, b: 0.019607844, a: 1}
-  GridColor2: {r: 0.2627451, g: 0.11764706, b: 0.2627451, a: 1}
-  neon: {fileID: 241446335}
-  SpawnPoint: {fileID: 1631803552}
-  NeonSpace: 5
-  NeonSpeed: 3000
-  Camera: {fileID: 1600046221}
-  CameraSpeed: 1
+  keys:
+  - isSwitch: 0
+    triggerState: 0
+    onTrigger:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 413989275}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 286840884}
+          m_TargetAssemblyTypeName: UnityEngine.VFX.VisualEffect, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1308737931}
+          m_TargetAssemblyTypeName: SelfSpin, Assembly-CSharp
+          m_MethodName: spin
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    display: {fileID: 532670002}
+  - isSwitch: 0
+    triggerState: 0
+    onTrigger:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 749592449}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1487517973}
+          m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1308737931}
+          m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+          m_MethodName: spin
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    display: {fileID: 703402714}
+  - isSwitch: 0
+    triggerState: 0
+    onTrigger:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 932975569}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 286840884}
+          m_TargetAssemblyTypeName: UnityEngine.VFX.VisualEffect, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1308737931}
+          m_TargetAssemblyTypeName: UnityEngine.VFX.VisualEffect, UnityEngine
+          m_MethodName: spin
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    display: {fileID: 1410230007}
+  - isSwitch: 0
+    triggerState: 0
+    onTrigger:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1882939516}
+          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1487517973}
+          m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+          m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1308737931}
+          m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+          m_MethodName: spin
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    display: {fileID: 2122450089}
+  - isSwitch: 1
+    triggerState: 0
+    onTrigger:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 239954506}
+          m_TargetAssemblyTypeName: HotKey, Assembly-CSharp
+          m_MethodName: LoopControl
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1735448559}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    display: {fileID: 1946356495}
+  - isSwitch: 1
+    triggerState: 0
+    onTrigger:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 239954506}
+          m_TargetAssemblyTypeName: HotKey, Assembly-CSharp
+          m_MethodName: LoopControl
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 1128558957}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    display: {fileID: 1024983246}
+  - isSwitch: 1
+    triggerState: 0
+    onTrigger:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 239954506}
+          m_TargetAssemblyTypeName: HotKey, Assembly-CSharp
+          m_MethodName: LoopControl
+          m_Mode: 2
+          m_Arguments:
+            m_ObjectArgument: {fileID: 237143403}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    display: {fileID: 1320977227}
+  - isSwitch: 0
+    triggerState: 0
+    onTrigger:
+      m_PersistentCalls:
+        m_Calls: []
+    display: {fileID: 1591384626}
+  - isSwitch: 0
+    triggerState: 0
+    onTrigger:
+      m_PersistentCalls:
+        m_Calls: []
+    display: {fileID: 2109401175}
+  - isSwitch: 0
+    triggerState: 0
+    onTrigger:
+      m_PersistentCalls:
+        m_Calls: []
+    display: {fileID: 1701764481}
+  - isSwitch: 0
+    triggerState: 0
+    onTrigger:
+      m_PersistentCalls:
+        m_Calls: []
+    display: {fileID: 756839921}
+  - isSwitch: 0
+    triggerState: 0
+    onTrigger:
+      m_PersistentCalls:
+        m_Calls: []
+    display: {fileID: 1989697616}
+  - isSwitch: 0
+    triggerState: 0
+    onTrigger:
+      m_PersistentCalls:
+        m_Calls: []
+    display: {fileID: 123987444}
+  - isSwitch: 0
+    triggerState: 0
+    onTrigger:
+      m_PersistentCalls:
+        m_Calls: []
+    display: {fileID: 1971828646}
+  - isSwitch: 0
+    triggerState: 0
+    onTrigger:
+      m_PersistentCalls:
+        m_Calls: []
+    display: {fileID: 142243000}
+  - isSwitch: 0
+    triggerState: 0
+    onTrigger:
+      m_PersistentCalls:
+        m_Calls: []
+    display: {fileID: 1446307793}
   LoopSet1:
   - {fileID: 413989275}
   - {fileID: 749592449}
@@ -4123,22 +4391,10 @@ MonoBehaviour:
   - {fileID: 1836903663}
   - {fileID: 770523367}
   - {fileID: 323979753}
-  audioSource:
-  - {fileID: 413989275}
-  - {fileID: 749592449}
-  - {fileID: 932975569}
-  - {fileID: 1882939516}
-  - {fileID: 1735448561}
-  - {fileID: 1128558959}
-  - {fileID: 237143405}
   mainMusic: {fileID: 2034891734}
   audioMixer: {fileID: 24100000, guid: 03024a139bb82bd4db4178350dadf86e, type: 2}
   EQ: 0
   Vol: 0
-  arduinoData: {fileID: 209959423}
-  inputindex: 0
-  particleSystems:
-  - {fileID: 1487517973}
   visualEffect: {fileID: 286840884}
   Buttons:
   - {fileID: 532670002}
@@ -4159,14 +4415,6 @@ MonoBehaviour:
   - {fileID: 1446307793}
   OriginalColor: {r: 0.011764706, g: 0.18431373, b: 0.6901961, a: 1}
   TriggerColor: {r: 0.41194963, g: 0.5615115, b: 1, a: 1}
-  RecoverTime: 0.125
-  LoopCount: 0
-  BigCircle:
-  - {fileID: 1424609624}
-  - {fileID: 334372403}
-  - {fileID: 1722759932}
-  BigCircle1Rot: 0
-  BigCircle2Rot: 0
   laserEffect: {fileID: 70013515}
   triggered: 0
   LightOn: {fileID: 2117651553}

@@ -69,11 +69,11 @@ public class VirtualButton : MonoBehaviour
             particleSystem.Play();
             if (SetNum == 1)
             {
-                hotKey.audioSource = hotKey.LoopSet1;
+                //hotKey.audioSource = hotKey.LoopSet1;
             }
             else if (SetNum == 2)
             {
-                hotKey.audioSource = hotKey.LoopSet2;
+                //hotKey.audioSource = hotKey.LoopSet2;
             }
         }
     }
