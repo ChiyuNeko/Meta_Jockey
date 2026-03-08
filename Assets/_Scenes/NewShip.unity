@@ -4413,7 +4413,7 @@ MonoBehaviour:
   - {fileID: 1971828646}
   - {fileID: 142243000}
   - {fileID: 1446307793}
-  OriginalColor: {r: 0.011764706, g: 0.18431373, b: 0.6901961, a: 1}
+  OriginalColor: {r: 0.0027999973, g: 0.0733017, b: 0.28, a: 1}
   TriggerColor: {r: 0.41194963, g: 0.5615115, b: 1, a: 1}
   laserEffect: {fileID: 70013515}
   triggered: 0
