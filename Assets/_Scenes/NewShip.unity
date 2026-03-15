@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 0
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.19496846, g: 0.19496846, b: 0.19496846, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 1ae89786d5c9c0041841ca17f1089749, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 95d2f40d9c880a5439f1b4ac46870de2, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 0.933
   m_FlareFadeSpeed: 3
@@ -11120,6 +11120,57 @@ Transform:
   - {fileID: 1196890752}
   m_Father: {fileID: 334372406}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -37.043}
+--- !u!1 &543944767
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 543944769}
+  - component: {fileID: 543944768}
+  m_Layer: 0
+  m_Name: SkyboxSwitcher
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &543944768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543944767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59a9772971884b14c8d9cc91155415a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skyboxMaterial: {fileID: 2100000, guid: 95d2f40d9c880a5439f1b4ac46870de2, type: 2}
+  directionalLight: {fileID: 1982579842}
+  originalIntensity: 1
+  originalColor: {r: 1, g: 1, b: 1, a: 1}
+  targetIntensity: 0.2
+  targetColor: {r: 0.4, g: 0.5, b: 1, a: 1}
+  transitionDuration: 5
+--- !u!4 &543944769
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 543944767}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -6.0052853, y: -5.198711, z: 14.591799}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &544282247 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5128272162897706916, guid: 027d9b6b61053464ea1811caac3cb024,
@@ -15864,6 +15915,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 543944768}
+        m_TargetAssemblyTypeName: SkyboxSwitcher, Assembly-CSharp
+        m_MethodName: TriggerSkyboxSwitch
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -49545,6 +49608,7 @@ SceneRoots:
   - {fileID: 1631803552}
   - {fileID: 1058142846}
   - {fileID: 1055937777}
+  - {fileID: 543944769}
   - {fileID: 16627561}
   - {fileID: 932697430}
   - {fileID: 1008640750}

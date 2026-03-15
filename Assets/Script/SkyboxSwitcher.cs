@@ -38,6 +38,13 @@ public class SkyboxSwitcher : MonoBehaviour
             StartCoroutine(SwitchSkybox());
         }
     }
+    public void TriggerSkyboxSwitch()
+    {
+        if (!isTransitioning)
+        {
+            StartCoroutine(SwitchSkybox());
+        }
+    }
 
     IEnumerator SwitchSkybox()
     {
