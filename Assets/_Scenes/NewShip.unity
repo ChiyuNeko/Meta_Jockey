@@ -3293,7 +3293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 219657569}
   m_Layer: 0
-  m_Name: ----------Scripts----------
+  m_Name: ------------------------Scripts-------------------------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20984,7 +20984,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1040507257}
   m_Layer: 0
-  m_Name: ----------Scene----------
+  m_Name: ---------------------Scene-----------------------
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
