@@ -43,13 +43,13 @@ public class BubbleCounter : MonoBehaviour
          if (BubbleCount >= 10)
         {
             intnsitive1 = Mathf.Lerp(intnsitive1, 2, Time.deltaTime/2);
-            Circle1.transform.Rotate(0,  0, Time.deltaTime * 50);
+            Circle1.transform.Rotate(0, Time.deltaTime * 50, 0);
             RingLight1.SetColor("_EmissionColor", RingLightColor1 * intnsitive1);
         }
          if (BubbleCount >= 20)
         {
             intnsitive2 = Mathf.Lerp(intnsitive1, 4, Time.deltaTime/2);
-            Circle2.transform.Rotate(0, 0, -Time.deltaTime * 50);
+            Circle2.transform.Rotate(0, -Time.deltaTime * 50, 0);
             RingLight2.SetColor("_EmissionColor", RingLightColor2 * intnsitive2);
         }
         if (BubbleCount >= 30)
