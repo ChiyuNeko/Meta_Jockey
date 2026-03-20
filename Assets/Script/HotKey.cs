@@ -16,6 +16,8 @@ public class Keys
     public bool triggerState;
     public UnityEvent onTrigger;
     public GameObject display;
+    public Color OriginalColor;
+    public Color TriggerColor;
 }
 
 public class HotKey : MonoBehaviour
@@ -33,9 +35,6 @@ public class HotKey : MonoBehaviour
     public float Vol;
     public VisualEffect visualEffect;
     [Header("Controller Parameters")]
-    public List<GameObject> Buttons = new List<GameObject>();
-    public Color OriginalColor;
-    public Color TriggerColor;
     public GameObject laserEffect;
     public bool triggered = false;
     public Animator LightOn;
@@ -49,6 +48,11 @@ public class HotKey : MonoBehaviour
     {
         for (var i = 0; i < _noteActions.Length; i++) SetUpNoteAction(i);
         _modWheelAction.Enable();
+
+        foreach(Keys k in keys)
+        {
+            k.display.GetComponent<Renderer>().material.SetColor("_Color", k.OriginalColor);
+        }
     }
 
     // Update is called once per frame
@@ -100,14 +104,14 @@ public class HotKey : MonoBehaviour
             {
                 keys[index].onTrigger.Invoke();
                 keys[index].triggerState = true;
-                keys[index].display.GetComponent<Renderer>().material.SetColor("_Color", TriggerColor);
+                keys[index].display.GetComponent<Renderer>().material.SetColor("_Color", keys[index].TriggerColor);
             }
         }
         else
         {
             keys[index].triggerState = !keys[index].triggerState;
             keys[index].onTrigger.Invoke();
-            keys[index].display.GetComponent<Renderer>().material.SetColor("_Color", TriggerColor);
+            keys[index].display.GetComponent<Renderer>().material.SetColor("_Color", keys[index].TriggerColor);
         }
     }
     void OnNoteCanceled(InputAction.CallbackContext ctx, int index)
@@ -116,17 +120,17 @@ public class HotKey : MonoBehaviour
         if(!keys[index].isSwitch)
         {
             keys[index].triggerState = false;
-            keys[index].display.GetComponent<Renderer>().material.SetColor("_Color", OriginalColor);
+            keys[index].display.GetComponent<Renderer>().material.SetColor("_Color", keys[index].OriginalColor);
         }
         else
         {
             if(keys[index].triggerState)
             {
-                keys[index].display.GetComponent<Renderer>().material.SetColor("_Color", TriggerColor);
+                keys[index].display.GetComponent<Renderer>().material.SetColor("_Color", keys[index].TriggerColor);
             }
             else
             {
-                keys[index].display.GetComponent<Renderer>().material.SetColor("_Color", OriginalColor);
+                keys[index].display.GetComponent<Renderer>().material.SetColor("_Color", keys[index].OriginalColor);
             }
         }
 

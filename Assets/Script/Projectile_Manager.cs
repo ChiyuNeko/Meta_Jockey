@@ -19,6 +19,7 @@ public class Projectile_Manager : MonoBehaviour
     [Header("生成設定")]
     [Tooltip("自毀時要生成的預製體")]
     public GameObject spawnPrefab;
+    public GameObject sphere;
 
     [Header("弧線高度")]
     public float arcHeight = 2f;
@@ -125,7 +126,7 @@ public class Projectile_Manager : MonoBehaviour
             // ✅ 關鍵：Instantiate 的第三個參數傳入 null，確保它在 Hierarchy 的最頂層（無父物件）
             // 使用當前物件的位置與旋轉值
             Instantiate(spawnPrefab, transform.position, transform.rotation, null);
-            
+            Instantiate(sphere, gameObject.transform.position, Quaternion.identity);
             //Debug.Log($"{spawnPrefab.name} 已在最頂層生成。");
         }
         yield return new WaitForSeconds(DeadTimer);
