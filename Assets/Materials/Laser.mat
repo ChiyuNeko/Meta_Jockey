@@ -93,7 +93,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: 0.178
+    - _Alpha: 9.8505275e-32
     - _AlphaClip: 1
     - _AlphaToMask: 0
     - _Blend: 0
@@ -127,7 +127,7 @@ Material:
     - _ZWrite: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 20.078426, g: 123.00278, b: 766.9961, a: 1}
+    - _Color: {r: 68.458275, g: 173.81244, b: 1036.656, a: 1}
     - _EmissionColor: {r: 0.8553448, g: 4.4713693, b: 16, a: 1}
     - _MainSpeed: {r: -0.32, g: 0, b: 0, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
