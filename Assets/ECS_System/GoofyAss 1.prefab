@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4975834196756415012}
   - component: {fileID: 598825487223169815}
   - component: {fileID: 6970702823923665098}
+  - component: {fileID: 2071476158948112573}
   m_Layer: 8
   m_Name: LightSaber_Right
   m_TagString: Untagged
@@ -97,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a8f3f3ab84e8a45b013ee8fab85249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomSpeedOffset: 0.2
+  randomSpeedOffset: 0
 --- !u!114 &6970702823923665098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,6 +115,19 @@ MonoBehaviour:
   clip: {fileID: 7400000, guid: f7769e2a235f3544498f6373acccf7cb, type: 2}
   sampleFrameRate: 30
   playbackSpeed: 1
+--- !u!114 &2071476158948112573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 124821044946422477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f95b066424cca634484dcd405cca00cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultColor: {r: 0.78417057, g: 4.3882675, b: 9.361038, a: 1}
 --- !u!1 &4614076242260147392
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,6 +223,8 @@ GameObject:
   - component: {fileID: 6561241011987509069}
   - component: {fileID: 7025209832738303552}
   - component: {fileID: 178252808253343737}
+  - component: {fileID: 105373319840550101}
+  - component: {fileID: 3504809961496077717}
   m_Layer: 8
   m_Name: GoofyAss 1
   m_TagString: Untagged
@@ -284,7 +300,43 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a8f3f3ab84e8a45b013ee8fab85249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomSpeedOffset: 0.5
+  randomSpeedOffset: 0
+--- !u!65 &105373319840550101
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5051827008585464839}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.34, y: 1.94, z: 1}
+  m_Center: {x: 0, y: 1.12, z: 0}
+--- !u!114 &3504809961496077717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5051827008585464839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0786e3e8ba382b4592d946ffebb3d4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftSaber: {fileID: 8012410434033572470}
+  rightSaber: {fileID: 124821044946422477}
+  hitColor: {r: 33.218235, g: 17.099691, b: 1.1490545, a: 1}
 --- !u!1 &8012410434033572470
 GameObject:
   m_ObjectHideFlags: 0
@@ -298,6 +350,7 @@ GameObject:
   - component: {fileID: 5189370787749314307}
   - component: {fileID: 8455138694962244984}
   - component: {fileID: 8160875825265785504}
+  - component: {fileID: 6097901895467018108}
   m_Layer: 8
   m_Name: LightSaber_Left
   m_TagString: Untagged
@@ -382,7 +435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a8f3f3ab84e8a45b013ee8fab85249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomSpeedOffset: 0.2
+  randomSpeedOffset: 0
 --- !u!114 &8160875825265785504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,3 +452,16 @@ MonoBehaviour:
   clip: {fileID: 7400000, guid: f7769e2a235f3544498f6373acccf7cb, type: 2}
   sampleFrameRate: 30
   playbackSpeed: 1
+--- !u!114 &6097901895467018108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8012410434033572470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f95b066424cca634484dcd405cca00cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultColor: {r: 0.78417057, g: 4.3882675, b: 9.361038, a: 1}
