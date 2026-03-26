@@ -2,9 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Renderer))]
+// 移除了 RequireComponent，因為現在腳本是掛在母物件上，不一定要有 Renderer
 public class EmissionController : MonoBehaviour
 {
+    [Header("目標螢光棒物件")]
+    [Tooltip("請將第一根螢光棒的 GameObject 拖放到這裡")]
+    public GameObject glowstick1; 
+    [Tooltip("請將第二根螢光棒的 GameObject 拖放到這裡")]
+    public GameObject glowstick2; 
+
     [Header("隨機顏色池 (支援 HDR 發光)")]
     [ColorUsage(true, true)] public Color color1 = Color.white;
     [ColorUsage(true, true)] public Color color2 = Color.red;
@@ -17,17 +23,34 @@ public class EmissionController : MonoBehaviour
     [ColorUsage(true, true)] public Color hitColor = Color.cyan; // 碰撞後變成的顏色
     public float hitDuration = 2.0f; // 維持變色的秒數
 
-    private Material mat;
+    private Material mat1;
+    private Material mat2;
     private Color selectedRandomColor; // 紀錄一開始抽到的顏色
     private Coroutine colorRoutine;
 
     void Start()
     {
-        // 取得物件上的 Material
-        mat = GetComponent<Renderer>().material;
+        // 取得第一根螢光棒的 Material，並確保發光功能開啟
+        if (glowstick1 != null)
+        {
+            mat1 = glowstick1.GetComponent<Renderer>().material;
+            mat1.EnableKeyword("_EMISSION");
+        }
+        else
+        {
+            Debug.LogWarning("EmissionController: 你還沒指派第一根螢光棒喔！");
+        }
 
-        // 確保材質的發光功能有被開啟
-        mat.EnableKeyword("_EMISSION");
+        // 取得第二根螢光棒的 Material，並確保發光功能開啟
+        if (glowstick2 != null)
+        {
+            mat2 = glowstick2.GetComponent<Renderer>().material;
+            mat2.EnableKeyword("_EMISSION");
+        }
+        else
+        {
+            Debug.LogWarning("EmissionController: 你還沒指派第二根螢光棒喔！");
+        }
 
         // 將五個顏色變數放入一個陣列中
         Color[] colorPool = new Color[] { color1, color2, color3, color4, color5 };
@@ -38,11 +61,10 @@ public class EmissionController : MonoBehaviour
         // 根據抽到的索引決定顏色
         selectedRandomColor = colorPool[randomIndex];
 
-        // 設定初始隨機發光顏色
+        // 設定初始隨機發光顏色 (兩根螢光棒會同時套用同一個隨機顏色)
         SetEmissionColor(selectedRandomColor);
     }
 
-    // 將 OnCollisionEnter 改為 OnTriggerEnter，並將參數改為 Collider other
     void OnTriggerEnter(Collider other)
     {
         // 檢查穿過觸發區的物件 Layer 是否包含在我們指定的 targetLayer 中
@@ -76,12 +98,17 @@ public class EmissionController : MonoBehaviour
         SetEmissionColor(selectedRandomColor);
     }
 
-    // 封裝設定 Emission 顏色的方法
+    // 封裝設定 Emission 顏色的方法，同時應用到兩根螢光棒上
     private void SetEmissionColor(Color color)
     {
-        if (mat != null)
+        if (mat1 != null)
         {
-            mat.SetColor("_EmissionColor", color);
+            mat1.SetColor("_EmissionColor", color);
+        }
+
+        if (mat2 != null)
+        {
+            mat2.SetColor("_EmissionColor", color);
         }
     }
 }
