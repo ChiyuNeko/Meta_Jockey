@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8361121852672404145}
   - component: {fileID: 8794036355456064726}
   - component: {fileID: 4975834196756415012}
-  - component: {fileID: 1280893595446049266}
   - component: {fileID: 598825487223169815}
   - component: {fileID: 6970702823923665098}
   m_Layer: 8
@@ -29,13 +28,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 124821044946422477}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.6985642, y: -0.11036011, z: 0.110635206, w: 0.69827545}
-  m_LocalPosition: {x: -0.49861094, y: 1.1434565, z: 0.35513622}
+  m_LocalRotation: {x: -0.69713473, y: -0.11911202, z: 0.11938656, w: 0.69682306}
+  m_LocalPosition: {x: -0.49861094, y: 1.1039565, z: 0.35513622}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5807823643962583192}
-  m_LocalEulerAnglesHint: {x: -72.01939, y: -90.06362, z: 90.08618}
+  m_LocalEulerAnglesHint: {x: -70.58203, y: -90.06362, z: 90.08618}
 --- !u!33 &8794036355456064726
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -86,30 +85,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1280893595446049266
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 124821044946422477}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10dccc213db3c2d499b1184b3071594c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  glowstick1: {fileID: 0}
-  glowstick2: {fileID: 0}
-  color1: {r: 0, g: 10.433244, b: 13.766358, a: 1}
-  color2: {r: 25.8286, g: 0.40610743, b: 7.024968, a: 1}
-  color3: {r: 0, g: 0.77663946, b: 36.32965, a: 1}
-  color4: {r: 0.83403546, g: 0.7160415, b: 11.984312, a: 1}
-  color5: {r: 3.701886, g: 0.40349036, b: 25.688934, a: 1}
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  hitColor: {r: 15.854157, g: 0.2492776, b: 2.128402, a: 1}
-  hitDuration: 1
 --- !u!114 &598825487223169815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -122,7 +97,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a8f3f3ab84e8a45b013ee8fab85249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomSpeedOffset: 1
+  randomSpeedOffset: 0.2
 --- !u!114 &6970702823923665098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,7 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animatorRoot: {fileID: 5051827008585464839}
-  clip: {fileID: 7400000, guid: 1fdc009c1d8dd2a498e26b273b56f69c, type: 2}
+  clip: {fileID: 7400000, guid: f7769e2a235f3544498f6373acccf7cb, type: 2}
   sampleFrameRate: 30
   playbackSpeed: 1
 --- !u!1 &4614076242260147392
@@ -309,7 +284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a8f3f3ab84e8a45b013ee8fab85249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomSpeedOffset: 1
+  randomSpeedOffset: 0.5
 --- !u!1 &8012410434033572470
 GameObject:
   m_ObjectHideFlags: 0
@@ -321,7 +296,6 @@ GameObject:
   - component: {fileID: 4033400926751430177}
   - component: {fileID: 177366563754617889}
   - component: {fileID: 5189370787749314307}
-  - component: {fileID: 1755535494607735861}
   - component: {fileID: 8455138694962244984}
   - component: {fileID: 8160875825265785504}
   m_Layer: 8
@@ -340,7 +314,7 @@ Transform:
   m_GameObject: {fileID: 8012410434033572470}
   serializedVersion: 2
   m_LocalRotation: {x: -0.6977831, y: -0.109073624, z: 0.110802084, w: 0.69923145}
-  m_LocalPosition: {x: -0.4981223, y: 1.1445663, z: -0.35538137}
+  m_LocalPosition: {x: -0.49812233, y: 1.1445663, z: -0.35538137}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -396,30 +370,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1755535494607735861
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8012410434033572470}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10dccc213db3c2d499b1184b3071594c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  glowstick1: {fileID: 0}
-  glowstick2: {fileID: 0}
-  color1: {r: 0, g: 10.433244, b: 13.766358, a: 1}
-  color2: {r: 12.305086, g: 1.5843414, b: 21.905268, a: 1}
-  color3: {r: 0, g: 0.77663946, b: 36.32965, a: 1}
-  color4: {r: 0.83403546, g: 0.7160415, b: 11.984312, a: 1}
-  color5: {r: 3.701886, g: 0.40349036, b: 25.688934, a: 1}
-  targetLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  hitColor: {r: 22.311346, g: 0.44622654, b: 3.0792031, a: 1}
-  hitDuration: 1
 --- !u!114 &8455138694962244984
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -432,7 +382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67a8f3f3ab84e8a45b013ee8fab85249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomSpeedOffset: 1
+  randomSpeedOffset: 0.2
 --- !u!114 &8160875825265785504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,6 +396,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animatorRoot: {fileID: 5051827008585464839}
-  clip: {fileID: 7400000, guid: 1fdc009c1d8dd2a498e26b273b56f69c, type: 2}
+  clip: {fileID: 7400000, guid: f7769e2a235f3544498f6373acccf7cb, type: 2}
   sampleFrameRate: 30
   playbackSpeed: 1
