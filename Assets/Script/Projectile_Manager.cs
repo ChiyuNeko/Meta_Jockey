@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
-
+using Unity.Entities;   // 引入 ECS 核心
+using Unity.Transforms; // 引入 ECS 的 Transform 系統
 public class Projectile_Manager : MonoBehaviour
 {
     [Header("功能開關")]
@@ -126,10 +127,38 @@ public class Projectile_Manager : MonoBehaviour
             // ✅ 關鍵：Instantiate 的第三個參數傳入 null，確保它在 Hierarchy 的最頂層（無父物件）
             // 使用當前物件的位置與旋轉值
             Instantiate(spawnPrefab, transform.position, transform.rotation, null);
-            Instantiate(sphere, gameObject.transform.position, Quaternion.identity);
+            //Instantiate(sphere, gameObject.transform.position, Quaternion.identity);
+            SpawnECSSphere(transform.position);
             //Debug.Log($"{spawnPrefab.name} 已在最頂層生成。");
         }
         yield return new WaitForSeconds(DeadTimer);
         Destroy(gameObject);
+    }
+    // ==========================================
+    // 跨界生成：從 MonoBehaviour 呼叫 ECS
+    // ==========================================
+    private void SpawnECSSphere(Vector3 spawnPosition)
+    {
+        // 取得當前運作的 ECS 世界與上帝權限 (EntityManager)
+        World world = World.DefaultGameObjectInjectionWorld;
+        if (world == null) return;
+        EntityManager entityManager = world.EntityManager;
+
+        // 在 ECS 世界中尋找我們剛剛建立的「藍圖倉庫」
+        var query = entityManager.CreateEntityQuery(typeof(TriggerSphereVaultData));
+        if (!query.HasSingleton<TriggerSphereVaultData>())
+        {
+            Debug.LogWarning("找不到 TriggerSphereVault！請確認 SubScene 中有放置這個倉庫。");
+            return;
+        }
+
+        // 把藍圖 ID 拿出來
+        Entity prefabEntity = query.GetSingleton<TriggerSphereVaultData>().SpherePrefab;
+
+        // 命令 ECS 瞬間生出一顆球
+        Entity spawnedSphere = entityManager.Instantiate(prefabEntity);
+
+        // 命令 ECS 把這顆球移到飛彈爆炸的座標
+        entityManager.SetComponentData(spawnedSphere, LocalTransform.FromPosition(spawnPosition));
     }
 }
