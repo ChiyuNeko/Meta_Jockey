@@ -6,10 +6,7 @@ using UnityEngine;
 // ==========================================
 // 1. 純資料與標籤 (Component Data)
 // ==========================================
-public struct LifeTimeData : IComponentData
-{
-    public float Value;
-}
+
 //public struct TriggerSphereTag : IComponentData {} 
 
 // ==========================================

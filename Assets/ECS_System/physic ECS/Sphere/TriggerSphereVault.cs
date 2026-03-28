@@ -1,30 +1,41 @@
 using Unity.Entities;
 using UnityEngine;
+using System.Collections.Generic;
 
-// 1. 定義純資料：用來儲存球的藍圖 ID
-public struct TriggerSphereVaultData : IComponentData
+// 1. 定義 ECS 的陣列元素 (用來裝菜單上的各種球)
+[InternalBufferCapacity(4)]
+public struct SphereBlueprintElement : IBufferElementData
 {
-    public Entity SpherePrefab;
+    public Entity Prefab;
 }
 
-// 2. 烘焙器：掛在 Unity 場景的空物件上
+// 2. 烘焙器
 public class TriggerSphereVault : MonoBehaviour
 {
-    public GameObject spherePrefab; // 在這裡拖入你的觸發球 Prefab
+    [Header("觸發球菜單")]
+    [Tooltip("將各種不同顏色的 ECS 觸發球 Prefab 拖進這裡")]
+    public List<GameObject> spherePrefabs = new List<GameObject>();
 
     class Baker : Baker<TriggerSphereVault>
     {
         public override void Bake(TriggerSphereVault authoring)
         {
-            if (authoring.spherePrefab == null) return;
+            if (authoring.spherePrefabs == null || authoring.spherePrefabs.Count == 0) return;
 
             Entity entity = GetEntity(TransformUsageFlags.None);
+            var buffer = AddBuffer<SphereBlueprintElement>(entity);
             
-            // 將 GameObject Prefab 轉換為 Entity Prefab，並存入資料中
-            AddComponent(entity, new TriggerSphereVaultData
+            // 把 Unity 的 List 轉換成 ECS 的清單
+            foreach (var prefab in authoring.spherePrefabs)
             {
-                SpherePrefab = GetEntity(authoring.spherePrefab, TransformUsageFlags.Dynamic)
-            });
+                if (prefab != null)
+                {
+                    buffer.Add(new SphereBlueprintElement
+                    {
+                        Prefab = GetEntity(prefab, TransformUsageFlags.Dynamic)
+                    });
+                }
+            }
         }
     }
 }

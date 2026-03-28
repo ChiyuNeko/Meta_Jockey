@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 29178118385027246}
   - component: {fileID: 2625826822427865673}
   m_Layer: 0
-  m_Name: TriggerSphere
+  m_Name: TriggerSphere Yelloow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -120,11 +120,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5232a3c45ee39ba4a8380e8b2e6c6d69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 1.14
-  growthSpeed: 39.7
-  hitColor: {r: 77.8743, g: 18.366568, b: 25.885508, a: 1}
-  secondaryColor: {r: 8.47419, g: 0.7195053, b: 2.8735833, a: 1}
-  secondaryColorRatio: 0.951
+  lifeTime: 0.64
+  growthSpeed: 48.8
+  hitColor: {r: 42.706974, g: 33.18011, b: 10.072394, a: 1}
+  secondaryColor: {r: 19.791847, g: 10.109032, b: 2.1783457, a: 1}
+  secondaryColorRatio: 0.854
   hitDuration: 0.9
 --- !u!114 &29178118385027246
 MonoBehaviour:

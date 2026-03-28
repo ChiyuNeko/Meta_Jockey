@@ -20,7 +20,15 @@ public class Projectile_Manager : MonoBehaviour
     [Header("生成設定")]
     [Tooltip("自毀時要生成的預製體")]
     public GameObject spawnPrefab;
+
+    [Header("生成設定")]
+    [Tooltip("自毀時要生成的傳統預製體 (爆炸特效)")]
     public GameObject sphere;
+    
+    // 👇 新增這行：決定這顆飛彈要生出哪一種球
+    [Tooltip("對應 ECS_Vault 清單中的索引值 (0代表第一顆球, 1代表第二顆...)")]
+    public int sphereIndex = 0;
+    
 
     [Header("弧線高度")]
     public float arcHeight = 2f;
@@ -128,7 +136,7 @@ public class Projectile_Manager : MonoBehaviour
             // 使用當前物件的位置與旋轉值
             Instantiate(spawnPrefab, transform.position, transform.rotation, null);
             //Instantiate(sphere, gameObject.transform.position, Quaternion.identity);
-            SpawnECSSphere(transform.position);
+            SpawnECSSphere(transform.position, sphereIndex);
             //Debug.Log($"{spawnPrefab.name} 已在最頂層生成。");
         }
         yield return new WaitForSeconds(DeadTimer);
@@ -137,28 +145,36 @@ public class Projectile_Manager : MonoBehaviour
     // ==========================================
     // 跨界生成：從 MonoBehaviour 呼叫 ECS
     // ==========================================
-    private void SpawnECSSphere(Vector3 spawnPosition)
+    private void SpawnECSSphere(Vector3 spawnPosition, int indexToSpawn)
     {
-        // 取得當前運作的 ECS 世界與上帝權限 (EntityManager)
         World world = World.DefaultGameObjectInjectionWorld;
         if (world == null) return;
         EntityManager entityManager = world.EntityManager;
 
-        // 在 ECS 世界中尋找我們剛剛建立的「藍圖倉庫」
-        var query = entityManager.CreateEntityQuery(typeof(TriggerSphereVaultData));
-        if (!query.HasSingleton<TriggerSphereVaultData>())
+        // 尋找我們的「菜單倉庫」
+        var query = entityManager.CreateEntityQuery(typeof(SphereBlueprintElement));
+        if (query.IsEmpty)
         {
-            Debug.LogWarning("找不到 TriggerSphereVault！請確認 SubScene 中有放置這個倉庫。");
+            Debug.LogWarning("找不到 TriggerSphereVault！請確認 ECS_Vault 有在場景中且 List 有放東西。");
             return;
         }
 
-        // 把藍圖 ID 拿出來
-        Entity prefabEntity = query.GetSingleton<TriggerSphereVaultData>().SpherePrefab;
+        // 取得整份菜單 (Buffer)
+        var entity = query.GetSingletonEntity();
+        var buffer = entityManager.GetBuffer<SphereBlueprintElement>(entity);
 
-        // 命令 ECS 瞬間生出一顆球
+        // 防呆：如果亂填 ID 超出菜單範圍，就強制給他第一顆球
+        if (indexToSpawn < 0 || indexToSpawn >= buffer.Length)
+        {
+            Debug.LogWarning($"飛彈要求的球編號 {indexToSpawn} 超出範圍！改為生成第 0 顆球。");
+            indexToSpawn = 0;
+        }
+
+        // 根據 ID 從菜單拿出對應的藍圖
+        Entity prefabEntity = buffer[indexToSpawn].Prefab;
+
+        // 命令 ECS 生成該球並設定位置
         Entity spawnedSphere = entityManager.Instantiate(prefabEntity);
-
-        // 命令 ECS 把這顆球移到飛彈爆炸的座標
-        entityManager.SetComponentData(spawnedSphere, LocalTransform.FromPosition(spawnPosition));
+        entityManager.SetComponentData(spawnedSphere, Unity.Transforms.LocalTransform.FromPosition(spawnPosition));
     }
 }

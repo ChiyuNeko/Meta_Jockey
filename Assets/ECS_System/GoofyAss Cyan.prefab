@@ -127,7 +127,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f95b066424cca634484dcd405cca00cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultColor: {r: 0.78417057, g: 4.3882675, b: 9.361038, a: 1}
+  defaultColor: {r: 1.0719613, g: 0.8389448, b: 4.237095, a: 1}
 --- !u!1 &4614076242260147392
 GameObject:
   m_ObjectHideFlags: 0
@@ -226,7 +226,7 @@ GameObject:
   - component: {fileID: 105373319840550101}
   - component: {fileID: 3504809961496077717}
   m_Layer: 8
-  m_Name: GoofyAss 1
+  m_Name: GoofyAss Cyan
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -336,7 +336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftSaber: {fileID: 8012410434033572470}
   rightSaber: {fileID: 124821044946422477}
-  defaultColor: {r: 0.7498631, g: 4.3429585, b: 9.373291, a: 1}
+  defaultColor: {r: 0.40276527, g: 2.7112875, b: 5.123188, a: 1}
 --- !u!1 &8012410434033572470
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,4 +464,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f95b066424cca634484dcd405cca00cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultColor: {r: 0.78417057, g: 4.3882675, b: 9.361038, a: 1}
+  defaultColor: {r: 1.0719613, g: 0.8389448, b: 4.237095, a: 1}

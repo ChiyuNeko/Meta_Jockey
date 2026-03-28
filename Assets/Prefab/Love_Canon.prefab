@@ -104,6 +104,7 @@ MonoBehaviour:
   speed: 1
   spawnPrefab: {fileID: 0}
   sphere: {fileID: 0}
+  sphereIndex: 0
   arcHeight: 2
   longitudeOffset: 30
   randomizeLongitude: 0
@@ -401,7 +402,8 @@ MonoBehaviour:
   speed: 1
   spawnPrefab: {fileID: 748852385482786542, guid: 2f553ae918ee92d4cbb44ac8b306bebf,
     type: 3}
-  sphere: {fileID: 2560682469139701339, guid: 7bb5f8a8e31341349b39b2c965e63ccc, type: 3}
+  sphere: {fileID: 4743508608590940322, guid: 06d11bf8ca987824283164afd57468a8, type: 3}
+  sphereIndex: 2
   arcHeight: 2
   longitudeOffset: 30
   randomizeLongitude: 0

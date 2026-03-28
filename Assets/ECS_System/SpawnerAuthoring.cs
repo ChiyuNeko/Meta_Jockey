@@ -1,6 +1,7 @@
 using Unity.Entities;
 using UnityEngine;
 using Unity.Mathematics;
+using System.Collections.Generic; // 引入 List 必備
 
 #if UNITY_EDITOR
 using UnityEditor; // 引入編輯器專用的 API
@@ -8,6 +9,11 @@ using UnityEditor; // 引入編輯器專用的 API
 
 public class SpawnerAuthoring : MonoBehaviour
 {
+
+
+    [Header("觀眾模型清單")]
+    [Tooltip("請在這裡放入各種不同的觀眾 Prefab")]
+    public List<GameObject> spectatorPrefabs = new List<GameObject>();
     public GameObject spectatorPrefab;
     public int spawnCount = 1000;
     public float spawnRadius = 20f;
@@ -36,6 +42,11 @@ public class SpawnerAuthoring : MonoBehaviour
                 ),
                 SpawnerRotation = authoring.transform.rotation 
             });
+
+
+
+
+            
         }
     }
 

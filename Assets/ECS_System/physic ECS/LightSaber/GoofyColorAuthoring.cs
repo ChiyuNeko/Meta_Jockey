@@ -7,8 +7,11 @@ public class GoofyColorAuthoring : MonoBehaviour
     public GameObject leftSaber; 
     public GameObject rightSaber; 
 
-    // 母物件只要設定撞到會變什麼顏色就好
-    [ColorUsage(true, true)] public Color hitColor = Color.red;       
+    [Tooltip("觀眾平時待機的預設顏色")]
+    [ColorUsage(true, true)] public Color defaultColor = Color.white; 
+    
+    // ⚠️ 注意：這裡我們已經把擴散波的外環、內環顏色、時間、比例全刪了！
+    // 因為現在這些資料是由「撞到它的球 (Sphere)」來決定的。
 
     class Baker : Baker<GoofyColorAuthoring>
     {
@@ -17,20 +20,26 @@ public class GoofyColorAuthoring : MonoBehaviour
             if (authoring.leftSaber == null || authoring.rightSaber == null) return;
 
             Entity parentEntity = GetEntity(TransformUsageFlags.Dynamic);
-            
-            // 取得子物件的 ID (這是合法的，我們只是「看」它們是誰，沒有要修改它們)
             Entity saberL = GetEntity(authoring.leftSaber, TransformUsageFlags.Dynamic);
             Entity saberR = GetEntity(authoring.rightSaber, TransformUsageFlags.Dynamic);
 
-            float4 hColor = new float4(authoring.hitColor.r, authoring.hitColor.g, authoring.hitColor.b, authoring.hitColor.a);
+            float4 defColor = new float4(authoring.defaultColor.r, authoring.defaultColor.g, authoring.defaultColor.b, authoring.defaultColor.a);
 
-            // 只在母物件自己身上加 Component
             AddComponent<GoofyAssTag>(parentEntity);
             AddComponent(parentEntity, new GoofyAssData
             {
                 SaberLeft = saberL,
                 SaberRight = saberR,
-                HitColor = hColor
+                OriginalColor = defColor,          // 觀眾唯一需要記住的：自己原本的顏色
+                CurrentTimer = 0f,                  
+                HasChangedToSecondary = false,
+                LastHitSphere = Entity.Null,       // 一開始沒有被任何球撞過，填入空實體
+                
+                // 👇 這些是準備用來「接收」球傳遞過來的變數，一開始先塞 0 或空值即可
+                ActiveHitColor = new float4(0, 0, 0, 0),
+                ActiveSecondaryColor = new float4(0, 0, 0, 0),
+                ActiveHitDuration = 0f,
+                ActiveSecondaryRatio = 0f
             });
         }
     }
