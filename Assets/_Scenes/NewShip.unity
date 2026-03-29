@@ -7376,6 +7376,7 @@ MonoBehaviour:
   bpm: 128
   beatsPerSequence: 1
   loopCount: 2
+  overlapRatio: 0.771
 --- !u!1 &328726600
 GameObject:
   m_ObjectHideFlags: 0
@@ -18182,8 +18183,9 @@ MonoBehaviour:
   mode2_Pairs: 1
   mode3_Random: 0
   bpm: 128
-  beatsPerSequence: 4
+  beatsPerSequence: 2
   loopCount: 1
+  overlapRatio: 0.573
 --- !u!1 &865166830
 GameObject:
   m_ObjectHideFlags: 0
@@ -51706,6 +51708,7 @@ GameObject:
   - component: {fileID: 6645823806219447622}
   - component: {fileID: 5074512355316054737}
   - component: {fileID: 6645823806219447623}
+  - component: {fileID: 6645823806219447624}
   m_Layer: 0
   m_Name: Volumatric light Model 1
   m_TagString: Untagged
@@ -51724,6 +51727,7 @@ GameObject:
   - component: {fileID: 6645823806023428842}
   - component: {fileID: 5074512355109813629}
   - component: {fileID: 6645823806023428843}
+  - component: {fileID: 6645823806023428844}
   m_Layer: 0
   m_Name: Volumatric light Model 3
   m_TagString: Untagged
@@ -51742,6 +51746,7 @@ GameObject:
   - component: {fileID: 6645823806037265696}
   - component: {fileID: 5074512355096091319}
   - component: {fileID: 6645823806037265697}
+  - component: {fileID: 6645823806037265698}
   m_Layer: 0
   m_Name: Volumatric light Model 7
   m_TagString: Untagged
@@ -51760,6 +51765,7 @@ GameObject:
   - component: {fileID: 6645823805853877993}
   - component: {fileID: 5074512354876297598}
   - component: {fileID: 6645823805853877994}
+  - component: {fileID: 6645823805853877995}
   m_Layer: 0
   m_Name: Volumatric light Model 8
   m_TagString: Untagged
@@ -51795,6 +51801,7 @@ GameObject:
   - component: {fileID: 6645823805729897743}
   - component: {fileID: 5074512354849827480}
   - component: {fileID: 6645823805729897744}
+  - component: {fileID: 6645823805729897745}
   m_Layer: 0
   m_Name: Volumatric light Model 4
   m_TagString: Untagged
@@ -51830,6 +51837,7 @@ GameObject:
   - component: {fileID: 6645823804515642437}
   - component: {fileID: 5074512353530723282}
   - component: {fileID: 6645823804515642438}
+  - component: {fileID: 6645823804515642439}
   m_Layer: 0
   m_Name: Volumatric light Model 2
   m_TagString: Untagged
@@ -57877,6 +57885,23 @@ MonoBehaviour:
   customColor: {r: 0.5251572, g: 0.68777466, b: 1, a: 1}
   customValue: 5.22
   AlphaValue: 8
+--- !u!114 &6645823804515642439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3655000510780504180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd5ab9c628ec84e4b891b28da080e57a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alphaPropertyName: _AllAlpha
+  fadeInTime: 0.05
+  fadeOutTime: 0.2
+  maxIntensity: 2000
+  maxAlpha: 1
 --- !u!4 &6645823805087798505
 Transform:
   m_ObjectHideFlags: 0
@@ -57940,6 +57965,23 @@ MonoBehaviour:
   customColor: {r: 0.42452818, g: 0.6819082, b: 1, a: 1}
   customValue: 36.2
   AlphaValue: 1.52
+--- !u!114 &6645823805729897745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3655000509612386622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd5ab9c628ec84e4b891b28da080e57a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alphaPropertyName: _AllAlpha
+  fadeInTime: 0.05
+  fadeOutTime: 0.2
+  maxIntensity: 4000
+  maxAlpha: 1
 --- !u!4 &6645823805853877993
 Transform:
   m_ObjectHideFlags: 0
@@ -57971,6 +58013,23 @@ MonoBehaviour:
   customColor: {r: 0.9008773, g: 0.6194968, b: 1, a: 1}
   customValue: 5.88
   AlphaValue: 8
+--- !u!114 &6645823805853877995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3655000509435957976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd5ab9c628ec84e4b891b28da080e57a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alphaPropertyName: _AllAlpha
+  fadeInTime: 0.05
+  fadeOutTime: 0.2
+  maxIntensity: 2000
+  maxAlpha: 1
 --- !u!4 &6645823806023428842
 Transform:
   m_ObjectHideFlags: 0
@@ -58002,6 +58061,23 @@ MonoBehaviour:
   customColor: {r: 0.5882353, g: 0.80376655, b: 1, a: 1}
   customValue: 3.23
   AlphaValue: 8
+--- !u!114 &6645823806023428844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3655000509335502555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd5ab9c628ec84e4b891b28da080e57a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alphaPropertyName: _AllAlpha
+  fadeInTime: 0.05
+  fadeOutTime: 0.2
+  maxIntensity: 2000
+  maxAlpha: 1
 --- !u!4 &6645823806037265696
 Transform:
   m_ObjectHideFlags: 0
@@ -58033,6 +58109,23 @@ MonoBehaviour:
   customColor: {r: 0.9387361, g: 0.6901961, b: 1, a: 1}
   customValue: 125.7
   AlphaValue: 0.85
+--- !u!114 &6645823806037265698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3655000509382891793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd5ab9c628ec84e4b891b28da080e57a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alphaPropertyName: _AllAlpha
+  fadeInTime: 0.05
+  fadeOutTime: 0.2
+  maxIntensity: 4000
+  maxAlpha: 1
 --- !u!4 &6645823806219447622
 Transform:
   m_ObjectHideFlags: 0
@@ -58064,6 +58157,23 @@ MonoBehaviour:
   customColor: {r: 0.6648639, g: 0.57547164, b: 1, a: 1}
   customValue: 7.42
   AlphaValue: 8
+--- !u!114 &6645823806219447624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3655000508995172727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd5ab9c628ec84e4b891b28da080e57a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alphaPropertyName: _AllAlpha
+  fadeInTime: 0.05
+  fadeOutTime: 0.2
+  maxIntensity: 2000
+  maxAlpha: 1
 --- !u!1 &6649443175759160074
 GameObject:
   m_ObjectHideFlags: 0
