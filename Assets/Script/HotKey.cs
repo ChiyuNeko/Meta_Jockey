@@ -86,6 +86,7 @@ public class HotKey : MonoBehaviour
         {
             loopAudio.SetActive(!loopAudio.activeSelf);
             triggered = true;
+            loopAudio.GetComponent<AudioSource>().Play();
         }
     }
     void SetUpNoteAction(int index)
@@ -138,13 +139,13 @@ public class HotKey : MonoBehaviour
     public void GameStart()
     {
         startProcess += activeSpeed * Time.deltaTime;
-        if(startProcess >= 100)
-        {
-           //LightOn.SetBool("LightOn", true);
             mainMusic.Play();
             startButton.SetActive(false);
             bPMSpawner.trigger = true;
             decreasSpeed = 0;
+        if(startProcess >= 100)
+        {
+           //LightOn.SetBool("LightOn", true);
         }
     }
 }
