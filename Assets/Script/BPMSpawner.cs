@@ -54,10 +54,6 @@ public class BPMSpawner : MonoBehaviour
     void Update()
     {
         bpm = Mathf.Clamp(bpm, 0, int.MaxValue);
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            trigger = !trigger;
-        }
         if (trigger)
         {
             interval = 60f / bpm;
