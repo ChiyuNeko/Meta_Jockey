@@ -336,7 +336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   leftSaber: {fileID: 8012410434033572470}
   rightSaber: {fileID: 124821044946422477}
-  defaultColor: {r: 0.7498631, g: 4.3429585, b: 9.373291, a: 1}
+  defaultColor: {r: 0.11805539, g: 5.2889676, b: 12.514078, a: 1}
 --- !u!1 &8012410434033572470
 GameObject:
   m_ObjectHideFlags: 0
