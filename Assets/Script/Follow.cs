@@ -7,6 +7,7 @@ public class Follow : MonoBehaviour
     public Transform target;
     public Vector3 offset;
     public float moveScale;
+    public bool followRotation;
     
     void Start()
     {
@@ -20,7 +21,8 @@ public class Follow : MonoBehaviour
         if (target != null)
         {
             transform.localPosition = target.localPosition * moveScale + offset;
-           // transform.rotation = target.rotation;            
+            if (followRotation)
+                transform.rotation = target.rotation;
         }
 
     }
