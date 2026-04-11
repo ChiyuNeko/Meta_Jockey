@@ -5213,20 +5213,52 @@ MonoBehaviour:
       m_Flags: 0
     m_Flags: 0
   _modWheelAction:
-    m_Name: Mod Wheel
+  - m_Name: Element 0
     m_Type: 0
     m_ExpectedControlType: 
-    m_Id: abd30893-0393-47f5-bd25-847e5dc97776
+    m_Id: 4e9570e2-b202-415b-a0e6-eb81ac97a3b9
     m_Processors: 
     m_Interactions: 
     m_SingletonActionBindings:
     - m_Name: 
-      m_Id: 8c663e5e-a47d-4d9e-bbf6-1e004aa9a872
+      m_Id: abd7c379-6114-412b-bd40-ea1f965b87dd
+      m_Path: <MidiDevice>/control000
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Element 0
+      m_Flags: 0
+    m_Flags: 0
+  - m_Name: Input Action
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 83f8593b-b27d-4cae-8f90-79917b7f176c
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: f967c925-7a13-4f55-91eb-8cc2cad5f5cd
       m_Path: <MidiDevice>/control001
       m_Interactions: 
       m_Processors: 
       m_Groups: 
-      m_Action: Mod Wheel
+      m_Action: Input Action
+      m_Flags: 0
+    m_Flags: 0
+  - m_Name: Input Action
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 66d883bd-b1dc-4340-91c8-136ab99b93ca
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 2c04c194-fb40-4b7e-9005-89ca9b287bf6
+      m_Path: <MidiDevice>/control002
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Input Action
       m_Flags: 0
     m_Flags: 0
   keys:
@@ -5658,6 +5690,10 @@ MonoBehaviour:
     display: {fileID: 1446307793}
     OriginalColor: {r: 0.2784314, g: 0.14117648, b: 0.003921569, a: 1}
     TriggerColor: {r: 1, g: 0.7058824, b: 0.41176474, a: 1}
+  modWheelValues:
+  - 0
+  - 0
+  - 0
   LoopSet1:
   - {fileID: 413989275}
   - {fileID: 749592449}

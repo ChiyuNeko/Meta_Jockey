@@ -23,10 +23,11 @@ public class Keys
 public class HotKey : MonoBehaviour
 {
     [SerializeField] InputAction[] _noteActions = null;
-    [SerializeField] InputAction _modWheelAction = null;
+    [SerializeField] InputAction[] _modWheelAction = null;
     static string[] NoteNames = new[] { "C", "C#", "D", "D#", "E", "F",
                                         "F#", "G", "G#", "A", "A#", "B" };
     public List<Keys> keys = new List<Keys>();
+    public List<float> modWheelValues = new List<float>();
     public AudioSource[] LoopSet1;
     public AudioSource[] LoopSet2;
     public AudioSource mainMusic;
@@ -47,7 +48,7 @@ public class HotKey : MonoBehaviour
     void Start()
     {
         for (var i = 0; i < _noteActions.Length; i++) SetUpNoteAction(i);
-        _modWheelAction.Enable();
+        for (var i = 0; i < _modWheelAction.Length; i++) _modWheelAction[i].Enable();
 
         foreach(Keys k in keys)
         {
@@ -58,15 +59,18 @@ public class HotKey : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var mod = _modWheelAction.ReadValue<float>();
-        Debug.Log("" + mod);
+        for (var i = 0; i < _modWheelAction.Length; i++)
+        {
+            modWheelValues[i] = _modWheelAction[i].ReadValue<float>();
+            Debug.Log( "mod" + i + ": " + modWheelValues[i]);
+        }
 
         startProcess -= decreasSpeed * Time.deltaTime;
         startProcess = Mathf.Clamp(startProcess, 0, 100);
 
         
 
-        EQ = Mathf.Lerp(EQ, (mod-0.2f) * 12500, 0.1f) ;
+        EQ = Mathf.Lerp(EQ, (modWheelValues[1]-0.2f) * 12500, 0.1f) ;
         EQ = Mathf.Clamp(EQ, 100, 10000);
         audioMixer.SetFloat("BaseLowPass", EQ);
         
