@@ -242,6 +242,9 @@
         },
         {
             "m_Id": "79e0db54407d40a99605cd95dd3ec852"
+        },
+        {
+            "m_Id": "ca7bfcffc01f4189adf7a8f22c307e44"
         }
     ],
     "m_GroupDatas": [
@@ -2870,7 +2873,7 @@
     "m_ObjectId": "4bfc3d9745444c38a00a99190b747bce",
     "m_Title": "Surface_Movement",
     "m_Position": {
-        "x": -314.6666564941406,
+        "x": -314.66668701171877,
         "y": 926.6666870117188
     }
 }
@@ -3705,7 +3708,7 @@
     "m_Title": "Texture",
     "m_Position": {
         "x": -248.0,
-        "y": -630.6666870117188
+        "y": -630.666748046875
     }
 }
 
@@ -4235,6 +4238,19 @@
     "m_CustomColors": {
         "m_SerializableColors": []
     }
+}
+
+{
+    "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.Texture2DMaterialSlot",
+    "m_ObjectId": "7bb5d26aba494a3483d2e646d4e10986",
+    "m_Id": 0,
+    "m_DisplayName": "Lighting_Image",
+    "m_SlotType": 1,
+    "m_Hidden": false,
+    "m_ShaderOutputName": "Out",
+    "m_StageCapability": 3,
+    "m_BareResource": false
 }
 
 {
@@ -6541,6 +6557,42 @@
 
 {
     "m_SGVersion": 0,
+    "m_Type": "UnityEditor.ShaderGraph.PropertyNode",
+    "m_ObjectId": "ca7bfcffc01f4189adf7a8f22c307e44",
+    "m_Group": {
+        "m_Id": ""
+    },
+    "m_Name": "Property",
+    "m_DrawState": {
+        "m_Expanded": true,
+        "m_Position": {
+            "serializedVersion": "2",
+            "x": 1898.666748046875,
+            "y": 781.3333129882813,
+            "width": 0.0,
+            "height": 0.0
+        }
+    },
+    "m_Slots": [
+        {
+            "m_Id": "7bb5d26aba494a3483d2e646d4e10986"
+        }
+    ],
+    "synonyms": [],
+    "m_Precision": 0,
+    "m_PreviewExpanded": true,
+    "m_DismissedVersion": 0,
+    "m_PreviewMode": 0,
+    "m_CustomColors": {
+        "m_SerializableColors": []
+    },
+    "m_Property": {
+        "m_Id": "7a7accf42f5e47cba574d451c07e9733"
+    }
+}
+
+{
+    "m_SGVersion": 0,
     "m_Type": "UnityEditor.ShaderGraph.CategoryData",
     "m_ObjectId": "cc798bfc68dc432c85d3e922ef7d9ec8",
     "m_Name": "",
@@ -7653,7 +7705,7 @@
     "m_ReceiveShadows": false,
     "m_SupportsLODCrossFade": false,
     "m_CustomEditorGUI": "",
-    "m_SupportVFX": false
+    "m_SupportVFX": true
 }
 
 {
