@@ -90,7 +90,7 @@ public class HotKey : MonoBehaviour
         {
             loopAudio.SetActive(!loopAudio.activeSelf);
             triggered = true;
-            loopAudio.GetComponent<AudioSource>().Play();
+            //loopAudio.GetComponent<AudioSource>().Play();
         }
     }
     void SetUpNoteAction(int index)

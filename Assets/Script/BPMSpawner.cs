@@ -80,7 +80,7 @@ public class BPMSpawner : MonoBehaviour
                 {
                     if(!_music.isPlaying && _music.gameObject.activeSelf)
                     {
-                        _music.pitch = bpm / 145f;
+                        //_music.pitch = bpm / 145f;
                         _music.Play();
                     }
                     

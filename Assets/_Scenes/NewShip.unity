@@ -5492,6 +5492,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1308737931}
+          m_TargetAssemblyTypeName: SelfSpin, Assembly-CSharp
+          m_MethodName: spin
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     display: {fileID: 1024983246}
     OriginalColor: {r: 0.2784314, g: 0.2509804, b: 0.0039215717, a: 1}
     TriggerColor: {r: 1, g: 0.9411765, b: 0.41176474, a: 1}
@@ -5503,6 +5515,18 @@ MonoBehaviour:
         - m_Target: {fileID: 1962340816}
           m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
           m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1308737931}
+          m_TargetAssemblyTypeName: SelfSpin, Assembly-CSharp
+          m_MethodName: spin
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -5532,6 +5556,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1308737931}
+          m_TargetAssemblyTypeName: SelfSpin, Assembly-CSharp
+          m_MethodName: spin
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     display: {fileID: 1591384626}
     OriginalColor: {r: 0.2784314, g: 0.2509804, b: 0.003921569, a: 1}
     TriggerColor: {r: 1, g: 0.94117653, b: 0.41176474, a: 1}
@@ -5552,6 +5588,18 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+        - m_Target: {fileID: 1308737931}
+          m_TargetAssemblyTypeName: SelfSpin, Assembly-CSharp
+          m_MethodName: spin
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     display: {fileID: 2109401175}
     OriginalColor: {r: 0.2784314, g: 0.2509804, b: 0.003921569, a: 1}
     TriggerColor: {r: 1, g: 0.94117653, b: 0.41176474, a: 1}
@@ -5563,6 +5611,18 @@ MonoBehaviour:
         - m_Target: {fileID: 1587464597}
           m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
           m_MethodName: Play
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1308737931}
+          m_TargetAssemblyTypeName: SelfSpin, Assembly-CSharp
+          m_MethodName: spin
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -25107,11 +25167,14 @@ MonoBehaviour:
   tok: {fileID: 8300000, guid: d396867e375d40d489f7ebfa3efdc623, type: 3}
   mainMusic: {fileID: 2034891734}
   music:
-  - {fileID: 1735448561}
-  - {fileID: 1128558959}
-  - {fileID: 237143405}
+  - {fileID: 423464319}
+  - {fileID: 1857727315}
+  - {fileID: 1216630150}
+  - {fileID: 869866637}
+  - {fileID: 1314734459}
+  - {fileID: 698480420}
   bpm: 128
-  offset: 0.1
+  offset: 0.3
   delay: 0
   startTime: 0
   counter: 0
@@ -58150,7 +58213,7 @@ PrefabInstance:
     - target: {fileID: 3683457632483552378, guid: e8835fbdbbf51064693869aafba7c812,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3683457632483552378, guid: e8835fbdbbf51064693869aafba7c812,
         type: 3}
