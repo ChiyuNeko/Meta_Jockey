@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8351375484016126316
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 7
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -20,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CoolScreen
-  m_Shader: {fileID: -6465566751694194690, guid: d441b3afb73ce2546b4bf67e32192662,
+  m_Name: Light_Orb V2
+  m_Shader: {fileID: -6465566751694194690, guid: 2fe01c6a7c9ac024581d50cb2e6c0820,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -77,24 +64,12 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_08cd7fd9796540c6b4908fb44d6dbea7_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 56d6544e048282d4294b7eb78e05867c, type: 3}
+    - _SampleTexture2D_67f182f32ea4414ab157b93147c14847_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 43dccffbe077bf340bb6bc9fe3951ec6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_473d43fec8b14beab2ae14350d460a89_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 6304fb4132490ab489d8e91f602bc353, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_63497ec9aee843f69b6d6de88c033e54_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: b8792c1e3ef671840a90690b558b4d4a, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_e3b6488601af4525bf219a5a0e5425dd_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: ed67bc939a3dfed48bbe5914dcef139b, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_fcfab9c6622b44f8939772c044a3da49_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: dccdbf629588db24692f8b3a0aaec2c6, type: 3}
+    - _SampleTexture2D_e543c0e8d20640048810a52fc9f907a2_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 43dccffbe077bf340bb6bc9fe3951ec6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
@@ -115,9 +90,6 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha1: 1
-    - _Alpha2: 1
-    - _Alpha3: 1
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Blend: 0
@@ -129,16 +101,27 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
+    - _Distortion: 6.6
+    - _Distortion_Power: 1.75
+    - _Distortion_Speed: 2
+    - _Distortion_Vortex: 0.24
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
+    - _Fersenel_Power: 0.27
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _MainAlpha: 1
+    - _Lighting_Power: 91.72
+    - _Lighting_Scale: 1.61
+    - _Lighting_Speed: 0.1
     - _Metallic: 0
+    - _Noise_Power: 0.1
+    - _Noise_Scale: 62.32
+    - _Noise_Speed: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.005
+    - _Power: 0.24
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
@@ -152,7 +135,22 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.01665514, g: 0.31118026, b: 1.0592737, a: 1}
+    - _Color: {r: 0, g: 122.60295, b: 766.99603, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _Fresnel_Color: {r: 1, g: 1, b: 1, a: 0}
+    - _Lighting_Color: {r: 27.43464, g: 32.339336, b: 89.94042, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
+--- !u!114 &6772842338224305150
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 7

@@ -1994,9 +1994,9 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 1298.0,
-            "y": 2657.33349609375,
-            "width": 109.3333740234375,
+            "x": 1283.3333740234375,
+            "y": 2680.66650390625,
+            "width": 109.333251953125,
             "height": 36.0
         }
     },
@@ -2137,9 +2137,9 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": -29.333309173583986,
+            "x": -29.333364486694337,
             "y": 2680.66650390625,
-            "width": 209.33334350585938,
+            "width": 209.3333282470703,
             "height": 304.0
         }
     },
@@ -2493,7 +2493,7 @@
     "m_WorkflowMode": 1,
     "m_NormalDropOffSpace": 0,
     "m_ClearCoat": false,
-    "m_BlendModePreserveSpecular": false
+    "m_BlendModePreserveSpecular": true
 }
 
 {
@@ -2873,7 +2873,7 @@
     "m_ObjectId": "4bfc3d9745444c38a00a99190b747bce",
     "m_Title": "Surface_Movement",
     "m_Position": {
-        "x": -314.66668701171877,
+        "x": -314.6666259765625,
         "y": 926.6666870117188
     }
 }
@@ -3707,8 +3707,8 @@
     "m_ObjectId": "6ced9b4d7fa846f7a48f5d6ef3a8d813",
     "m_Title": "Texture",
     "m_Position": {
-        "x": -248.0,
-        "y": -630.666748046875
+        "x": -247.9998779296875,
+        "y": -630.6666870117188
     }
 }
 
@@ -6344,9 +6344,9 @@
         "m_Expanded": true,
         "m_Position": {
             "serializedVersion": "2",
-            "x": 2476.0,
+            "x": 2477.333251953125,
             "y": 2237.333251953125,
-            "width": 139.333251953125,
+            "width": 139.33349609375,
             "height": 78.666748046875
         }
     },
@@ -7701,7 +7701,7 @@
     "m_AlphaMode": 0,
     "m_RenderFace": 2,
     "m_AlphaClip": true,
-    "m_CastShadows": false,
+    "m_CastShadows": true,
     "m_ReceiveShadows": false,
     "m_SupportsLODCrossFade": false,
     "m_CustomEditorGUI": "",
