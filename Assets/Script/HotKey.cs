@@ -19,6 +19,12 @@ public class Keys
     public Color OriginalColor;
     public Color TriggerColor;
 }
+[System.Serializable]
+public class ModWheel
+{
+    public float value;
+    public GameObject sliderVisual; 
+}
 
 public class HotKey : MonoBehaviour
 {
@@ -27,7 +33,7 @@ public class HotKey : MonoBehaviour
     static string[] NoteNames = new[] { "C", "C#", "D", "D#", "E", "F",
                                         "F#", "G", "G#", "A", "A#", "B" };
     public List<Keys> keys = new List<Keys>();
-    public List<float> modWheelValues = new List<float>();
+    public List<ModWheel> modWheels = new List<ModWheel>();
     public AudioSource[] LoopSet1;
     public AudioSource[] LoopSet2;
     public AudioSource mainMusic;
@@ -61,8 +67,12 @@ public class HotKey : MonoBehaviour
     {
         for (var i = 0; i < _modWheelAction.Length; i++)
         {
-            modWheelValues[i] = _modWheelAction[i].ReadValue<float>();
-            Debug.Log( "mod" + i + ": " + modWheelValues[i]);
+            //modWheels[i].value = _modWheelAction[i].ReadValue<float>();
+            if(modWheels[i].sliderVisual != null)
+            {
+                modWheels[i].sliderVisual.transform.GetChild(0).localPosition = new Vector3(0, modWheels[i].value * 4, 0);
+            }
+            Debug.Log( "mod" + i + ": " + modWheels[i].value);
         }
 
         startProcess -= decreasSpeed * Time.deltaTime;
@@ -70,7 +80,7 @@ public class HotKey : MonoBehaviour
 
         
 
-        EQ = Mathf.Lerp(EQ, (modWheelValues[1]-0.2f) * 12500, 0.1f) ;
+        EQ = Mathf.Lerp(EQ, (modWheels[1].value-0.2f) * 12500, 0.1f) ;
         EQ = Mathf.Clamp(EQ, 100, 10000);
         audioMixer.SetFloat("BaseLowPass", EQ);
         
