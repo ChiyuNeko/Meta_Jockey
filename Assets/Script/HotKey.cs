@@ -67,7 +67,7 @@ public class HotKey : MonoBehaviour
     {
         for (var i = 0; i < _modWheelAction.Length; i++)
         {
-            //modWheels[i].value = _modWheelAction[i].ReadValue<float>();
+            modWheels[i].value = _modWheelAction[i].ReadValue<float>();
             if(modWheels[i].sliderVisual != null)
             {
                 modWheels[i].sliderVisual.transform.GetChild(0).localPosition = new Vector3(0, modWheels[i].value * 4, 0);
