@@ -123,7 +123,7 @@ MonoBehaviour:
   lifeTime: 1.14
   growthSpeed: 39.7
   hitColor: {r: 77.8743, g: 18.366568, b: 25.885508, a: 1}
-  secondaryColor: {r: 8.47419, g: 0.7195053, b: 2.8735833, a: 1}
+  secondaryColor: {r: 11.313708, g: 0.8894401, b: 3.765097, a: 1}
   secondaryColorRatio: 0.951
   hitDuration: 0.9
 --- !u!114 &29178118385027246

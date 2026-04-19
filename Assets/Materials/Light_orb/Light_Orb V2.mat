@@ -3,19 +3,19 @@
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 32
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Light_Orb V2
-  m_Shader: {fileID: -6465566751694194690, guid: 2fe01c6a7c9ac024581d50cb2e6c0820,
+  m_Shader: {fileID: -6465566751694194690, guid: b5ad25e5a5f981a4d94b57ee70212e6a,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -90,6 +90,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Alpha1: 1
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Blend: 0
@@ -108,20 +109,22 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
-    - _Fersenel_Power: 0.27
+    - _Fersenel_Power: 0.11
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Lighting_Power: 91.72
+    - _Lighting_Power: 7.8
     - _Lighting_Scale: 1.61
     - _Lighting_Speed: 0.1
+    - _Main_Alpha: 0
     - _Metallic: 0
-    - _Noise_Power: 0.1
-    - _Noise_Scale: 62.32
+    - _Noise_Power: 0.01
+    - _Noise_Scale: 102.4
     - _Noise_Speed: 1
     - _OcclusionStrength: 1
+    - _PP: 10
     - _Parallax: 0.005
-    - _Power: 0.24
+    - _Power: 0.08
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
@@ -135,7 +138,7 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0, g: 122.60295, b: 766.99603, a: 1}
+    - _Color: {r: 0.5310993, g: 1.1202099, b: 1.4945984, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Fresnel_Color: {r: 1, g: 1, b: 1, a: 0}
     - _Lighting_Color: {r: 27.43464, g: 32.339336, b: 89.94042, a: 0}

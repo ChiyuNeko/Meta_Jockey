@@ -109,6 +109,7 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
+    - _Float: 1.49
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -118,17 +119,18 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Scale: 0.04
+    - _Scale: 0.02
     - _ScanBpm: 1
-    - _ScanSpeed: 1.15
+    - _ScanSpeed: 1.04
     - _ScanStrength: 5
-    - _ScanThickness: 0.22
+    - _ScanThickness: 0.35
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _SrcBlendAlpha: 1
     - _Surface: 0
+    - _TImer: 0.5
     - _WorkflowMode: 1
     - _ZWrite: 1
     - _smoothness: 0.76
