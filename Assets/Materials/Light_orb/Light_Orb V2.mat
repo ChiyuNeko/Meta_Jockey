@@ -64,7 +64,15 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_2e8b3458069c491e87e7b8a18b85a76c_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 43dccffbe077bf340bb6bc9fe3951ec6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_67f182f32ea4414ab157b93147c14847_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 43dccffbe077bf340bb6bc9fe3951ec6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_c55a467ebe044ecc9822f0b355713f17_Texture_1_Texture2D:
         m_Texture: {fileID: 2800000, guid: 43dccffbe077bf340bb6bc9fe3951ec6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -103,13 +111,17 @@ Material:
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _Distortion: 6.6
+    - _Distortion_Normal: 1.14
     - _Distortion_Power: 1.75
+    - _Distortion_Scale: 15
     - _Distortion_Speed: 2
+    - _Distortion_Strengh: 5.3
     - _Distortion_Vortex: 0.24
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
     - _Fersenel_Power: 0.11
+    - _Float: 0.35
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -122,7 +134,7 @@ Material:
     - _Noise_Scale: 102.4
     - _Noise_Speed: 1
     - _OcclusionStrength: 1
-    - _PP: 10
+    - _PP: 1
     - _Parallax: 0.005
     - _Power: 0.08
     - _QueueControl: 0
@@ -138,7 +150,8 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.5310993, g: 1.1202099, b: 1.4945984, a: 1}
+    - _Color: {r: 0.8968725, g: 1.8636929, b: 3.3553605, a: 1}
+    - _Color2: {r: 0.29646328, g: 0.7756645, b: 1.0592736, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Fresnel_Color: {r: 1, g: 1, b: 1, a: 0}
     - _Lighting_Color: {r: 27.43464, g: 32.339336, b: 89.94042, a: 0}

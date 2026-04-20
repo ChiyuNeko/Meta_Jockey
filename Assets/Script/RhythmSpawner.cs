@@ -12,6 +12,7 @@ public class RhythmSpawner : MonoBehaviour
     [Header("生成的特殊物件 (Prefabs)")]
     [Tooltip("與 Object 1 同時生成的第四個物件")]
     public GameObject object4;
+    public GameObject object5;
 
     [Header("節奏與速度設定")]
     [Tooltip("基礎每分鐘節拍數 (Beats Per Minute)")]
@@ -78,6 +79,7 @@ public class RhythmSpawner : MonoBehaviour
                 // 第一拍：同時生成 第一個 和 第四個 物件
                 SpawnPrefab(object1);
                 SpawnPrefab(object4);
+                SpawnPrefab(object5);
 
                 SpawnECSSphere(transform.position, 1);
                 break;

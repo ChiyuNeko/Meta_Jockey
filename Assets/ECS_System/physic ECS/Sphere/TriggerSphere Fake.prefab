@@ -15,7 +15,10 @@ GameObject:
   - component: {fileID: 2625826822427865673}
   - component: {fileID: 3586838215320477514}
   - component: {fileID: 2125864405225251480}
-  m_Layer: 8
+  - component: {fileID: -8618692980437480912}
+  - component: {fileID: -4161292850186581957}
+  - component: {fileID: 5921743800588524489}
+  m_Layer: 0
   m_Name: TriggerSphere Fake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,13 +33,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4743508608590940322}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 51.8, y: 29.3, z: 0}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!33 &2607539440090651761
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -147,8 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f925755461a50934fb46e628db279133, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 3
-  growthSpeed: 80
+  lifeTime: 2.5
+  growthSpeed: 120
 --- !u!114 &2125864405225251480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,7 +166,61 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parameterName: _Alpha1
   minValue: 1
+  maxValue: 0.05
+  bpm: 130
+  speedMultiplier: 1
+  durationInBeats: 4
+--- !u!114 &-8618692980437480912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4743508608590940322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0b91b0a1c944314b87051cc71eb12fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameterName: _Distortion_Scale
+  minValue: 15
+  maxValue: 30
+  bpm: 130
+  speedMultiplier: 1
+  durationInBeats: 7
+--- !u!114 &-4161292850186581957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4743508608590940322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0b91b0a1c944314b87051cc71eb12fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameterName: _Distortion_Normal
+  minValue: 1
   maxValue: 0
   bpm: 130
   speedMultiplier: 1
-  durationInBeats: 6.2
+  durationInBeats: 6
+--- !u!114 &5921743800588524489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4743508608590940322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0b91b0a1c944314b87051cc71eb12fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameterName: _Lighting_Scale
+  minValue: 1
+  maxValue: 5
+  bpm: 130
+  speedMultiplier: 1
+  durationInBeats: 8

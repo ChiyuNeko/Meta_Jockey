@@ -120,12 +120,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5232a3c45ee39ba4a8380e8b2e6c6d69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 3
-  growthSpeed: 80
-  hitColor: {r: 37.197685, g: 66.314095, b: 67.026024, a: 1}
-  secondaryColor: {r: 15.82163, g: 30.401787, b: 30.866743, a: 1}
-  secondaryColorRatio: 0.854
-  hitDuration: 4.5
+  lifeTime: 2.5
+  growthSpeed: 120
+  hitColor: {r: 119.68082, g: 144.74825, b: 210.26799, a: 1}
+  secondaryColor: {r: 13.166144, g: 34.869503, b: 73.45327, a: 1}
+  secondaryColorRatio: 0.976
+  hitDuration: 5.56
 --- !u!114 &29178118385027246
 MonoBehaviour:
   m_ObjectHideFlags: 0
