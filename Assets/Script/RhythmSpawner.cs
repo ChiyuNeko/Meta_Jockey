@@ -15,19 +15,12 @@ public class RhythmSpawner : MonoBehaviour
     public GameObject object5;
 
     [Header("節奏與速度設定")]
-    [Tooltip("基礎每分鐘節拍數 (Beats Per Minute)")]
     public float bpm = 120f;
-    
-    // 👇 新增的速度倍率變數
     [Tooltip("速度倍率 (1 = 正常速度, 2 = 兩倍速, 0.5 = 半速)")]
     public float speedMultiplier = 1f; 
     
-    [Tooltip("是否要無限循環這個生成過程？")]
-    public bool isLooping = true;
-
-    private float timer = 0f;
-    private int currentStep = 0;
-    private bool isPlaying = true;
+    // 用來防呆，避免狂按 K 鍵導致多組流程疊加在一起
+    private bool isPlayingSequence = false;
 
     void Start()
     {
@@ -35,40 +28,42 @@ public class RhythmSpawner : MonoBehaviour
 
     void Update()
     {
-        // 防呆機制：確保 bpm 和倍率都必須大於 0，否則暫停執行
-        if (!isPlaying || bpm <= 0f || speedMultiplier <= 0f) return;
+        // 偵測按下 K 鍵，且目前沒有其他流程正在跑
+        if (Input.GetKeyDown(KeyCode.K) && !isPlayingSequence)
+        {
+            // 啟動自動生成流程
+            StartCoroutine(RunSpawnSequence());
+        }
+    }
 
-        // 關鍵修改：先計算「實際運作的 BPM」，再換算成秒數
-        // 例如：120 BPM * 2倍速 = 240 BPM (每 0.25 秒生成一次)
+    // ==========================================
+    // 自動連續生成的協程
+    // ==========================================
+    private IEnumerator RunSpawnSequence()
+    {
+        isPlayingSequence = true; // 上鎖，防止重複觸發
+
+        // 計算實際的 BPM 與每拍的秒數
         float effectiveBpm = bpm * speedMultiplier;
+        
+        // 防呆：避免除以零
+        if (effectiveBpm <= 0f) effectiveBpm = 120f; 
+        
         float secondsPerBeat = 60f / effectiveBpm;
 
-        // 累加時間
-        timer += Time.deltaTime;
+        // --- 第 1 拍 ---
+        ExecuteSpawnStep(0);
+        yield return new WaitForSeconds(secondsPerBeat);
 
-        // 當時間到達一拍的間隔時，觸發生成
-        if (timer >= secondsPerBeat)
-        {
-            // 扣除一拍的時間，保持節奏精準
-            timer -= secondsPerBeat;
-            
-            ExecuteSpawnStep(currentStep);
+        // --- 第 2 拍 ---
+        ExecuteSpawnStep(1);
+        yield return new WaitForSeconds(secondsPerBeat);
 
-            currentStep++;
-
-            // 目前設定為 3 個步驟為一個完整週期 (0, 1, 2)
-            if (currentStep > 2) 
-            {
-                if (isLooping)
-                {
-                    currentStep = 0; // 重置步驟，回到第一拍
-                }
-                else
-                {
-                    isPlaying = false; // 停止生成
-                }
-            }
-        }
+        // --- 第 3 拍 ---
+        ExecuteSpawnStep(2);
+        
+        // 整個流程跑完後解鎖，允許下一次按下 K 鍵
+        isPlayingSequence = false; 
     }
 
     private void ExecuteSpawnStep(int step)
@@ -76,7 +71,6 @@ public class RhythmSpawner : MonoBehaviour
         switch (step)
         {
             case 0:
-                // 第一拍：同時生成 第一個 和 第四個 物件
                 SpawnPrefab(object1);
                 SpawnPrefab(object4);
                 SpawnPrefab(object5);
@@ -84,11 +78,9 @@ public class RhythmSpawner : MonoBehaviour
                 SpawnECSSphere(transform.position, 1);
                 break;
             case 1:
-                // 第二拍：生成 第二個 物件
                 SpawnPrefab(object2);
                 break;
             case 2:
-                // 第三拍：生成 第三個 物件
                 SpawnPrefab(object3);
                 break;
         }
@@ -98,7 +90,6 @@ public class RhythmSpawner : MonoBehaviour
     {
         if (prefab != null)
         {
-            // 在 Prefab 原本設定的位置與旋轉角度生成物件
             Instantiate(prefab, prefab.transform.position, prefab.transform.rotation);
         }
         else
@@ -113,7 +104,6 @@ public class RhythmSpawner : MonoBehaviour
         if (world == null) return;
         EntityManager entityManager = world.EntityManager;
 
-        // 尋找我們的「菜單倉庫」
         var query = entityManager.CreateEntityQuery(typeof(SphereBlueprintElement));
         if (query.IsEmpty)
         {
@@ -121,21 +111,17 @@ public class RhythmSpawner : MonoBehaviour
             return;
         }
 
-        // 取得整份菜單 (Buffer)
         var entity = query.GetSingletonEntity();
         var buffer = entityManager.GetBuffer<SphereBlueprintElement>(entity);
 
-        // 防呆：如果亂填 ID 超出菜單範圍，就強制給他第一顆球
         if (indexToSpawn < 0 || indexToSpawn >= buffer.Length)
         {
             Debug.LogWarning($"飛彈要求的球編號 {indexToSpawn} 超出範圍！改為生成第 0 顆球。");
             indexToSpawn = 0;
         }
 
-        // 根據 ID 從菜單拿出對應的藍圖
         Entity prefabEntity = buffer[indexToSpawn].Prefab;
 
-        // 命令 ECS 生成該球並設定位置
         Entity spawnedSphere = entityManager.Instantiate(prefabEntity);
         entityManager.SetComponentData(spawnedSphere, Unity.Transforms.LocalTransform.FromPosition(spawnPosition));
     }
