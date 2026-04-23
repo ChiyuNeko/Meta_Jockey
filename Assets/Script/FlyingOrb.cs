@@ -46,8 +46,7 @@ public class FlyingOrb : MonoBehaviour
         {
             if (Orb_explode != null)
             {
-                BubbleCounter.bubbleCounter.BubbleCount++;
-                Debug.Log("Oh fuck");
+                //BubbleCounter.bubbleCounter.BubbleCount++;
                 hit=true;
                 Orb_explode.SetBool("IsShrink", true);
                 Orb_explode.Play("Shrink");

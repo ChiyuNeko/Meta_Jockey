@@ -5,7 +5,8 @@ using UnityEngine.Rendering;
 
 public class BubbleCounter : MonoBehaviour
 {
-    public int BubbleCount;
+    public float BubbleCount;
+    public float _bubbleCount{get; set;}
     public GameObject Sun;
     public GameObject TravleButton;
     public GameObject travelVFXPos;
@@ -37,7 +38,8 @@ public class BubbleCounter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        BubbleCount = Mathf.Clamp(BubbleCount, 0, 40);
+        BubbleCount = _bubbleCount * 30;
+        BubbleCount = Mathf.Clamp(BubbleCount, 0, 30);
         Sun.transform.localScale = Vector3.Lerp(Sun.transform.localScale, Vector3.one * BubbleCount, 0.1f);
         //Sun.transform.localScale = Vector3.one * BubbleCount;
          if (BubbleCount >= 10)

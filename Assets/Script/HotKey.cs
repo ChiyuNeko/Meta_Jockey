@@ -24,6 +24,7 @@ public class ModWheel
 {
     public float value;
     public GameObject sliderVisual; 
+    public UnityEvent<float> setValue;
 }
 
 public class HotKey : MonoBehaviour
@@ -73,6 +74,7 @@ public class HotKey : MonoBehaviour
                 modWheels[i].sliderVisual.transform.GetChild(0).localPosition = new Vector3(0, modWheels[i].value * 4, 0);
             }
             Debug.Log( "mod" + i + ": " + modWheels[i].value);
+            modWheels[i].setValue?.Invoke(modWheels[i].value);
         }
 
         startProcess -= decreasSpeed * Time.deltaTime;
@@ -90,6 +92,7 @@ public class HotKey : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Space))
         {
+            startProcess = 100;
             GameStart();
         }
     }
@@ -153,12 +156,12 @@ public class HotKey : MonoBehaviour
     public void GameStart()
     {
         startProcess += activeSpeed * Time.deltaTime;
+        if(startProcess >= 100)
+        {
             mainMusic.Play();
             startButton.SetActive(false);
             bPMSpawner.trigger = true;
             decreasSpeed = 0;
-        if(startProcess >= 100)
-        {
            //LightOn.SetBool("LightOn", true);
         }
     }
