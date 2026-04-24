@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: -8618692980437480912}
   - component: {fileID: -4161292850186581957}
   - component: {fileID: 5921743800588524489}
+  - component: {fileID: 8148428225318610592}
   m_Layer: 0
   m_Name: TriggerSphere Fake
   m_TagString: Untagged
@@ -225,6 +226,24 @@ MonoBehaviour:
   bpm: 130
   speedMultiplier: 1
   durationInBeats: 8
+--- !u!114 &8148428225318610592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4743508608590940322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0b91b0a1c944314b87051cc71eb12fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parameterName: _X
+  minValue: 0.5
+  maxValue: 0.2
+  bpm: 130
+  speedMultiplier: 1
+  durationInBeats: 4
 --- !u!1 &8445268125255691841
 GameObject:
   m_ObjectHideFlags: 0
