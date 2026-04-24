@@ -18,8 +18,15 @@ public class RhythmSpawner : MonoBehaviour
     public float bpm = 120f;
     [Tooltip("速度倍率 (1 = 正常速度, 2 = 兩倍速, 0.5 = 半速)")]
     public float speedMultiplier = 1f; 
+
+    [Header("防呆設定")]
+    [Tooltip("每次觸發後的冷卻時間 (秒)。在此時間內無法再次觸發。")]
+    public float cooldownTime = 2.0f; // ★ 新增：可自訂的冷卻秒數
     
-    // 用來防呆，避免狂按 K 鍵導致多組流程疊加在一起
+    // 記錄下一次可以觸發的時間點
+    private float nextAllowedTriggerTime = 0f; 
+
+    // 用來防呆，避免狂按導致多組流程疊加在一起
     private bool isPlayingSequence = false;
 
     void Start()
@@ -28,12 +35,28 @@ public class RhythmSpawner : MonoBehaviour
 
     void Update()
     {
-        // 偵測按下 K 鍵，且目前沒有其他流程正在跑
-        if (Input.GetKeyDown(KeyCode.K) && !isPlayingSequence)
+        // 偵測按下 K 鍵
+        if (Input.GetKeyDown(KeyCode.K))
         {
-            // 啟動自動生成流程
-            StartCoroutine(RunSpawnSequence());
+            // 觸發邏輯統一交給 RYSpawn 處理
+            RYSpawn();
         }
+    }
+
+    public void RYSpawn()
+    {
+        // ★ 防呆雙重鎖：
+        // 1. 如果流程還在跑 (isPlayingSequence == true) -> 拒絕
+        // 2. 如果現在的遊戲時間還沒超過允許觸發的時間 -> 拒絕
+        if (isPlayingSequence || Time.time < nextAllowedTriggerTime)
+        {
+            return;
+        }
+
+        // 成功觸發！先更新下一次允許觸發的時間點
+        nextAllowedTriggerTime = Time.time + cooldownTime;
+
+        StartCoroutine(RunSpawnSequence());
     }
 
     // ==========================================
@@ -62,7 +85,7 @@ public class RhythmSpawner : MonoBehaviour
         // --- 第 3 拍 ---
         ExecuteSpawnStep(2);
         
-        // 整個流程跑完後解鎖，允許下一次按下 K 鍵
+        // 整個流程跑完後解鎖
         isPlayingSequence = false; 
     }
 

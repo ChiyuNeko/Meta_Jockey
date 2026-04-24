@@ -42,6 +42,7 @@ public class HotKey : MonoBehaviour
     public float EQ;
     public float Vol;
     public VisualEffect visualEffect;
+
     [Header("Controller Parameters")]
     public GameObject laserEffect;
     public bool triggered = false;
@@ -52,6 +53,17 @@ public class HotKey : MonoBehaviour
     public float activeSpeed;
     public float decreasSpeed;
     public SelfSpin selfSpin;
+
+    [Header("Camera Control")]
+    public KeyCode cameraSwitch;
+    public int currentDisplay;
+    public Camera movingCamera;
+    public Camera staticCamera;
+
+    [Header("Camera Control")]
+    public KeyCode chatUIswitch;
+    public GameObject chatUI;
+
     void Start()
     {
         for (var i = 0; i < _noteActions.Length; i++) SetUpNoteAction(i);
@@ -94,6 +106,27 @@ public class HotKey : MonoBehaviour
         {
             startProcess = 100;
             GameStart();
+        }
+
+        if(Input.GetKeyDown(cameraSwitch))
+        {
+            currentDisplay++;
+            currentDisplay %= 2;
+            if(currentDisplay == 0)
+            {
+                movingCamera.targetDisplay = 1;
+                staticCamera.targetDisplay = 2;
+            }
+            else
+            {
+                movingCamera.targetDisplay = 2;
+                staticCamera.targetDisplay = 1;
+            }
+        }
+
+        if(Input.GetKeyDown(chatUIswitch))
+        {
+            chatUI.SetActive(!chatUI.activeSelf);
         }
     }
 
