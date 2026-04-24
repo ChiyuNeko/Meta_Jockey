@@ -6,6 +6,7 @@ using Firebase;
 using Firebase.Database;
 using Firebase.Auth; // 新增 Auth 命名空間
 using Firebase.Extensions;
+using UnityEngine.UI;
 
 public class HostClient : MonoBehaviour
 {
@@ -14,8 +15,10 @@ public class HostClient : MonoBehaviour
     public string adminPassword = "HostPassword123!";
 
     [Header("UI 參考")]
+    public RectTransform ContainerObject;
     public TextMeshProUGUI chatDisplay;
     public TextMeshProUGUI statusText;
+    public GameObject msgBox;
 
     private DatabaseReference dbReference;
     private FirebaseAuth auth;
@@ -88,6 +91,11 @@ public class HostClient : MonoBehaviour
         MessageData receivedMsg = JsonUtility.FromJson<MessageData>(json);
 
         string formattedMessage = $"[{receivedMsg.senderEmail}]: {receivedMsg.content}\n";
+        GameObject newMsgBox = Instantiate(msgBox, ContainerObject);
+        TextMeshProUGUI newMsgOwner = newMsgBox.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI newMsg = newMsgBox.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
+        newMsgOwner.text = $"[{receivedMsg.senderEmail}]";
+        newMsg.text = $"{receivedMsg.content}";
         
         lock (mainThreadActions)
         {
