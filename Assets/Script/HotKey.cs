@@ -8,6 +8,7 @@ using UnityEngine.VFX;
 using UnityEngine.InputSystem;
 using Unity.VisualScripting;
 using UnityEngine.Events;
+using TMPro;
 
 [System.Serializable]
 public class Keys
@@ -52,6 +53,7 @@ public class HotKey : MonoBehaviour
     public float startProcess;
     public float activeSpeed;
     public float decreasSpeed;
+    public TextMeshPro processText;
     public SelfSpin selfSpin;
 
     [Header("Camera Control")]
@@ -91,6 +93,7 @@ public class HotKey : MonoBehaviour
 
         startProcess -= decreasSpeed * Time.deltaTime;
         startProcess = Mathf.Clamp(startProcess, 0, 100);
+        processText.text = $"{(int)startProcess}%";
 
         
 
