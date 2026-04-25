@@ -62,7 +62,7 @@ public class StartButtonEffect : MonoBehaviour
     {
         if (fadingStarted) return;
         HandleRotation();
-        CheckThresholds();
+        //CheckThresholds();
         progressValue = hoykey.startProcess;
     }
 

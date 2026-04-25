@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.Rendering;
 
 public class BubbleCounter : MonoBehaviour
 {
+    public SkyboxSwitcher skyboxSwitcher;
     public float BubbleCount;
     public float _bubbleCount{get; set;}
     public GameObject Sun;
@@ -28,6 +30,7 @@ public class BubbleCounter : MonoBehaviour
     public float mainAlpha = 0;
     public float WallDissolve = 0;
     public static BubbleCounter bubbleCounter = new BubbleCounter();
+    public bool isTravaled;
     void Start()
     {
         bubbleCounter = this;
@@ -48,17 +51,31 @@ public class BubbleCounter : MonoBehaviour
         BubbleCount = Mathf.Clamp(BubbleCount, 0, 40);
         Sun.transform.localScale = Vector3.Lerp(Sun.transform.localScale, Vector3.one * BubbleCount * sunScale, 0.1f);
         //Sun.transform.localScale = Vector3.one * BubbleCount;
-        TravleButton.SetActive(false);
-        if (BubbleCount >= 10)
+        if(BubbleCount < 10)
+        {
+            intnsitive1 = Mathf.Lerp(intnsitive1, 0, Time.deltaTime);
+            RingLight1.SetColor("_EmissionColor", RingLightColor1 * intnsitive1);
+            intnsitive2 = Mathf.Lerp(intnsitive2, 0, Time.deltaTime);
+            mainAlpha = Mathf.Lerp(mainAlpha, 0, Time.deltaTime);
+            RingLight2.SetColor("_EmissionColor", RingLightColor2 * intnsitive2);
+            RingLight3.SetFloat("_Main_Alpha", mainAlpha);
+        }
+        if (BubbleCount >= 10 && BubbleCount < 20)
         {
             intnsitive1 = Mathf.Lerp(intnsitive1, 2, Time.deltaTime/2);
             Circle1.transform.Rotate(0, Time.deltaTime * 50, 0);
             RingLight1.SetColor("_EmissionColor", RingLightColor1 * intnsitive1);
+
+            intnsitive2 = Mathf.Lerp(intnsitive2, 0, Time.deltaTime);
+            mainAlpha = Mathf.Lerp(mainAlpha, 0, Time.deltaTime);
+            RingLight2.SetColor("_EmissionColor", RingLightColor2 * intnsitive2);
+            RingLight3.SetFloat("_Main_Alpha", mainAlpha);
         }
         if (BubbleCount >= 20)
         {
             intnsitive2 = Mathf.Lerp(intnsitive2, 4, Time.deltaTime/2);
             mainAlpha = Mathf.Lerp(mainAlpha, 1, Time.deltaTime/2);
+            Circle1.transform.Rotate(0, Time.deltaTime * 50, 0);
             Circle2.transform.Rotate(0, -Time.deltaTime * 50, 0);
             RingLight2.SetColor("_EmissionColor", RingLightColor2 * intnsitive2);
             RingLight3.SetFloat("_Main_Alpha", mainAlpha);
@@ -71,12 +88,23 @@ public class BubbleCounter : MonoBehaviour
         if (BubbleCount == 40)
         {
             TravleButton.SetActive(true);
+            if(!isTravaled)
+            {
+                Instantiate(travelVFX, travelVFXPos.transform.position, Quaternion.Euler(0, -90, 0), travelVFXPos.transform);
+                isTravaled = true;
+                skyboxSwitcher.TriggerSkyboxSwitch();
+            }
+        }
+        if(BubbleCount < 40)
+        {
+            isTravaled = false;
         }
     }
 
     public void TravelVFX()
     {
         Instantiate(travelVFX, travelVFXPos.transform.position, Quaternion.Euler(0, -90, 0), travelVFXPos.transform);
+        //TravleButton.SetActive(false);
     }
     
 }
