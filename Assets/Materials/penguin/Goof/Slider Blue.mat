@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SeeTrough
-  m_Shader: {fileID: -6465566751694194690, guid: 023f835c95091804c86e1f95beb4891f,
+  m_Name: Slider Blue
+  m_Shader: {fileID: -6465566751694194690, guid: 65c112cba78e58047ab8de0fecd953ac,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -48,28 +48,12 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _HexTexture:
-        m_Texture: {fileID: 2800000, guid: 1eaaa4649dd889649ae02b8ca9ecc8c0, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _MainTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Main_Texture:
-        m_Texture: {fileID: 2800000, guid: a5b0f990c1abb1046affee2bcdc0e9d6, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Matelic_smooth:
-        m_Texture: {fileID: 2800000, guid: ea04e9741331c82498d31a6b7280198f, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _NormalMap:
-        m_Texture: {fileID: 2800000, guid: f30a60455f4386e47858917c960fa6df, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
@@ -80,16 +64,40 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _SampleTexture2D_e1e1100593b840b5b0ff54c8e640ed80_Texture_1_Texture2D:
-        m_Texture: {fileID: 2800000, guid: 1eaaa4649dd889649ae02b8ca9ecc8c0, type: 3}
+    - _SampleTexture2D_2dc67980341d4a54a4cb98a2fc84a789_Texture_1_Texture2D:
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Smoothness:
-        m_Texture: {fileID: 0}
+    - _SampleTexture2D_b24cf27235124003b4a3ee7723d493c4_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: d3c6bb51cad5bc3468a643d0b31d0412, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture:
+        m_Texture: {fileID: 2800000, guid: 0f94e4ad35d867b4ba273b0336ee539d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture1:
+        m_Texture: {fileID: 2800000, guid: fcc633b63b185034bbe5cb9cf15c142c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture1_Alpha:
+        m_Texture: {fileID: 2800000, guid: fcc633b63b185034bbe5cb9cf15c142c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2:
+        m_Texture: {fileID: 2800000, guid: fcc633b63b185034bbe5cb9cf15c142c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_f9eb855a38a845e298358a4e23e0f98c_Out_0_Texture2D:
+        m_Texture: {fileID: 2800000, guid: a37130eed3030254d94ed0ecc58718f5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Texture2_Alpha:
+        m_Texture: {fileID: 2800000, guid: fcc633b63b185034bbe5cb9cf15c142c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -106,7 +114,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Alpha: 1
     - _AlphaClip: 0
+    - _AlphaCliping: 0.64
     - _AlphaToMask: 0
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
@@ -117,25 +127,22 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _Dissolve: 5.4218683
-    - _Dissolve_Scale: 68.2
-    - _Dissolve_Start_Height: -7.1
-    - _Dissolve_Thinkness: 3.51
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
+    - _Float: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Hex_Scale: 2.5
-    - _Hex_Thinkness: 16.8
+    - _Lerp: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Smoothness: -0.47
+    - _SliderOffest: 0.636
+    - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
@@ -145,12 +152,16 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1.6851012, g: 3.484803, b: 9.082412, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _HexColor: {r: 0.04139632, g: 0.1279339, b: 0.49416864, a: 0}
+    - _Lerp_Color: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 0}
+    - _Slider_Color: {r: 0.3277367, g: 1.6810725, b: 2.6082377, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _Texture1_Color: {r: 1.1915464, g: 2.2057376, b: 6.422235, a: 0}
+    - _Texture2_Color: {r: 0.44025147, g: 0.44025147, b: 0.44025147, a: 0}
+    - _Texture_Color: {r: 1.7044438, g: 2.757109, b: 4.336106, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &3726910881942663472
+--- !u!114 &8476556595994185458
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

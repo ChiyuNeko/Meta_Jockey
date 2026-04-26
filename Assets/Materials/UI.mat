@@ -188,8 +188,8 @@ Material:
     - _EmissionColor: {r: 1.6843622, g: 3.2270086, b: 10.053538, a: 1}
     - _Lerp_Color: {r: 0.5660378, g: 0.5660378, b: 0.5660378, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _Texture1_Color: {r: 0.14735281, g: 0.33205488, b: 0.9969834, a: 0}
-    - _Texture2_Color: {r: 1.8873999, g: 1.8873999, b: 1.8873999, a: 0}
+    - _Texture1_Color: {r: 0.10471201, g: 0.53910047, b: 2, a: 0}
+    - _Texture2_Color: {r: 9.849154, g: 8.827071, b: 8.827071, a: 0}
     - _Texture3_Color: {r: 1, g: 1, b: 1, a: 0}
     - _Texture4_Color: {r: 1, g: 1, b: 1, a: 0}
     - _Texture5_Color: {r: 1, g: 1, b: 1, a: 0}
