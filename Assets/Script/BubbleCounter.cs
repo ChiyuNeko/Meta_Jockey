@@ -28,7 +28,9 @@ public class BubbleCounter : MonoBehaviour
     public float intnsitive1 = 0;
     public float intnsitive2 = 0;
     public float mainAlpha = 0;
-    public float WallDissolve = 0;
+    public float WallDissolve;
+    public float _WallDissolve {get; set;}
+    public float DissolveSpeed;
     public static BubbleCounter bubbleCounter = new BubbleCounter();
     public bool isTravaled;
     void Start()
@@ -36,10 +38,10 @@ public class BubbleCounter : MonoBehaviour
         bubbleCounter = this;
         BubbleCount = 0;
         Wall.SetFloat("_Dissolve", 80);
-        WallDissolve = 80;
         RingLight1.SetColor("_EmissionColor", RingLightColor1 * 0);
         RingLight2.SetColor("_EmissionColor", RingLightColor2 * 0);
         RingLight3.SetFloat("_Main_Alpha", 0);
+        WallDissolve = 80;
         
         
     }
@@ -50,6 +52,10 @@ public class BubbleCounter : MonoBehaviour
         BubbleCount = _bubbleCount * 40;
         BubbleCount = Mathf.Clamp(BubbleCount, 0, 40);
         Sun.transform.localScale = Vector3.Lerp(Sun.transform.localScale, Vector3.one * BubbleCount * sunScale, 0.1f);
+
+        WallDissolve = Mathf.Lerp(WallDissolve, _WallDissolve * 80, Time.deltaTime/DissolveSpeed);
+        Wall.SetFloat("_Dissolve", WallDissolve);
+
         //Sun.transform.localScale = Vector3.one * BubbleCount;
         if(BubbleCount < 10)
         {
@@ -82,8 +88,7 @@ public class BubbleCounter : MonoBehaviour
         }
         if (BubbleCount >= 30)
         {
-            WallDissolve = Mathf.Lerp(WallDissolve, 0, Time.deltaTime/5);
-            Wall.SetFloat("_Dissolve", WallDissolve);
+            
         }
         if (BubbleCount == 40)
         {

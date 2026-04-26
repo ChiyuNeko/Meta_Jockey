@@ -30,18 +30,25 @@ public class ModWheel
 
 public class HotKey : MonoBehaviour
 {
+    [Header("MIDI Pad")]
     [SerializeField] InputAction[] _noteActions = null;
-    [SerializeField] InputAction[] _modWheelAction = null;
     static string[] NoteNames = new[] { "C", "C#", "D", "D#", "E", "F",
                                         "F#", "G", "G#", "A", "A#", "B" };
     public List<Keys> keys = new List<Keys>();
+    [Header("MIDI Controller")]
+    public bool handleInput = false;
+    [SerializeField] InputAction[] _modWheelAction = null;
     public List<ModWheel> modWheels = new List<ModWheel>();
+    [Header("Audio Sources")]
+
     public AudioSource[] LoopSet1;
     public AudioSource[] LoopSet2;
     public AudioSource mainMusic;
     public AudioMixer audioMixer;
-    public float EQ;
+    public float lpEQ;
+    public float hpEQ;
     public float Vol;
+    [Header("VFX")]
     public VisualEffect visualEffect;
 
     [Header("Controller Parameters")]
@@ -62,7 +69,7 @@ public class HotKey : MonoBehaviour
     public Camera movingCamera;
     public Camera staticCamera;
 
-    [Header("Camera Control")]
+    [Header("UI Control")]
     public KeyCode chatUIswitch;
     public GameObject chatUI;
 
@@ -82,7 +89,8 @@ public class HotKey : MonoBehaviour
     {
         for (var i = 0; i < _modWheelAction.Length; i++)
         {
-            modWheels[i].value = _modWheelAction[i].ReadValue<float>();
+            if(!handleInput)
+                modWheels[i].value = _modWheelAction[i].ReadValue<float>();
             if(modWheels[i].sliderVisual != null)
             {
                 modWheels[i].sliderVisual.transform.GetChild(0).localPosition = new Vector3(0, modWheels[i].value * 4, 0);
@@ -97,11 +105,15 @@ public class HotKey : MonoBehaviour
 
         
 
-        EQ = Mathf.Lerp(EQ, (modWheels[1].value-0.2f) * 12500, 0.1f) ;
-        EQ = Mathf.Clamp(EQ, 100, 10000);
-        audioMixer.SetFloat("BaseLowPass", EQ);
+        lpEQ = Mathf.Lerp(lpEQ, modWheels[1].value * 10000, 0.1f) ;
+        lpEQ = Mathf.Clamp(lpEQ, 100, 10000);
+        audioMixer.SetFloat("BaseLowPass", lpEQ);
+
+        hpEQ = Mathf.Lerp(hpEQ, modWheels[0].value * 5000, 0.1f) ;
+        hpEQ = Mathf.Clamp(hpEQ, 10, 5000);
+        //hpEQ = 10000 - hpEQ;
+        audioMixer.SetFloat("BaseHighPass", hpEQ);
         
-        //Vol = Mathf.Lerp(Vol, arduinoData.encoder2 * 4, 0.1f) ;
         Vol = Mathf.Clamp(Vol, -80, 10);
         audioMixer.SetFloat("Vol", Vol);      
 
