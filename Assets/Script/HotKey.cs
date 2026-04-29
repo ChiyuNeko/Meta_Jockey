@@ -94,6 +94,7 @@ public class HotKey : MonoBehaviour
             if(modWheels[i].sliderVisual != null)
             {
                 modWheels[i].sliderVisual.transform.GetChild(0).localPosition = new Vector3(0, modWheels[i].value * 4, 0);
+                modWheels[i].sliderVisual.transform.GetChild(1).GetComponent<Renderer>().material.SetFloat("_SliderOffest", modWheels[i].value);
             }
             Debug.Log( "mod" + i + ": " + modWheels[i].value);
             modWheels[i].setValue?.Invoke(modWheels[i].value);
