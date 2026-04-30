@@ -87,7 +87,7 @@ public class BPMSpawner : MonoBehaviour
                 }
                 foreach(var _generterObject in generterObject)
                 {
-                    SpawnPrefab(_generterObject);                    
+                    //SpawnPrefab(_generterObject);                    
                 }
 
             }

@@ -96,7 +96,7 @@ public class BubbleCounter : MonoBehaviour
             if(!isTravaled)
             {
                 Instantiate(travelVFX, travelVFXPos.transform.position, Quaternion.Euler(0, -90, 0), travelVFXPos.transform);
-                isTravaled = true;
+                //isTravaled = true;
                 skyboxSwitcher.TriggerSkyboxSwitch();
             }
         }
