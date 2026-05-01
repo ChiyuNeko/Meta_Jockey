@@ -106,11 +106,11 @@ public class HotKey : MonoBehaviour
 
         
 
-        lpEQ = Mathf.Lerp(lpEQ, modWheels[1].value * 10000, 0.1f) ;
+        lpEQ = modWheels[2].value * 10000;
         lpEQ = Mathf.Clamp(lpEQ, 100, 10000);
         audioMixer.SetFloat("BaseLowPass", lpEQ);
 
-        hpEQ = Mathf.Lerp(hpEQ, modWheels[0].value * 5000, 0.1f) ;
+        hpEQ = modWheels[3].value * 5000;
         hpEQ = Mathf.Clamp(hpEQ, 10, 5000);
         //hpEQ = 10000 - hpEQ;
         audioMixer.SetFloat("BaseHighPass", hpEQ);

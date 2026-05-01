@@ -92,11 +92,11 @@ public class BubbleCounter : MonoBehaviour
         }
         if (BubbleCount == 40)
         {
-            TravleButton.SetActive(true);
+           // TravleButton.SetActive(true);
             if(!isTravaled)
             {
                 Instantiate(travelVFX, travelVFXPos.transform.position, Quaternion.Euler(0, -90, 0), travelVFXPos.transform);
-                //isTravaled = true;
+                isTravaled = true;
                 skyboxSwitcher.TriggerSkyboxSwitch();
             }
         }
