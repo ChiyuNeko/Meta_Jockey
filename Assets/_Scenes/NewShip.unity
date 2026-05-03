@@ -7184,7 +7184,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: bc19628297a0de64d9a09104e469f8b8, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.234
+  m_Volume: 0.274
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -32507,7 +32507,7 @@ GameObject:
   - component: {fileID: 774264561}
   - component: {fileID: 774264560}
   m_Layer: 0
-  m_Name: Laser 2
+  m_Name: Dom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -38838,7 +38838,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: f52e6a58d88f59943a126132b9f2238c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.169
+  m_Volume: 0.13
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -52909,7 +52909,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: fa995db5a64b36c41aafeb84f9be6008, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.169
+  m_Volume: 0.194
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -53538,7 +53538,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 86b2c5c9cc2c09f4a84fce3ab0ded699, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.299
+  m_Volume: 0.415
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -57038,7 +57038,7 @@ MonoBehaviour:
   StayOnColor: {r: 0, g: 0.8143575, b: 1, a: 0.4}
   StayOn: 0
   TriggerButton: -1
-  audioSource: {fileID: 2141749505}
+  audioSource: {fileID: 932975569}
   particleSystem: {fileID: 1487517973}
   IsSet: 0
   SetNum: 0
@@ -67637,7 +67637,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 4f2645e00098ee94eb9c6dc582ab336c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.238
+  m_Volume: 0.261
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -80596,7 +80596,7 @@ GameObject:
   - component: {fileID: 1882005170}
   - component: {fileID: 1882005169}
   m_Layer: 0
-  m_Name: Gun
+  m_Name: V_V
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86665,7 +86665,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 6cc23604ea6f469468f0674f42fad6b0, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.133
+  m_Volume: 0.238
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -92200,7 +92200,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 7ed990879587c73448acbb9f61e0efc1, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.24
+  m_Volume: 0.261
   m_Pitch: 1
   Loop: 0
   Mute: 0
