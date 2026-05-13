@@ -26,6 +26,7 @@ public class ModWheel
     public float value;
     public GameObject sliderVisual; 
     public UnityEvent<float> setValue;
+    public float lastSentValue;
 }
 
 public class HotKey : MonoBehaviour
@@ -72,6 +73,7 @@ public class HotKey : MonoBehaviour
     [Header("UI Control")]
     public KeyCode chatUIswitch;
     public GameObject chatUI;
+    public TextMeshProUGUI logText;
 
     void Start()
     {
@@ -96,8 +98,14 @@ public class HotKey : MonoBehaviour
                 modWheels[i].sliderVisual.transform.GetChild(0).localPosition = new Vector3(0, modWheels[i].value * 4, 0);
                 modWheels[i].sliderVisual.transform.GetChild(1).GetComponent<Renderer>().material.SetFloat("_SliderOffest", modWheels[i].value);
             }
-            Debug.Log( "mod" + i + ": " + modWheels[i].value);
-            modWheels[i].setValue?.Invoke(modWheels[i].value);
+            if (modWheels[i].value != modWheels[i].lastSentValue)
+            {
+                Debug.Log( "mod" + i + ": " + modWheels[i].value);
+                modWheels[i].setValue?.Invoke(modWheels[i].value);
+                modWheels[i].lastSentValue = modWheels[i].value;
+                logText.text += $"mod {i}: {modWheels[i].value}\n";
+
+            }
         }
 
         startProcess -= decreasSpeed * Time.deltaTime;
@@ -172,13 +180,16 @@ public class HotKey : MonoBehaviour
                 keys[index].onTrigger.Invoke();
                 keys[index].triggerState = true;
                 keys[index].display.GetComponent<Renderer>().material.SetColor("_Color", keys[index].TriggerColor);
+                logText.text += $"Button {index} ON\n";
             }
+            logText.text += $"Button {index} OFF\n";
         }
         else
         {
             keys[index].triggerState = !keys[index].triggerState;
             keys[index].onTrigger.Invoke();
             keys[index].display.GetComponent<Renderer>().material.SetColor("_Color", keys[index].TriggerColor);
+            logText.text += $"Button {index} pressed\n";
         }
     }
     void OnNoteCanceled(InputAction.CallbackContext ctx, int index)
