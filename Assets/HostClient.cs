@@ -26,12 +26,14 @@ public class HostClient : MonoBehaviour
     private DatabaseReference dbReference;
     private FirebaseAuth auth;
     private FirebaseUser currentUser;
+    private long hostStartupTime;
     
     // 用來存放需要回到主執行緒執行的動作
     private readonly Queue<System.Action> mainThreadActions = new Queue<System.Action>();
 
     void Start()
     {
+        hostStartupTime = System.DateTimeOffset.UtcNow.ToUnixTimeMilliseconds(); // 記錄主機啟動的時間戳
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task => {
             dbReference = FirebaseDatabase.DefaultInstance.RootReference;
             auth = FirebaseAuth.DefaultInstance;
@@ -92,15 +94,32 @@ public class HostClient : MonoBehaviour
 
         string json = args.Snapshot.GetRawJsonValue();
         MessageData receivedMsg = JsonUtility.FromJson<MessageData>(json);
-
         string formattedMessage = $"[{receivedMsg.senderEmail}]: {receivedMsg.content}\n";
-        GameObject newMsgBox = Instantiate(msgBox, ContainerObject);
-        TextMeshProUGUI newMsgOwner = newMsgBox.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
-        TextMeshProUGUI newMsg = newMsgBox.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
-        newMsgOwner.text = $"[{receivedMsg.senderEmail}]";
-        newMsg.text = $"{receivedMsg.content}";
+        bool isNewMessage = receivedMsg.timestamp >= hostStartupTime;
 
-        PopInRandomArea(receivedMsg.content);
+        Debug.Log($"收到訊息：{formattedMessage} (時間戳: {receivedMsg.timestamp}, 啟動時間: {hostStartupTime}, 是否新訊息: {isNewMessage})");
+
+        if(receivedMsg.content[0] == '%') // 如果訊息以 % 開頭，視為指令
+        {
+            if (isNewMessage) 
+            {
+                EffectInRandomArea(0); // 目前只有一種效果，未來可根據指令內容選擇不同效果
+                Debug.Log($"新指令：{formattedMessage}"); // 只在主機端的 Console 顯示新指令，過濾掉啟動前的歷史訊息
+            }
+        }
+        else
+        {
+            GameObject newMsgBox = Instantiate(msgBox, ContainerObject); // 在 UI 中生成新的訊息框
+            TextMeshProUGUI newMsgOwner = newMsgBox.transform.GetChild(0).GetChild(0).GetComponent<TextMeshProUGUI>();
+            TextMeshProUGUI newMsg = newMsgBox.transform.GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
+            newMsgOwner.text = $"[{receivedMsg.senderEmail}]";
+            newMsg.text = $"{receivedMsg.content}";
+            if (isNewMessage) 
+            {
+                PopInRandomArea(receivedMsg.content); // 在主機端的彈跳區域生成彈跳訊息，內容為收到的訊息文本
+                Debug.Log($"新訊息：{formattedMessage}"); // 只在主機端的 Console 顯示新訊息，過濾掉啟動前的歷史訊息
+            }
+        }
         
         lock (mainThreadActions)
         {
@@ -153,6 +172,14 @@ public class HostClient : MonoBehaviour
         GameObject newPopMsg = Instantiate(msgPop, popPos, Quaternion.Euler(0, 90, 0));
         TextMeshPro popMsgText = newPopMsg.transform.GetChild(0).GetComponent<TextMeshPro>();
         popMsgText.text = text;
+    }
+
+    public void EffectInRandomArea(int effectIndex)
+    {
+        float x = Random.Range(0,popArea.x);
+        float z = Random.Range(0,popArea.z); 
+        Vector3 popPos = new Vector3(x, 0, z) + gameObject.transform.position;
+        GameObject newPopMsg = Instantiate(msgPop, popPos, Quaternion.Euler(0, 90, 0));
     }
 
     void OnDestroy()

@@ -18,6 +18,7 @@ public class MobileClient : MonoBehaviour
     private FirebaseAuth auth;
     private DatabaseReference dbReference;
     private FirebaseUser currentUser;
+    long currentTime = System.DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
 
     void Start()
     {
@@ -105,7 +106,7 @@ public class MobileClient : MonoBehaviour
         if (string.IsNullOrEmpty(msg)) return;
 
         // 建立訊息資料結構
-        MessageData newMsg = new MessageData(currentUser.Email, msg);
+        MessageData newMsg = new MessageData(currentUser.Email, msg, currentTime);
         string json = JsonUtility.ToJson(newMsg);
 
         // 傳送至資料庫
@@ -130,10 +131,14 @@ public class MessageData
 {
     public string senderEmail;
     public string content;
+    public long timestamp; // 新增這行來記錄時間
 
-    public MessageData(string email, string msg)
+    public MessageData() {}
+
+    public MessageData(string email, string msg, long time)
     {
         this.senderEmail = email;
         this.content = msg;
+        this.timestamp = time;
     }
 }
