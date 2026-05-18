@@ -28811,7 +28811,7 @@ VisualEffect:
       m_Array: []
     m_Vector4f:
       m_Array:
-      - m_Value: {x: 2.471943, y: 17.54287, z: 118.03539, w: 0}
+      - m_Value: {x: 2.471943, y: 32.63118, z: 118.035385, w: 0}
         m_Name: Color
         m_Overridden: 1
     m_Uint:
@@ -28827,7 +28827,10 @@ VisualEffect:
     m_NamedObject:
       m_Array: []
     m_Bool:
-      m_Array: []
+      m_Array:
+      - m_Value: 1
+        m_Name: CanSpawn
+        m_Overridden: 1
 --- !u!1 &652080768
 GameObject:
   m_ObjectHideFlags: 0
@@ -36715,6 +36718,90 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 792355373}
   m_CullTransparentMesh: 0
+--- !u!1001 &792904019
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 807caf126af61d243a7c97dffa38835f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.0498792
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 807caf126af61d243a7c97dffa38835f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.0498792
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 807caf126af61d243a7c97dffa38835f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.0498792
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 807caf126af61d243a7c97dffa38835f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -59.03
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 807caf126af61d243a7c97dffa38835f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.865
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 807caf126af61d243a7c97dffa38835f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 807caf126af61d243a7c97dffa38835f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 807caf126af61d243a7c97dffa38835f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 807caf126af61d243a7c97dffa38835f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 807caf126af61d243a7c97dffa38835f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 807caf126af61d243a7c97dffa38835f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 807caf126af61d243a7c97dffa38835f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 807caf126af61d243a7c97dffa38835f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 807caf126af61d243a7c97dffa38835f,
+        type: 3}
+      propertyPath: m_Name
+      value: Table (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects:
+    - {fileID: -8700617353114198275, guid: 807caf126af61d243a7c97dffa38835f, type: 3}
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 807caf126af61d243a7c97dffa38835f, type: 3}
 --- !u!1 &795116297
 GameObject:
   m_ObjectHideFlags: 0
@@ -45597,9 +45684,9 @@ MonoBehaviour:
   _whenSelected:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 946003211}
-        m_TargetAssemblyTypeName: UnityEngine.VFX.VisualEffect, UnityEngine
-        m_MethodName: Play
+      - m_Target: {fileID: 892450890}
+        m_TargetAssemblyTypeName: VFXController, Assembly-CSharp
+        m_MethodName: TriggerSequence
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -45609,21 +45696,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1603005091}
-        m_TargetAssemblyTypeName: UnityEngine.VFX.VisualEffect, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 501505820}
-        m_TargetAssemblyTypeName: UnityEngine.VFX.VisualEffect, UnityEngine
-        m_MethodName: Play
+      - m_Target: {fileID: 22860317}
+        m_TargetAssemblyTypeName: VFXController, Assembly-CSharp
+        m_MethodName: TriggerSequence
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -47634,6 +47709,7 @@ MonoBehaviour:
   RingLight1: {fileID: 2100000, guid: 87fe2ea493ff305449cad5dd9854ab6b, type: 2}
   RingLight2: {fileID: 2100000, guid: e651e4edcd8b97242b85890a6863bce6, type: 2}
   RingLight3: {fileID: 2100000, guid: 90a4f8a9a90ccdb44a9cb08b69e1a8a5, type: 2}
+  lightingVFX: {fileID: 642105790}
   RingLightColor1: {r: 0.25979528, g: 1.713612, b: 3.5443516, a: 1}
   RingLightColor2: {r: 0.25979528, g: 0.90169466, b: 3.5443516, a: 1}
   intnsitive1: 0
@@ -122727,3 +122803,4 @@ SceneRoots:
   - {fileID: 1631803552}
   - {fileID: 1963755231}
   - {fileID: 831736562}
+  - {fileID: 792904019}

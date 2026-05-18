@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.VFX;
 
 public class BubbleCounter : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class BubbleCounter : MonoBehaviour
     public Material RingLight1;
     public Material RingLight2;
     public Material RingLight3;
+    public VisualEffect lightingVFX;
     
     [ColorUsage(true, true)] 
     public Color RingLightColor1;
@@ -42,6 +44,8 @@ public class BubbleCounter : MonoBehaviour
         RingLight2.SetColor("_EmissionColor", RingLightColor2 * 0);
         RingLight3.SetFloat("_Main_Alpha", 0);
         WallDissolve = 80;
+        lightingVFX.SetBool("CanSpawn",false);
+        lightingVFX.Stop();
         
         
     }
@@ -76,6 +80,8 @@ public class BubbleCounter : MonoBehaviour
             mainAlpha = Mathf.Lerp(mainAlpha, 0, Time.deltaTime);
             RingLight2.SetColor("_EmissionColor", RingLightColor2 * intnsitive2);
             RingLight3.SetFloat("_Main_Alpha", mainAlpha);
+            lightingVFX.SetBool("CanSpawn",false);
+            lightingVFX.Stop();
         }
         if (BubbleCount >= 20)
         {
@@ -85,6 +91,8 @@ public class BubbleCounter : MonoBehaviour
             Circle2.transform.Rotate(0, -Time.deltaTime * 50, 0);
             RingLight2.SetColor("_EmissionColor", RingLightColor2 * intnsitive2);
             RingLight3.SetFloat("_Main_Alpha", mainAlpha);
+            lightingVFX.SetBool("CanSpawn",true);
+            lightingVFX.Play();
         }
         if (BubbleCount >= 30)
         {
