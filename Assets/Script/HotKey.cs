@@ -23,6 +23,7 @@ public class Keys
 [System.Serializable]
 public class ModWheel
 {
+    public string name;
     public float value;
     public GameObject sliderVisual; 
     public UnityEvent<float> setValue;
@@ -103,7 +104,7 @@ public class HotKey : MonoBehaviour
                 Debug.Log( "mod" + i + ": " + modWheels[i].value);
                 modWheels[i].setValue?.Invoke(modWheels[i].value);
                 modWheels[i].lastSentValue = modWheels[i].value;
-                logText.text += $"mod {i}: {modWheels[i].value}\n";
+                logText.text += $"{modWheels[i].name}: {modWheels[i].value}\n";
 
             }
         }

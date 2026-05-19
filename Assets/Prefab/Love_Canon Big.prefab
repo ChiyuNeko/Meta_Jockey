@@ -192,8 +192,8 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0
-        value: 0.13420554
+        time: 0.025824966
+        value: 0.4367264
         inSlope: 0.046037663
         outSlope: 0.046037663
         tangentMode: 0
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 2768742205733585609}
   - component: {fileID: 5371880071829196839}
   m_Layer: 7
-  m_Name: Love_Canon
+  m_Name: Love_Canon Big
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
