@@ -130,7 +130,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Main_Alpha: 0.99999946
+    - _Main_Alpha: 0
     - _Metalic: 4.52
     - _Metallic: 0
     - _OcclusionStrength: 1
