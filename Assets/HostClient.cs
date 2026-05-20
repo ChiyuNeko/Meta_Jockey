@@ -171,8 +171,8 @@ public class HostClient : MonoBehaviour
         float z = Random.Range(0,popArea.z); 
         Vector3 popPos = new Vector3(x, 0, z) + gameObject.transform.position;
         GameObject newPopMsg = Instantiate(msgPop, popPos, Quaternion.Euler(0, 90, 0));
-        TextMeshPro popMsgText = newPopMsg.transform.GetChild(0).GetComponent<TextMeshPro>();
-        popMsgText.text = text;
+        newPopMsg.GetComponent<SetText>().SetContent(text);
+        
     }
 
     public void EffectInRandomArea(int effectIndex)

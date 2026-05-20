@@ -117,7 +117,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _Dissolve: 1.08465e-11
+    - _Dissolve: 1.4e-44
     - _Dissolve_Scale: 68.2
     - _Dissolve_Start_Height: -7.1
     - _Dissolve_Thinkness: 3.51
