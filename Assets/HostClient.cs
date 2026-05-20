@@ -22,6 +22,7 @@ public class HostClient : MonoBehaviour
     [Header("彈跳訊息")]
     public Vector3 popArea;
     public GameObject msgPop;
+    public GameObject effectPop;
 
     private DatabaseReference dbReference;
     private FirebaseAuth auth;
@@ -179,7 +180,7 @@ public class HostClient : MonoBehaviour
         float x = Random.Range(0,popArea.x);
         float z = Random.Range(0,popArea.z); 
         Vector3 popPos = new Vector3(x, 0, z) + gameObject.transform.position;
-        GameObject newPopMsg = Instantiate(msgPop, popPos, Quaternion.Euler(0, 90, 0));
+        GameObject newPopMsg = Instantiate(effectPop, popPos, Quaternion.Euler(0, 90, 0));
     }
 
     void OnDestroy()
