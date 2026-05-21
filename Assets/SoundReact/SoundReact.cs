@@ -11,18 +11,16 @@ public class SoundReact : MonoBehaviour
     [Tooltip("此欄位會即時顯示選定頻段的數值")]
     public float DebugBandValue = 0f;
 
-
     [Header("FFT 分析器")]
     public FrequencyBandAnalyser _FFT;
     public FrequencyBandAnalyser.Bands _FreqBands = FrequencyBandAnalyser.Bands.Eight;
 
-
     // ---------------------------------------------------------
-    // ⭐⭐ 新功能：材質控制 ⭐⭐
+    // ⭐⭐ 新功能：多物件材質控制 ⭐⭐
     // ---------------------------------------------------------
     [Header("材質控制（可選）")]
-    [Tooltip("指定你想控制材質的物件")]
-    public GameObject TargetMaterialObject;
+    [Tooltip("指定你想控制材質的物件們 (在面板上可設定數量，例如 3)")]
+    public GameObject[] TargetMaterialObjects = new GameObject[3];
 
     [Tooltip("輸入要控制的材質屬性名稱，例如 _EmissionStrength 或 _MyFloat")]
     public string MaterialFloatName = "_MyFloat";
@@ -33,9 +31,9 @@ public class SoundReact : MonoBehaviour
     [Tooltip("頻段值乘以此倍率後再寫入材質")]
     public float MaterialMultiplier = 1f;
 
-    Material _targetMaterial;   // 自動抓取的材質
+    // 用來儲存抓取到的多個材質
+    List<Material> _targetMaterials = new List<Material>(); 
     // ---------------------------------------------------------
-
 
     [Header("生成物件設定")]
     GameObject[] _FFTGameObjects;
@@ -45,7 +43,6 @@ public class SoundReact : MonoBehaviour
     [Header("縮放設定")]
     Vector3 _BaseScale;
     public Vector3 _ScalingStrength = Vector3.up;
-
 
     void Start()
     {
@@ -61,14 +58,24 @@ public class SoundReact : MonoBehaviour
             _FFTGameObjects[i] = newFFTObject;
         }
 
-        // ⭐ 自動取得材質
-        if (TargetMaterialObject != null)
+        // ⭐ 自動取得陣列中所有物件的材質
+        if (TargetMaterialObjects != null && TargetMaterialObjects.Length > 0)
         {
-            Renderer r = TargetMaterialObject.GetComponent<Renderer>();
-            if (r != null) _targetMaterial = r.material;
+            for (int i = 0; i < TargetMaterialObjects.Length; i++)
+            {
+                // 確保該欄位有放入物件
+                if (TargetMaterialObjects[i] != null) 
+                {
+                    Renderer r = TargetMaterialObjects[i].GetComponent<Renderer>();
+                    if (r != null)
+                    {
+                        // 將材質加入清單中統一管理
+                        _targetMaterials.Add(r.material); 
+                    }
+                }
+            }
         }
     }
-
 
     void Update()
     {
@@ -81,19 +88,24 @@ public class SoundReact : MonoBehaviour
             DebugBandValue = _FFT.GetBandValue(DebugBandIndex, _FreqBands);
         }
 
-
-        // ⭐ 控制材質參數
-        if (_targetMaterial != null && !string.IsNullOrEmpty(MaterialFloatName))
+        // ⭐ 控制所有指定的材質參數
+        if (_targetMaterials.Count > 0 && !string.IsNullOrEmpty(MaterialFloatName))
         {
             int maxIndex = (int)_FreqBands - 1;
             MaterialBandIndex = Mathf.Clamp(MaterialBandIndex, 0, maxIndex);
 
             float v = _FFT.GetBandValue(MaterialBandIndex, _FreqBands);
+            float finalValue = v * MaterialMultiplier;
 
-            // 寫入材質
-            _targetMaterial.SetFloat(MaterialFloatName, v * MaterialMultiplier);
+            // 迴圈寫入每一個材質
+            for (int i = 0; i < _targetMaterials.Count; i++)
+            {
+                if (_targetMaterials[i] != null)
+                {
+                    _targetMaterials[i].SetFloat(MaterialFloatName, finalValue);
+                }
+            }
         }
-
 
         // ⭐ 原本的視覺化縮放
         for (int i = 0; i < _FFTGameObjects.Length; i++)
