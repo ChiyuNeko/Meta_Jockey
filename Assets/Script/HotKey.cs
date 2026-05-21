@@ -69,6 +69,7 @@ public class HotKey : MonoBehaviour
     public KeyCode cameraSwitch;
     public int currentDisplay;
     public Camera movingCamera;
+    public Camera movingCamera2;
     public Camera staticCamera;
 
     [Header("UI Control")]
@@ -96,7 +97,7 @@ public class HotKey : MonoBehaviour
                 modWheels[i].value = _modWheelAction[i].ReadValue<float>();
             if(modWheels[i].sliderVisual != null)
             {
-                modWheels[i].sliderVisual.transform.GetChild(0).localPosition = new Vector3(0, modWheels[i].value * 4, 0);
+                modWheels[i].sliderVisual.transform.GetChild(0).localPosition = new Vector3(0, modWheels[i].value * 3.3f, 0);
                 modWheels[i].sliderVisual.transform.GetChild(1).GetComponent<Renderer>().material.SetFloat("_SliderOffest", modWheels[i].value);
             }
             if (modWheels[i].value != modWheels[i].lastSentValue)
@@ -136,15 +137,23 @@ public class HotKey : MonoBehaviour
         if(Input.GetKeyDown(cameraSwitch))
         {
             currentDisplay++;
-            currentDisplay %= 2;
+            currentDisplay %= 3;
             if(currentDisplay == 0)
             {
                 movingCamera.targetDisplay = 1;
+                movingCamera2.targetDisplay = 2;
+                staticCamera.targetDisplay = 2;
+            }
+            else if(currentDisplay == 1)
+            {
+                movingCamera.targetDisplay = 2;
+                movingCamera2.targetDisplay = 1;
                 staticCamera.targetDisplay = 2;
             }
             else
             {
                 movingCamera.targetDisplay = 2;
+                movingCamera2.targetDisplay = 2;
                 staticCamera.targetDisplay = 1;
             }
         }
