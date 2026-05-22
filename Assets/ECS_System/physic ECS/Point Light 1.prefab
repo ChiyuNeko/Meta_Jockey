@@ -57,13 +57,13 @@ VisualEffect:
       m_Array: []
     m_Vector4f:
       m_Array:
-      - m_Value: {x: 21.910858, y: 105.44071, z: 220.26175, w: 0}
+      - m_Value: {x: 220.26176, y: 106.33687, z: 23.064053, w: 0}
         m_Name: EletricityColor
         m_Overridden: 1
-      - m_Value: {x: 2.3334498, y: 6.34407, z: 14.000708, w: 0}
+      - m_Value: {x: 14.000708, y: 7.178158, z: 2.3456678, w: 0}
         m_Name: SparkColor
         m_Overridden: 1
-      - m_Value: {x: 0.79564124, y: 1.9528521, z: 6.1710744, w: 0}
+      - m_Value: {x: 6.171075, y: 3.6139276, z: 0.80773246, w: 0}
         m_Name: FlashColor
         m_Overridden: 1
     m_Uint:

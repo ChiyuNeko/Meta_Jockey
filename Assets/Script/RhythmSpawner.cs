@@ -14,6 +14,8 @@ public class RhythmSpawner : MonoBehaviour
     public GameObject object4;
     public GameObject object5;
 
+    public int ECSindex = 1;
+
     [Header("節奏與速度設定")]
     public float bpm = 120f;
     [Tooltip("速度倍率 (1 = 正常速度, 2 = 兩倍速, 0.5 = 半速)")]
@@ -98,7 +100,7 @@ public class RhythmSpawner : MonoBehaviour
                 SpawnPrefab(object4);
                 SpawnPrefab(object5);
 
-                SpawnECSSphere(transform.position, 1);
+                SpawnECSSphere(transform.position, ECSindex);
                 break;
             case 1:
                 SpawnPrefab(object2);

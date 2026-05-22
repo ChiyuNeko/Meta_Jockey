@@ -39,7 +39,7 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _Main_Alpha: 1.43
+    - _Main_Alpha: 0
     m_Colors:
     - _Color: {r: 0.9377635, g: 0.12386674, b: 0.026540317, a: 1}
     - _Fresnel_Color: {r: 271.174, g: 7.4200087, b: 0, a: 0}
