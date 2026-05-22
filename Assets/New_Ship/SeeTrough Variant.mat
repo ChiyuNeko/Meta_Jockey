@@ -26,7 +26,7 @@ Material:
     m_TexEnvs: []
     m_Ints: []
     m_Floats:
-    - _Dissolve: 31.7
+    - _Dissolve: 7.691232e-10
     m_Colors:
     - _Color: {r: 9.2277565, g: 2.8846152, b: 0.72545063, a: 1}
     - _HexColor: {r: 4.1812453, g: 1.778101, b: 0.46019945, a: 0}

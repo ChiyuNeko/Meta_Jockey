@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4577019049228415080}
   - component: {fileID: 5577027242807599665}
   - component: {fileID: 2812115852228008867}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FireWork
   m_TagString: Untagged
   m_Icon: {fileID: 0}
