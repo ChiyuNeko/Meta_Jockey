@@ -57,6 +57,10 @@ public class HostClient : MonoBehaviour
                 action?.Invoke();
             }
         }
+        if(Input.GetKeyDown(KeyCode.C))
+        {
+            ClearMessagePool();
+        }
     }
 
     void LoginAsAdmin()
